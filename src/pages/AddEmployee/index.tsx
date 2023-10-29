@@ -30,12 +30,7 @@ export const AddEmployee = () => {
         <label htmlFor="age">
           <input type="number" id="age" />
         </label>
-        <label htmlFor="firstName">
-          <input type="text" id="firstName" />
-        </label>
-        <label htmlFor="firstName">
-          <input type="text" id="firstName" />
-        </label>
+
         <button>Add employeer</button>
       </form>
     </>
