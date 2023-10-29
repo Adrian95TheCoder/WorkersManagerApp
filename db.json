@@ -17,6 +17,78 @@
           "state": "DC"
         },
         "startWork" : "2023-10-29"
+      },
+      {
+        "id": 2,
+        "fisrtName": "Hans",
+        "lastName": "Kowalski",
+        "age": 40,
+        "gender": "male",
+        "email": "hans69@sohu.com",
+        "phone": "+63 681 545 1214",
+        "birthDate": "1983-01-20",
+        "workplace": "Programmer",
+        "address": {
+          "address": "1745 S Street Southeast",
+          "city": "Washington",
+          "postalCode": "20020",
+          "state": "DC"
+        },
+        "startWork" : "2023-08-29"
+      },
+      {
+        "id": 3,
+        "fisrtName": "Jennifer",
+        "lastName": "Johnson",
+        "age": 35,
+        "gender": "female",
+        "email": "JJ@sohu.com",
+        "phone": "+63 732 632 8932",
+        "birthDate": "1988-03-13",
+        "workplace": "Scrum Master",
+        "address": {
+          "address": "1845 TS Street",
+          "city": "New York",
+          "postalCode": "20030",
+          "state": "DC"
+        },
+        "startWork" : "2022-04-01"
+      },
+      {
+        "id": 4,
+        "fisrtName": "Tyler",
+        "lastName": "Anderson",
+        "age": 33,
+        "gender": "male",
+        "email": "Tylertoziom@sohu.com",
+        "phone": "+63 821 128 2181",
+        "birthDate": "1990-12-25",
+        "workplace": "Programmer",
+        "address": {
+          "address": "1245 South Street ",
+          "city": "Topeka",
+          "postalCode": "20020",
+          "state": "KS"
+        },
+        "startWork" : "2023-08-11"
+      },
+      {
+        "id": 5,
+        "fisrtName": "Megan",
+        "lastName": "Tylor",
+        "age": 28,
+        "gender": "female",
+        "email": "Tylortoziomalka@sohu.com",
+        "phone": "+63 999 655 5514",
+        "birthDate": "1995-03-03",
+        "workplace": "Manager",
+        "address": {
+          "address": "0745 Yolo Street",
+          "city": "Sacramento",
+          "postalCode": "20190",
+          "state": "CA"
+        },
+        "startWork" : "2022-05-14"
       }
     ]
   }
