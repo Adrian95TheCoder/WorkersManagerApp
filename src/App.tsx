@@ -6,6 +6,8 @@ import { Home } from "./pages/Home";
 import { EmployeeList } from "./pages/EmployeeList";
 import { EmployeeDetails } from "./pages/EmployeeDetails";
 import { useEffect } from "react";
+import { AddEmployee } from "./pages/AddEmployee";
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/employees" element={<EmployeeList />} />
+          <Route path="/employees/addEmployee" element={<AddEmployee />} />
           <Route path="/employees/:id" element={<EmployeeDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
