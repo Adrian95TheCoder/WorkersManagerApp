@@ -2,7 +2,7 @@
     "workers": [
       {
         "id": 1,
-        "fisrtName": "John",
+        "firstName": "John",
         "lastName": "Smith",
         "age": 50,
         "gender": "male",
@@ -20,7 +20,7 @@
       },
       {
         "id": 2,
-        "fisrtName": "Hans",
+        "firstName": "Hans",
         "lastName": "Kowalski",
         "age": 40,
         "gender": "male",
@@ -38,7 +38,7 @@
       },
       {
         "id": 3,
-        "fisrtName": "Jennifer",
+        "firstName": "Jennifer",
         "lastName": "Johnson",
         "age": 35,
         "gender": "female",
@@ -56,7 +56,7 @@
       },
       {
         "id": 4,
-        "fisrtName": "Tyler",
+        "firstName": "Tyler",
         "lastName": "Anderson",
         "age": 33,
         "gender": "male",
@@ -74,7 +74,7 @@
       },
       {
         "id": 5,
-        "fisrtName": "Megan",
+        "firstName": "Megan",
         "lastName": "Tylor",
         "age": 28,
         "gender": "female",
