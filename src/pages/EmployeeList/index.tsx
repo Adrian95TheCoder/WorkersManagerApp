@@ -18,7 +18,7 @@ export const EmployeeList = () => {
       if (!data.ok) throw new Error("Something goes wrong");
       const employees = await data.json();
       console.log(employees, " pobrano dane pracownika");
-      setEmployeeList(employees.workers);
+      setEmployeeList(employees);
     } catch (error) {
       console.log(error);
     }
@@ -28,16 +28,18 @@ export const EmployeeList = () => {
   }, []);
   return (
     <div>
+      <h1>Employee list</h1>
       <ul>
         {employeeList.map((employee) => (
           <li key={employee.id}>
             <p>
-              {employee.firstName}, {employee.lastName}, {employee.workplace}
+              {employee.firstName}, {employee.lastName}, {employee.workplace},
               {employee.age};
             </p>
           </li>
         ))}
       </ul>
+      <Link to={"/employees/addEmployee"}>Add employee</Link>
     </div>
   );
 };

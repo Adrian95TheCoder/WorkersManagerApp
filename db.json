@@ -1,22 +1,22 @@
 {
-    "workers": [
-      {
-        "id": 1,
-        "fisrtName": "John",
-        "lastName": "Smith",
-        "age": 50,
-        "gender": "male",
-        "email": "atuny0@sohu.com",
-        "phone": "+63 791 675 8914",
-        "birthDate": "2000-12-25",
-        "workplace": "Director",
-        "address": {
-          "address": "1745 T Street Southeast",
-          "city": "Washington",
-          "postalCode": "20020",
-          "state": "DC"
-        },
-        "startWork" : "2023-10-29"
-      }
-    ]
-  }
+  "workers": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "age": 50,
+      "gender": "male",
+      "email": "atuny0@sohu.com",
+      "phone": "+63 791 675 8914",
+      "birthDate": "2000-12-25",
+      "workplace": "Director",
+      "address": {
+        "address": "1745 T Street Southeast",
+        "city": "Washington",
+        "postalCode": "20020",
+        "state": "DC"
+      },
+      "startWork": "2023-10-29"
+    }
+  ]
+}
