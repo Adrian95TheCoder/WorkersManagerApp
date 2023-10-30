@@ -1,0 +1,24 @@
+.Not_Found_Body {
+    background-color: lightblue;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    text-align: center;
+    justify-content: center;
+  }
+  
+.Not_Found_Paragraph {
+    font-family: verdana;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.Not_Found_Error {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.Not_Found_Link {
+    text-decoration: none;
+    color: blue;
+}
