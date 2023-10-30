@@ -8,20 +8,8 @@ import { EmployeeDetails } from "./pages/EmployeeDetails";
 import { useEffect } from "react";
 import { AddEmployee } from "./pages/AddEmployee";
 
+
 function App() {
-  const getWorkers = async () => {
-    try {
-      const data = await fetch("http://localhost:5000/workers");
-      if (!data.ok) throw new Error("Something goes wrong");
-      const workers = await data.json();
-      console.log(workers, " pobrano dane pracownika");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getWorkers();
-  }, []);
   return (
     <>
       <Navigation />
