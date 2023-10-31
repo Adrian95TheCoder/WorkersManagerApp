@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { EmployeeContext } from "../../components/context/EmployeeContext";
 
-type employeeListType = {
+export type employeeListType = {
   id: number;
   firstName: string;
   lastName: string;
@@ -9,23 +10,8 @@ type employeeListType = {
   age: number;
 };
 export const EmployeeList = () => {
-  //   const { employees } = useContext(EmployeeContext);
-  const [employeeList, setEmployeeList] = useState<employeeListType[]>([]);
+  const { employeeList } = useContext(EmployeeContext);
 
-  const getWorkers = async () => {
-    try {
-      const data = await fetch("http://localhost:5000/workers");
-      if (!data.ok) throw new Error("Something goes wrong");
-      const employees = await data.json();
-      console.log(employees, " pobrano dane pracownika");
-      setEmployeeList(employees);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getWorkers();
-  }, []);
   return (
     <div>
       <h1>Employee list</h1>
