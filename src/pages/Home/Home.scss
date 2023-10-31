@@ -1,28 +1,53 @@
-.Home_Body {
-    background-color: lightblue;
-    width: 100%;
-    height: 100vh;
+.Login__body {
+  background-color: lightblue;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana;
+}
+
+.Login__form {
+  background-color: rgb(92, 176, 202);
+  width: 70%;
+  height: 500px;
+  border: 2px solid black;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 16px;
+  label {
     display: block;
-    text-align: center;
-    justify-content: center;
+    width: 200px;
   }
+}
 
-  .LoginMain {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-  }
+.Login__h2 {
+  margin: 10px;
+}
 
-  .Login_box {
-    width: 70%;
-    height: 500px;
-    border: 2px solid black;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    label {
-      display: block;
-    }
-  }
+.Login__labelBox {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Login__button {
+  margin: 8px;
+  padding: 8px 16px;
+  background-color: #efefef;
+  box-shadow: none;
+  outline: none;
+  border: 2px solid black;
+  color: black;
+  border-radius: 16px;
+}
+
+.Login__button:hover {
+  background-color: red;
+}
