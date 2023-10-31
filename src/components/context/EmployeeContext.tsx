@@ -6,7 +6,7 @@ export type employeeListType = {
   firstName: string;
   lastName: string;
   workplace: string;
-  age: number;
+  age: string;
 };
 
 type EmployeeContextProps = {
@@ -14,15 +14,20 @@ type EmployeeContextProps = {
   count: number;
   newFirstName: string;
   newLastName: string;
+  newWorkplace: string;
+  newAge: string;
+  setNewAge: (value: React.SetStateAction<string>) => void;
   setNewFirstName: React.Dispatch<React.SetStateAction<string>>;
   setNewLastName: React.Dispatch<React.SetStateAction<string>>;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
   getWorkers: () => Promise<void>;
-  addEmployeer: () => Promise<any>;
+  addEmployee: () => Promise<any>;
   handleSubmitEmployee: (event: FormEvent<HTMLFormElement>) => void;
   handleLastName: (event: ChangeEvent<HTMLInputElement>) => void;
   handleFirstName: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleWorkplace: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleAge: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 type EmployeeProviderProps = {
@@ -39,15 +44,20 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     count,
     newFirstName,
     newLastName,
+    newWorkplace,
+    newAge,
     setNewFirstName,
     setNewLastName,
     setCount,
     setEmployeeList,
     getWorkers,
-    addEmployeer,
+    addEmployee,
     handleSubmitEmployee,
     handleLastName,
     handleFirstName,
+    handleWorkplace,
+    handleAge,
+    setNewAge,
   } = useEmployees();
 
   return (
@@ -57,15 +67,20 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         count,
         newFirstName,
         newLastName,
+        newWorkplace,
+        newAge,
         setNewFirstName,
         setNewLastName,
         setCount,
         setEmployeeList,
         getWorkers,
-        addEmployeer,
+        addEmployee,
         handleSubmitEmployee,
         handleLastName,
         handleFirstName,
+        handleWorkplace,
+        handleAge,
+        setNewAge,
       }}
     >
       {children}

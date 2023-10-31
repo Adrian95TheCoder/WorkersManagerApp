@@ -5,30 +5,29 @@ type useEmployeesData = {
   count: number;
   newFirstName: string;
   newLastName: string;
+  newWorkplace: string;
+  newAge: string;
   setNewFirstName: React.Dispatch<React.SetStateAction<string>>;
   setNewLastName: React.Dispatch<React.SetStateAction<string>>;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
+  setNewAge: (value: React.SetStateAction<string>) => void;
   getWorkers: () => Promise<void>;
-  addEmployeer: () => Promise<any>;
+  addEmployee: () => Promise<any>;
   handleSubmitEmployee: (event: FormEvent<HTMLFormElement>) => void;
   handleLastName: (event: ChangeEvent<HTMLInputElement>) => void;
   handleFirstName: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleWorkplace: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleAge: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const useEmployees = (): useEmployeesData => {
-  const employeer = {
-    id: 0,
-    firstName: "",
-    lastName: "",
-    workplace: "",
-    age: "",
-  };
-  const [count, setCount] = useState(5);
   const [employeeList, setEmployeeList] = useState<employeeListType[]>([]);
-
+  const [count, setCount] = useState(employeeList.length);
   const [newFirstName, setNewFirstName] = useState("");
   const [newLastName, setNewLastName] = useState("");
+  const [newWorkplace, setNewWorkplace] = useState("");
+  const [newAge, setNewAge] = useState("");
   const getWorkers = async () => {
     try {
       const data = await fetch("http://localhost:5000/workers");
@@ -40,16 +39,18 @@ export const useEmployees = (): useEmployeesData => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    getWorkers();
-  }, []);
-  const addEmployeer = async () => {
+
+  const addEmployee = async () => {
     try {
-      const data = await fetch(``, {
+      const data = await fetch(`http://localhost:5000/workers`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          employeer,
+          id: count,
+          firstName: newFirstName,
+          lastName: newLastName,
+          workplace: newWorkplace,
+          age: newAge,
         }),
       });
       if (!data.ok) throw new Error("ups");
@@ -65,37 +66,57 @@ export const useEmployees = (): useEmployeesData => {
   const handleLastName = (event: ChangeEvent<HTMLInputElement>) => {
     setNewLastName(event.target.value);
   };
+  const handleWorkplace = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewWorkplace(event.target.value);
+  };
+  const handleAge = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewAge(event.target.value);
+  };
   const handleSubmitEmployee = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (newFirstName.length > 3 && newLastName.length) {
+    if (newFirstName.length > 3 && newLastName.length > 3) {
       setCount((prev) => prev + 1);
 
       const newEmployee = {
-        id: `${count}`,
+        id: count,
         firstName: newFirstName,
         lastName: newLastName,
+        workplace: newWorkplace,
+        age: newAge,
       };
+      setEmployeeList((prev) => [...prev, newEmployee]);
+      addEmployee();
 
-      addEmployeer();
-      setEmployeeList([]);
-      console.log("dodano pracownika");
+      setNewFirstName("");
+      setNewLastName("");
+      setNewWorkplace("");
+      setNewAge("");
     } else {
-      alert("imie lub nazwisko za krótkie");
+      alert("Name or last name is to short");
     }
   };
+  useEffect(() => {
+    getWorkers();
+  }, [setEmployeeList, setCount, count]);
+
   return {
     employeeList,
     count,
     newFirstName,
     newLastName,
+    newWorkplace,
+    newAge,
     setNewFirstName,
     setNewLastName,
     setCount,
     setEmployeeList,
     getWorkers,
-    addEmployeer,
+    addEmployee,
     handleSubmitEmployee,
     handleLastName,
     handleFirstName,
+    handleWorkplace,
+    handleAge,
+    setNewAge,
   };
 };

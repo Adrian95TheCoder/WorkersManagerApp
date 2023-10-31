@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
 
