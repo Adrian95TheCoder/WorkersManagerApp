@@ -16,8 +16,8 @@ export const Navigation = () => {
           </NavLink>
         </li>
         <li className="nav__item">
-          <NavLink className="nav__link" to={"/employees/:id"} end>
-            Employee details
+          <NavLink className="nav__link" to={"/login"} end>
+            Login
           </NavLink>
         </li>
       </ul>
