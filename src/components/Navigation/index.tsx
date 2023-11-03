@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import "./Navigation.scss";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../../components/context/UserContext";
 
 export const Navigation = () => {
+  const { token } = useContext(UserContext);
+
   return (
     <nav className="nav">
       <ul className="nav__list">
@@ -11,9 +15,13 @@ export const Navigation = () => {
           </NavLink>
         </li>
         <li className="nav__item">
-          <NavLink className="nav__link" to={"/employees"} end>
-            Employess list
-          </NavLink>
+          {token ? (
+            <NavLink className="nav__link" to={"/employees"} end>
+              Employess list
+            </NavLink>
+          ) : (
+            <p className="nav__inactive">Employess list</p>
+          )}
         </li>
         <li className="nav__item">
           <NavLink className="nav__link" to={"/login"} end>
