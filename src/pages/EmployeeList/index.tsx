@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
+import { DeleteButton } from "../../components/DeleteButton";
 
 export type employeeListType = {
   id: number;
@@ -10,7 +11,7 @@ export type employeeListType = {
   age: number;
 };
 export const EmployeeList = () => {
-  const { employeeList } = useContext(EmployeeContext);
+  const { deleteButton, employeeList } = useContext(EmployeeContext);
 
   return (
     <div>
@@ -19,8 +20,12 @@ export const EmployeeList = () => {
         {employeeList.map((employee) => (
           <li key={employee.id}>
             <p>
+              {employee.id}
               {employee.firstName}, {employee.lastName}, {employee.workplace},
-              {employee.age};
+              {employee.age}
+              <button onClick={() => deleteButton(employee.id)}>
+                Delete employee
+              </button>
             </p>
           </li>
         ))}

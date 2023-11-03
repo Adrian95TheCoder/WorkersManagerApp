@@ -3,31 +3,38 @@ import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 type useEmployeesData = {
   employeeList: employeeListType[];
   count: number;
-  newFirstName: string;
-  newLastName: string;
-  newWorkplace: string;
-  newAge: string;
-  setNewFirstName: React.Dispatch<React.SetStateAction<string>>;
-  setNewLastName: React.Dispatch<React.SetStateAction<string>>;
+  newEmployeeInputValue: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    age: number;
+    workplace: string;
+  };
+  setNewInputValue: React.Dispatch<React.SetStateAction<employeeListType>>;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
-  setNewAge: (value: React.SetStateAction<string>) => void;
   getWorkers: () => Promise<void>;
   addEmployee: () => Promise<any>;
-  handleSubmitEmployee: (event: FormEvent<HTMLFormElement>) => void;
-  handleLastName: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleFirstName: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleWorkplace: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleAge: (event: ChangeEvent<HTMLInputElement>) => void;
+  deleteButton: (employeeId: number) => Promise<void>;
+  handleInputValue: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleNewEmployee: (
+    event: FormEvent<HTMLFormElement>,
+    userId: number
+  ) => void;
 };
 
 export const useEmployees = (): useEmployeesData => {
   const [employeeList, setEmployeeList] = useState<employeeListType[]>([]);
   const [count, setCount] = useState(employeeList.length);
-  const [newFirstName, setNewFirstName] = useState("");
-  const [newLastName, setNewLastName] = useState("");
-  const [newWorkplace, setNewWorkplace] = useState("");
-  const [newAge, setNewAge] = useState("");
+  const [newEmployeeInputValue, setNewInputValue] = useState<employeeListType>({
+    id: count,
+    firstName: "",
+    lastName: "",
+    workplace: "",
+    age: 0,
+  });
+  const { firstName, lastName, workplace, age } = newEmployeeInputValue;
+
   const getWorkers = async () => {
     try {
       const data = await fetch("http://localhost:5000/workers");
@@ -41,16 +48,16 @@ export const useEmployees = (): useEmployeesData => {
   };
 
   const addEmployee = async () => {
+    setCount((prev) => prev + 1);
     try {
       const data = await fetch(`http://localhost:5000/workers`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          id: count,
-          firstName: newFirstName,
-          lastName: newLastName,
-          workplace: newWorkplace,
-          age: newAge,
+          firstName,
+          lastName,
+          workplace,
+          age,
         }),
       });
       if (!data.ok) throw new Error("ups");
@@ -60,63 +67,74 @@ export const useEmployees = (): useEmployeesData => {
       console.log(error);
     }
   };
-  const handleFirstName = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewFirstName(event.target.value);
-  };
-  const handleLastName = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewLastName(event.target.value);
-  };
-  const handleWorkplace = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewWorkplace(event.target.value);
-  };
-  const handleAge = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewAge(event.target.value);
-  };
-  const handleSubmitEmployee = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (newFirstName.length > 3 && newLastName.length > 3) {
-      setCount((prev) => prev + 1);
 
-      const newEmployee = {
-        id: count,
-        firstName: newFirstName,
-        lastName: newLastName,
-        workplace: newWorkplace,
-        age: newAge,
-      };
-      setEmployeeList((prev) => [...prev, newEmployee]);
-      addEmployee();
-
-      setNewFirstName("");
-      setNewLastName("");
-      setNewWorkplace("");
-      setNewAge("");
-    } else {
-      alert("Name or last name is to short");
+  const deleteButton = async (employeeId: number) => {
+    if (employeeId <= 1000000000) {
+      try {
+        const data = await fetch(
+          `http://localhost:5000/workers/${employeeId}`,
+          {
+            method: "DELETE",
+          }
+        );
+        console.log(employeeId, " nie ma id");
+        if (!data.ok)
+          throw new Error("Something went wrong while deleting user");
+        const deleteData = await data.json();
+        alert("employee was deleted");
+        console.log(deleteData, "zczxc");
+        console.log(employeeList, "lista po usunięciu pracownika");
+        // console.log( "usuwa pracownika");
+      } catch (error) {
+        console.log(error);
+      }
+      setEmployeeList((prev) =>
+        prev.filter((employees) => employees.id !== employeeId)
+      );
     }
+  };
+
+  const handleInputValue = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+
+    setNewInputValue((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const handleNewEmployee = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (
+      newEmployeeInputValue.firstName.length > 3 &&
+      newEmployeeInputValue.lastName.length > 3
+    ) {
+      const newEmployee = await addEmployee();
+
+      setEmployeeList((prev) => [...prev, newEmployee]);
+      setNewInputValue({
+        id: 0,
+        firstName: "",
+        lastName: "",
+        workplace: "",
+        age: 0,
+      });
+    } else alert(` to short`);
   };
   useEffect(() => {
     getWorkers();
-  }, [setEmployeeList, setCount, count]);
+  }, [count]);
 
   return {
     employeeList,
     count,
-    newFirstName,
-    newLastName,
-    newWorkplace,
-    newAge,
-    setNewFirstName,
-    setNewLastName,
+    newEmployeeInputValue,
     setCount,
     setEmployeeList,
     getWorkers,
     addEmployee,
-    handleSubmitEmployee,
-    handleLastName,
-    handleFirstName,
-    handleWorkplace,
-    handleAge,
-    setNewAge,
+    deleteButton,
+    handleInputValue,
+    handleNewEmployee,
+    setNewInputValue,
   };
 };
