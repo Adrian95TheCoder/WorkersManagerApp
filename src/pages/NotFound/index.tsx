@@ -8,7 +8,7 @@ export const NotFound = () => {
       <h2 className="Not_Found_Error">404</h2>
       <p className="Not_Found_Paragraph">Page not found!</p>
       <p className="Not_Found_Paragraph">The page you trying to reach does not exist, or has been moved.</p>
-      <Link to="/" className="Not_Found_Link">To Main Page</Link>
+      <button className="Not_Found__Button"><Link to="/" className="Not_Found_Link">To Main Page</Link></button>
     </body>
     </>
   );
