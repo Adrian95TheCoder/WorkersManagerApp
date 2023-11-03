@@ -1,42 +1,6 @@
 {
   "workers": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Smith",
-      "age": 50,
-      "gender": "male",
-      "email": "atuny0@sohu.com",
-      "phone": "+63 791 675 8914",
-      "birthDate": "2000-12-25",
-      "workplace": "Director",
-      "address": {
-        "address": "1745 T Street Southeast",
-        "city": "Washington",
-        "postalCode": "20020",
-        "state": "DC"
-      },
-      "startWork": "2023-10-29"
-    },
-    {
-      "id": 2,
-      "firstName": "Hans",
-      "lastName": "Kowalski",
-      "age": 40,
-      "gender": "male",
-      "email": "hans69@sohu.com",
-      "phone": "+63 681 545 1214",
-      "birthDate": "1983-01-20",
-      "workplace": "Programmer",
-      "address": {
-        "address": "1745 S Street Southeast",
-        "city": "Washington",
-        "postalCode": "20020",
-        "state": "DC"
-      },
-      "startWork": "2023-08-29"
-    },
-    {
       "id": 3,
       "firstName": "Jennifer",
       "lastName": "Johnson",
@@ -124,13 +88,6 @@
       "workplace": "asfdf",
       "age": "032",
       "id": 10
-    },
-    {
-      "firstName": "asdfasdf",
-      "lastName": "asdfasdf",
-      "workplace": "safsadf",
-      "age": "032",
-      "id": 11
     },
     {
       "firstName": "asdfasdf",
