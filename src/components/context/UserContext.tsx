@@ -22,9 +22,11 @@ type UserContextType = {
     password: string;
   };
   token: string;
+  error: boolean;
   handleLoginInput: (event: ChangeEvent<HTMLInputElement>) => void;
   handleLogin: (event: FormEvent<HTMLFormElement>) => void;
   setToken: React.Dispatch<React.SetStateAction<string>>;
+  setError: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 type UserProviderProps = {
@@ -42,6 +44,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     password: "0lelplR",
   });
   const [token, setToken] = useState("");
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const getUsers = async () => {
@@ -70,11 +73,19 @@ export const UserProvider = ({ children }: UserProviderProps) => {
           password,
         }),
       });
-      if (!response.ok) throw new Error("Error while logging");
-      const data = await response.json();
-      setToken(data.token);
 
-      navigate("/employees");
+      if (!response.ok) {
+
+        setError(true);
+        loginInput.username = "";
+        loginInput.password = "";
+
+      } else {
+
+        const data = await response.json();
+        setToken(data.token);        
+        navigate("/employees");
+      }
     } catch (error) {
       throw new Error(`${error}`);
     }
@@ -82,7 +93,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 
   const handleLoginInput = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-
+    setError(false);
     setLoginInput((prev) => {
       return { ...prev, [name]: value };
     });
@@ -90,7 +101,6 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    navigate("/employees");
     login(loginInput.username, loginInput.password);
   };
 
@@ -104,9 +114,11 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         users,
         loginInput,
         token,
+        error,
         handleLoginInput,
         handleLogin,
         setToken,
+        setError,
       }}
     >
       {children}
