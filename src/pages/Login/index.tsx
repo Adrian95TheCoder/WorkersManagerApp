@@ -2,11 +2,12 @@ import "./Login.scss";
 import { useContext } from "react";
 import { UserContext } from "../../components/context/UserContext";
 export const Login = () => {
-  const { token, loginInput, handleLogin, handleLoginInput, setToken } =
+  const { error, token, loginInput, handleLogin, handleLoginInput, setToken, setError } =
     useContext(UserContext);
 
   const handleLogout = () => {
     setToken("");
+    setError(false);
   };
 
   return (
@@ -42,6 +43,7 @@ export const Login = () => {
             <button className="Login__button" type="submit">
               Sign In
             </button>
+            {error ? (<p className="Login__error">Error while login</p>) : (<p className="Login__error_invisible">Error while login</p>)}
           </form>
         </>
       ) : (

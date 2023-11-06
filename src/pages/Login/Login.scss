@@ -51,4 +51,18 @@
   .Login__button:hover {
     background-color: red;
   }
+
+  .Login__error {
+    color: red;
+    font-size: large;
+    margin: 10px;
+    font-weight: bold;
+  }
+
+  .Login__error_invisible {
+    color:  rgb(92, 176, 202);
+    font-size: large;
+    margin: 10px;
+    font-weight: bold;
+  }
   
