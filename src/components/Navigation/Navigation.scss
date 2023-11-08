@@ -25,6 +25,11 @@
 
 .nav__inactive {
   color: grey;
+  text-decoration: none;
+  background-color: rgb(198, 149, 52);
+  font-size: 20px;
+  font-family: 'Times New Roman';
+  border: 10px;  
 }
 
 .nav__link:hover {
