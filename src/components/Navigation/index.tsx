@@ -20,7 +20,7 @@ export const Navigation = () => {
               Employess list
             </NavLink>
           ) : (
-            <p className="nav__inactive">Employess list</p>
+            <button className="nav__inactive" disabled>Employess list</button>
           )}
         </li>
         <li className="nav__item">
