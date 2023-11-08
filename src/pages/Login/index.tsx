@@ -25,6 +25,7 @@ export const Login = () => {
                   name="username"
                   value={loginInput.username}
                   onChange={handleLoginInput}
+                  required
                 />
               </label>
             </div>
@@ -37,6 +38,7 @@ export const Login = () => {
                   name="password"
                   value={loginInput.password}
                   onChange={handleLoginInput}
+                  required
                 />
               </label>
             </div>
