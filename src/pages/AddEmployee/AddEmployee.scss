@@ -30,3 +30,18 @@ td {
   text-align: left;
   border: 1px solid green;
 }
+
+.AddEmployee__addButton {
+  margin: 8px;
+  padding: 8px 16px;
+  background-color: #efefef;
+  box-shadow: none;
+  outline: none;
+  border: 2px solid black;
+  color: black;
+  border-radius: 16px;
+}
+
+.AddEmployee__addButton:hover {
+  background-color: red;
+}

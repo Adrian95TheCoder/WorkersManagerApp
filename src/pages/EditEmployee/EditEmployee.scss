@@ -1,0 +1,49 @@
+.EditEmployee__h2 {
+    text-align: center;
+}
+
+.EditEmployee__saveButton {
+    margin: 8px;
+    padding: 8px 16px;
+    background-color: #efefef;
+    box-shadow: none;
+    outline: none;
+    border: 2px solid black;
+    color: black;
+    border-radius: 16px;
+  }
+  
+  .EditEmployee__saveButton:hover {
+    background-color: red;
+  }
+
+  .EditEmployee__backButton {
+    margin: 8px;
+    padding: 8px 16px;
+    background-color: #efefef;
+    box-shadow: none;
+    outline: none;
+    border: 2px solid black;
+    color: black;
+    border-radius: 16px;
+  }
+
+  .EditEmployee__backButton:hover {
+    background-color: red;
+  }
+
+  .EditEmployee__table {
+    width: 100%;
+    height: 50vh;  
+  }
+
+  .EditEmployee__th {
+    width: 50%;
+  }
+
+  .EditEmployee__td {
+    width: 50%;
+  }
+
+
+  
