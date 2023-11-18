@@ -21,10 +21,11 @@ function App() {
               <Route path="/employees" element={<EmployeeList />} />
               <Route path="/employees/addEmployee" element={<AddEmployee />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/employees/:id" element={<EmployeeDetails />} />   
+              <Route path="/employees/:id" element={<EmployeeDetails />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
+          <Footer />
         </>
       </EmployeePovider>
     </UserProvider>
