@@ -1,0 +1,11 @@
+{
+  "welcome": "Witaj na mojej stronie!",
+  "about": "O mnie",
+  "contact": "Kontakt",
+  "language": "Język",
+  "english": "Angielski",
+  "polish": "Polski",
+  "pageNotFound": "Strona nie istnieje",
+  "pageNotFoundInfo": "Strona, do której próbujesz dotrzeć, nie istnieje lub została przeniesiona",
+  "goToMainPage": "Idź do strony głównej"
+}

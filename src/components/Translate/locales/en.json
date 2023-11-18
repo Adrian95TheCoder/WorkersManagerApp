@@ -1,0 +1,11 @@
+{
+  "welcome": "Welcome to my website!",
+  "about": "About",
+  "contact": "Contact",
+  "language": "Language",
+  "english": "English",
+  "polish": "Polish",
+  "pageNotFound": "Page not found",
+  "pageNotFoundInfo": "The page you trying to reach does not exist, or has been moved.",
+  "goToMainPage": "Go to main page"
+}
