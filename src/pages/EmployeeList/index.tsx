@@ -1,18 +1,20 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
 import "./EmployeeList.scss";
 import { useDebounce } from "../../components/Hooks/useDebouce";
-import ReactDOM from "react-dom";
+
+import { EmployeeBox } from "../../components/EmployeeBox";
+import { InputSearchBox } from "../../components/InputSearchBox";
+import { DisplaySortBox } from "../../components/DisplaySortBox";
 
 export const EmployeeList = () => {
   const {
-    deleteButton,
     employeeList,
     inputValue,
     displayNumber,
     sortValue,
-    curPage,
+
     handleDisplay,
     handleSortDisplay,
     previousPage,
@@ -75,64 +77,9 @@ export const EmployeeList = () => {
     return (
       <div>
         <h2 className="EmployeeList__h2">Employee list</h2>
-        <div>
-          <label htmlFor="sortValue">
-            Sort paratemers
-            <select
-              name="sortValue"
-              id="sortValue"
-              value={sortValue}
-              onChange={handleSortDisplay}
-            >
-              <option value="">Select sort type</option>
-              <option value="_sort=id&_order=asc">sort by id ascending</option>
-              <option value="_sort=id&_order=desc">
-                sort by id descending
-              </option>
-              <option value="_sort=firstName&_order=asc">
-                sort by first name ascending
-              </option>
-              <option value="_sort=firstName&_order=desc">
-                sort by first name descending
-              </option>
-              <option value="_sort=lastName&_order=asc">
-                sort by last name ascending
-              </option>
-              <option value="_sort=lastName&_order=desc">
-                sort by last name descending
-              </option>
-              <option value="_sort=age&_order=asc">
-                sort by age ascending
-              </option>
-              <option value="_sort=age&_order=desc">
-                sort by age descending
-              </option>
-            </select>
-          </label>
-          <label htmlFor="displayNumber">
-            Liczba wyświetlanych pracowników
-            <select
-              name="displayNumber"
-              id="displayNumber"
-              value={displayNumber}
-              onChange={handleDisplay}
-            >
-              <option value={100}>Wybierz</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-            </select>
-          </label>
-          <p>Choose value: {displayNumber}</p>
-        </div>
-        <input
-          className="EmployeeList__search"
-          type="search"
-          name="search"
-          placeholder="Search Last Name"
-          value={inputValue}
-          onChange={handleInputSearch}
-        />
+        <DisplaySortBox />
+
+        <InputSearchBox />
 
         <table className="EmployeeList__table3">
           <thead>
@@ -150,32 +97,44 @@ export const EmployeeList = () => {
             </tr>
           </thead>
           <tbody>
-            {employeeList.map((employee, index) => (
-              <tr key={employee.id}>
-                <td className="EmployeeList__employee_lp">
-                  {index + 1 + (curPage - 1) * 10}
-                </td>
-                <td className="EmployeeList__employee_id">{employee.id}</td>
-                <td className="EmployeeList__employee_firstName">
-                  {employee.firstName}
-                </td>
-                <td className="EmployeeList__employee_lastName">
-                  {employee.lastName}
-                </td>
-                <td className="EmployeeList__employee_workplace">
-                  {employee.workplace}
-                </td>
-                <td className="EmployeeList__employee_age">{employee.age}</td>
-                <td className="EmployeeList__employee_delete_button">
-                  <button onClick={() => deleteButton(employee.id)}>
-                    Delete employee
-                  </button>
-                </td>
-                <td className="EmployeeList__details">
-                  <button onClick={() => details(employee.id)}>Details</button>
-                </td>
-              </tr>
-            ))}
+            {employeeList.map(
+              ({ id, firstName, lastName, age, workplace }, index) => (
+                <EmployeeBox
+                  key={id}
+                  id={id}
+                  firstName={firstName}
+                  lastName={lastName}
+                  age={age}
+                  workplace={workplace}
+                  index={index}
+                />
+
+                // <tr key={employee.id}>
+                //   <td className="EmployeeList__employee_lp">
+                //     {index + 1 + (curPage - 1) * 10}
+                //   </td>
+                //   <td className="EmployeeList__employee_id">{employee.id}</td>
+                //   <td className="EmployeeList__employee_firstName">
+                //     {employee.firstName}
+                //   </td>
+                //   <td className="EmployeeList__employee_lastName">
+                //     {employee.lastName}
+                //   </td>
+                //   <td className="EmployeeList__employee_workplace">
+                //     {employee.workplace}
+                //   </td>
+                //   <td className="EmployeeList__employee_age">{employee.age}</td>
+                //   <td className="EmployeeList__employee_delete_button">
+                //     <button onClick={() => deleteButton(employee.id)}>
+                //       Delete employee
+                //     </button>
+                //   </td>
+                //   <td className="EmployeeList__details">
+                //     <button onClick={() => details(employee.id)}>Details</button>
+                //   </td>
+                // </tr>
+              )
+            )}
           </tbody>
         </table>
 

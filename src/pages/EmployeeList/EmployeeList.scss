@@ -13,10 +13,9 @@
 .EmployeeList__table2 {
   width: 100%;
   height: 100vh;
-  display:grid;
+  display: grid;
   text-align: center;
-  justify-content: center; 
-
+  justify-content: center;
 }
 
 .EmployeeList__employee_lp {
@@ -56,7 +55,7 @@ ul {
 }
 
 th {
-  width: 100%;
+  width: 100px;
   border: 1px solid black;
 }
 
