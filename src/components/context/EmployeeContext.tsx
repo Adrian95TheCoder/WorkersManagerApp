@@ -7,6 +7,16 @@ export type employeeListType = {
   lastName: string;
   workplace: string;
   age: number;
+  // new
+  gender: string;
+  email: string;
+  phone: string;
+  birthDate: string;
+  address: string;
+  city: string;
+  postalCode: string;
+  state: string;
+  startWork: string;
 };
 
 type EmployeeContextProps = {
@@ -18,11 +28,23 @@ type EmployeeContextProps = {
     lastName: string;
     age: number;
     workplace: string;
+     // new
+    gender: string;
+    email: string;
+    phone: string;
+    birthDate: string;
+    address: string;
+    city: string;
+    postalCode: string;
+    state: string;
+    startWork: string;
   };
+  inputValue: string;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
   getWorkers: () => Promise<void>;
   addEmployee: () => Promise<any>;
+  editEmployee: (employee: employeeListType) => Promise<void>;
   setNewInputValue: React.Dispatch<React.SetStateAction<employeeListType>>;
   deleteButton: (employeeId: number) => Promise<void>;
   handleInputValue: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -30,6 +52,12 @@ type EmployeeContextProps = {
     event: FormEvent<HTMLFormElement>,
     userId: number
   ) => void;
+  handleEditEmployee: (
+    event: FormEvent<HTMLFormElement>,
+    employee: employeeListType,
+  ) => void;
+  setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  handleInputSearch: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 type EmployeeProviderProps = {
@@ -48,11 +76,16 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     setEmployeeList,
     getWorkers,
     addEmployee,
+    editEmployee,
     deleteButton,
     handleInputValue,
     handleNewEmployee,
+    handleEditEmployee,
     setNewInputValue,
     newEmployeeInputValue,
+    inputValue, 
+    setInputValue, 
+    handleInputSearch,
   } = useEmployees();
 
   return (
@@ -65,10 +98,15 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         setEmployeeList,
         getWorkers,
         addEmployee,
+        editEmployee,
         deleteButton,
         handleInputValue,
         handleNewEmployee,
+        handleEditEmployee,
         setNewInputValue,
+        inputValue, 
+        setInputValue, 
+        handleInputSearch,
       }}
     >
       {children}
