@@ -9,6 +9,7 @@ import { AddEmployee } from "./pages/AddEmployee";
 import { Login } from "./pages/Login";
 import { EmployeePovider } from "./components/context/EmployeeContext";
 import { UserProvider } from "./components/context/UserContext";
+import { Footer } from "./components/Footer";
 function App() {
   return (
     <UserProvider>
