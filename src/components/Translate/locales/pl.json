@@ -1,6 +1,6 @@
 {
   "welcome": "Witaj na mojej stronie!",
-  "about": "O mnie",
+  "home": "Strona startowa",
   "contact": "Kontakt",
   "language": "Język",
   "english": "Angielski",
@@ -21,14 +21,17 @@
   "lastName": "Nazwisko",
   "workplace": "Stanowisko",
   "age": "Wiek",
-  "deleteButtons": "Przyciski Usuń",
-  "detailsButtons": "Przyciski Detale",
-  "deleteEmployee": "Delete employee",
-  "details": " Details",
+  "deleteButtons": "Usuń",
+  "detailsButtons": "Detale",
+  "deleteEmployee": "Usuń pracownika",
+  "details": " Szczegóły",
   "previousPage": "Poprzednia strona",
   "nextPage": "Następna Strona",
   "addEmployee": "Dodaj pracownika",
 
   "personalInformation": "Informacje Personalne",
-  "navLogin": "Logowanie"
+  "navLogin": "Logowanie",
+  "employeeDetails": "Szczegóły pracownika",
+  "gender": "Płeć",
+  "phone": "Nr. telefonu"
 }

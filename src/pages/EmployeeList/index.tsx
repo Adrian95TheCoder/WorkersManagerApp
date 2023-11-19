@@ -33,10 +33,16 @@ export const EmployeeList = () => {
             <tr>
               <th className="EmployeeList__employee_lp">No</th>
               <th className="EmployeeList__employee_id">Id</th>
-              <th className="EmployeeList__employee_firstName">First Name</th>
-              <th className="EmployeeList__employee_lastName">Last Name</th>
-              <th className="EmployeeList__employee_workplace">Age</th>
-              <th className="EmployeeList__employee_age">Workplace</th>
+              <th className="EmployeeList__employee_firstName">
+                {t("firstName")}
+              </th>
+              <th className="EmployeeList__employee_lastName">
+                {t("lastName")}
+              </th>
+              <th className="EmployeeList__employee_workplace">
+                {t("workplace")}
+              </th>
+              <th className="EmployeeList__employee_age">{t("age")}</th>
 
               <th className="EmployeeList__details">{t("detailsButtons")}</th>
             </tr>
@@ -66,7 +72,9 @@ export const EmployeeList = () => {
         </button>
 
         <Link to={"/employees/addEmployee"}>
-          <button className="EmployeeList__addEmployee">{"addEmployee"}</button>
+          <button className="EmployeeList__addEmployee">
+            {t("addEmployee")}
+          </button>
         </Link>
       </div>
     );
