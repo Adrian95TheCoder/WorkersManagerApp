@@ -17,7 +17,7 @@
 
   "employeeList": "Lista pracowników",
   "searchLastName": "Wyszukaj nazwisko",
-  "firstName": "Imie",
+  "firstName": "Imię",
   "lastName": "Nazwisko",
   "workplace": "Stanowisko",
   "age": "Wiek",
@@ -29,5 +29,6 @@
   "nextPage": "Następna Strona",
   "addEmployee": "Dodaj pracownika",
 
-  "personalInformation": "Informacje Personalne"
+  "personalInformation": "Informacje Personalne",
+  "navLogin": "Logowanie"
 }
