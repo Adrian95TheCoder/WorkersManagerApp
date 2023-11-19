@@ -1,5 +1,6 @@
 import { EmployeeContext } from "../context/EmployeeContext";
 import { useContext } from "react";
+import "./DeleteButton.scss"
 
 type deleteProps = {
   id: number;
@@ -10,7 +11,7 @@ export const DeleteButton = ({ id }: deleteProps) => {
   console.log(id, "id z buttona");
   return (
     <>
-      <button onClick={() => setAllowDelete(true)}>Delete employee</button>
+      <button className="deleteButton__deleteEmployee" onClick={() => setAllowDelete(true)}>Delete employee</button>
     </>
   );
 };
