@@ -148,7 +148,7 @@ export const EditEmployee = () => {
             <td className="EditEmployee__td">birth date</td>
             <td className="EditEmployee__td">
               <input
-                type="text"
+                type="date"
                 id="birthDate"
                 name="birthDate"
                 value={employee.birthDate}
@@ -219,7 +219,7 @@ export const EditEmployee = () => {
             <td className="EditEmployee__td">start work</td>
             <td className="EditEmployee__td">
               <input
-                type="text"
+                type="date"
                 id="startWork"
                 name="startWork"
                 value={employee.startWork}

@@ -8,7 +8,8 @@ import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
 
 export const EmployeeList = () => {
-  const { employeeList, previousPage, nextPage } = useContext(EmployeeContext);
+  const { employeeList, curPage, previousPage, nextPage } =
+    useContext(EmployeeContext);
 
   /*  search  */
   // const { search } = useLocation();
@@ -56,6 +57,7 @@ export const EmployeeList = () => {
               )
             )}
           </tbody>
+          Display page: {curPage}
         </table>
 
         <button className="EmployeeList__addEmployee" onClick={previousPage}>

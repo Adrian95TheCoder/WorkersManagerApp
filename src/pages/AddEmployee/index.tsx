@@ -146,7 +146,7 @@ export const AddEmployee = () => {
                   </td>
                   <td>
                     <input
-                      type="text"
+                      type="date"
                       id="birthDate"
                       name="birthDate"
                       placeholder="Enter birth date"
@@ -221,7 +221,7 @@ export const AddEmployee = () => {
                   </td>
                   <td>
                     <input
-                      type="text"
+                      type="date"
                       id="startWork"
                       name="startWork"
                       placeholder="Enter start work"

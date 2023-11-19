@@ -94,6 +94,22 @@
       "workplace": "test",
       "age": "1",
       "id": 1
+    },
+    {
+      "firstName": "Marian",
+      "lastName": "Paździoch",
+      "workplace": "Programer",
+      "salary": "5000",
+      "gender": "Male",
+      "email": "mar@paz.com",
+      "phone": "+4851515151",
+      "birthDate": "1996-07-18",
+      "address": "",
+      "city": "Warsaw",
+      "postalCode": "12-213",
+      "state": "Masovia",
+      "startWork": "2023-10-20",
+      "id": 20
     }
   ]
 }
