@@ -1,5 +1,6 @@
 import { employeeListType } from "../context/EmployeeContext";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 type useEmployeesData = {
   employeeList: employeeListType[];
   count: number;
@@ -24,6 +25,7 @@ type useEmployeesData = {
   displayNumber: string;
   sortValue: string;
   curPage: number;
+  allowDelete: boolean;
   setNewInputValue: React.Dispatch<React.SetStateAction<employeeListType>>;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
@@ -40,6 +42,7 @@ type useEmployeesData = {
     event: FormEvent<HTMLFormElement>,
     employee: employeeListType
   ) => void;
+
   /* search */
   handleInputSearch: (event: ChangeEvent<HTMLInputElement>) => void;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
@@ -47,6 +50,7 @@ type useEmployeesData = {
   previousPage: () => void;
   handleDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
+  setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const useEmployees = (): useEmployeesData => {
@@ -72,27 +76,29 @@ export const useEmployees = (): useEmployeesData => {
   const [curPage, setCurPage] = useState(1);
   const [inputValue, setInputValue] = useState("");
   const [sortValue, setSortValue] = useState("");
-  const [displayNumber, setDisplayNumber] = useState("");
+  const [displayNumber, setDisplayNumber] = useState("10");
+  const [allowDelete, setAllowDelete] = useState(false);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-  /*
-  const [employee, setEmployee] = useState<employeeListType>({
-    id: 0,
-    firstName: "",
-    lastName: "",
-    workplace: "",
-    age: 0,
-    // new
-    gender: "",
-    email: "",
-    phone: "",
-    birthDate: "",
-    address: "",
-    city: "",
-    postalCode: "",
-    state: "",
-    startWork: "",
-  });
-  */
+  // const [employee, setEmployee] = useState({
+  //   id: 0,
+  //   firstName: "",
+  //   lastName: "",
+  //   workplace: "",
+  //   age: 0,
+  //   // new
+  //   gender: "",
+  //   email: "",
+  //   phone: "",
+  //   birthDate: "",
+  //   address: "",
+  //   city: "",
+  //   postalCode: "",
+  //   state: "",
+  //   startWork: "",
+  // } as employeeListType);
+
   const {
     firstName,
     lastName,
@@ -154,7 +160,7 @@ export const useEmployees = (): useEmployeesData => {
   };
 
   const deleteButton = async (employeeId: number) => {
-    if (employeeId <= 1000000000) {
+    if (employeeId < 1000000) {
       try {
         const data = await fetch(
           `http://localhost:5000/workers/${employeeId}`,
@@ -282,7 +288,7 @@ export const useEmployees = (): useEmployeesData => {
 
   /* search  */
   const handleInputSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    //console.log("Search changed");
+    if (curPage !== 1) setCurPage(1);
     setInputValue(event.target.value);
   };
 
@@ -305,7 +311,7 @@ export const useEmployees = (): useEmployeesData => {
   };
   useEffect(() => {
     getWorkers();
-  }, [count, displayNumber, sortValue, curPage, inputValue]);
+  }, [count, displayNumber, sortValue, inputValue, curPage]);
 
   return {
     employeeList,
@@ -315,6 +321,7 @@ export const useEmployees = (): useEmployeesData => {
     displayNumber,
     sortValue,
     curPage,
+    allowDelete,
     setCount,
     setEmployeeList,
     getWorkers,
@@ -331,5 +338,7 @@ export const useEmployees = (): useEmployeesData => {
     previousPage,
     handleDisplay,
     handleSortDisplay,
+
+    setAllowDelete,
   };
 };

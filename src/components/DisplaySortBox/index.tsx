@@ -1,11 +1,15 @@
 import { EmployeeContext } from "../context/EmployeeContext";
 import { useContext } from "react";
 export const DisplaySortBox = () => {
-  const { sortValue, handleSortDisplay, displayNumber, handleDisplay } =
-    useContext(EmployeeContext);
+  const {
+    sortValue,
+    handleSortDisplay,
+    displayNumber,
+    handleDisplay,
+    curPage,
+  } = useContext(EmployeeContext);
   return (
     <div>
-      {" "}
       <label htmlFor="sortValue">
         Sort paratemers
         <select
@@ -41,13 +45,12 @@ export const DisplaySortBox = () => {
           value={displayNumber}
           onChange={handleDisplay}
         >
-          <option value={100}>Wybierz</option>
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="30">30</option>
         </select>
       </label>
-      <p>Choose value: {displayNumber}</p>
+      Display page: {curPage}
     </div>
   );
 };

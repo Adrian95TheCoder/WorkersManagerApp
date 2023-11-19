@@ -1,18 +1,20 @@
 import { EmployeeContext } from "../context/EmployeeContext";
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 type deleteProps = {
   id: number;
 };
 export const DeleteButton = ({ id }: deleteProps) => {
-  const { deleteButton } = useContext(EmployeeContext);
+  const { deleteButton, setAllowDelete } = useContext(EmployeeContext);
 
-  //   const { id } = useParams();
-
+  const navigate = useNavigate();
+  const employeeListNavigation = () => {
+    navigate(`/employees`);
+  };
   console.log(id, "id z buttona");
   return (
     <>
-      <button onClick={() => deleteButton(id)}>Delete employee</button>
+      <button onClick={() => setAllowDelete(true)}>Delete employee</button>
     </>
   );
 };
