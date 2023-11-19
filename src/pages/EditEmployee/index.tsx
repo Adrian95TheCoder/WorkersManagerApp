@@ -14,7 +14,7 @@ export const EditEmployee = () => {
     firstName: "",
     lastName: "",
     workplace: "",
-    age: 0,
+    salary: 0,
     // new
     gender: "",
     email: "",
@@ -97,13 +97,13 @@ export const EditEmployee = () => {
             </td>
           </tr>
           <tr>
-            <td className="EditEmployee__td">age</td>
+            <td className="EditEmployee__td">salary</td>
             <td className="EditEmployee__td">
               <input
                 type="number"
-                id="age"
-                name="age"
-                value={employee.age}
+                id="salary"
+                name="salary"
+                value={employee.salary}
                 onChange={handleInput}
               />
             </td>
