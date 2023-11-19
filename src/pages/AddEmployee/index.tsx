@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
 
 import "./AddEmployee.scss";
@@ -6,6 +7,8 @@ import { useContext } from "react";
 export const AddEmployee = () => {
   const { newEmployeeInputValue, handleInputValue, handleNewEmployee } =
     useContext(EmployeeContext);
+  const { t } = useTranslation();
+
   const {
     id,
     firstName,
@@ -26,14 +29,14 @@ export const AddEmployee = () => {
     <div className="addFormMain">
       <div className="addForm_box">
         <form onSubmit={(event) => handleNewEmployee(event, id)}>
-          <h2>Personal Information</h2>
+          <h2>{t("personalInformation")}</h2>
           <p>Use a permanent address where you can receive mail.</p>
           <div className="labelBox">
             <table>
               <tbody>
                 <tr>
                   <td>
-                    <label htmlFor="name">First name:</label>
+                    <label htmlFor="name">{t("firstName")}:</label>
                   </td>
                   <td>
                     <input
@@ -48,7 +51,7 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="lastName">Last name:</label>
+                    <label htmlFor="lastName">{t("lastName")}:</label>
                   </td>
                   <td>
                     <input

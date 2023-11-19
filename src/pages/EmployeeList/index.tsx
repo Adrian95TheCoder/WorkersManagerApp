@@ -3,7 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
 import "./EmployeeList.scss";
 import { useDebounce } from "../../components/Hooks/useDebouce";
-
+import ReactDOM from "react-dom";
+import { useTranslation } from "react-i18next";
 import { EmployeeBox } from "../../components/EmployeeBox";
 import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
@@ -27,6 +28,8 @@ export const EmployeeList = () => {
   // const [filteredList, setFilteredList] = useState(employeeList);
   // const searchValue = useDebounce(inputValue, 200);
   const navigate = useNavigate();
+const { t } = useTranslation();
+
   // const contextValue = useContext(EmployeeContext);
   // console.log("Context Value:", contextValue);
 
@@ -76,7 +79,9 @@ export const EmployeeList = () => {
     console.log("curPage");
     return (
       <div>
-        <h2 className="EmployeeList__h2">Employee list</h2>
+
+        <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
+
         <DisplaySortBox />
 
         <InputSearchBox />
@@ -86,17 +91,24 @@ export const EmployeeList = () => {
             <tr>
               <th className="EmployeeList__employee_lp">No</th>
               <th className="EmployeeList__employee_id">Id</th>
-              <th className="EmployeeList__employee_firstName">First Name</th>
-              <th className="EmployeeList__employee_lastName">Last Name</th>
-              <th className="EmployeeList__employee_workplace">Workplace</th>
-              <th className="EmployeeList__employee_age">Age</th>
-              <th className="EmployeeList__employee_delete_button">
-                Delete Button
+              <th className="EmployeeList__employee_firstName">
+                {t("firstName")}
               </th>
-              <th className="EmployeeList__details">Details Button</th>
+              <th className="EmployeeList__employee_lastName">
+                {t("lastName")}
+              </th>
+              <th className="EmployeeList__employee_workplace">
+                {t("workplace")}
+              </th>
+              <th className="EmployeeList__employee_age">{t("age")}</th>
+              <th className="EmployeeList__employee_delete_button">
+                {t("deleteButtons")}
+              </th>
+              <th className="EmployeeList__details">{t("detailsButtons")}</th>
             </tr>
           </thead>
           <tbody>
+
             {employeeList.map(
               ({ id, firstName, lastName, age, workplace }, index) => (
                 <EmployeeBox
@@ -135,18 +147,21 @@ export const EmployeeList = () => {
                 // </tr>
               )
             )}
+
           </tbody>
         </table>
 
         <button className="EmployeeList__addEmployee" onClick={previousPage}>
-          Previous Page
+          {t("previousPage")}
         </button>
         <button className="EmployeeList__addEmployee" onClick={nextPage}>
-          Next Page
+          {t("nextPage")}
         </button>
 
         <Link to={"/employees/addEmployee"}>
-          <button className="EmployeeList__addEmployee">Add employee</button>
+          <button className="EmployeeList__addEmployee">
+            {t("addEmployee")}
+          </button>
         </Link>
       </div>
     );

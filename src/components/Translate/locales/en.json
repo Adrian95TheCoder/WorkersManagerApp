@@ -7,5 +7,27 @@
   "polish": "Polish",
   "pageNotFound": "Page not found",
   "pageNotFoundInfo": "The page you trying to reach does not exist, or has been moved.",
-  "goToMainPage": "Go to main page"
+  "goToMainPage": "Go to main page",
+
+  "loginPage": "Login Page",
+  "login": "Login",
+  "password": "Password",
+  "signIn": "Sign In",
+  "logout": "Logout",
+
+  "employeeList": "Employee List",
+  "searchLastName": "Search last name",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "workplace": "Workplace",
+  "age": "Age",
+  "deleteButtons": "Delete Buttons",
+  "detailsButtons": "Details Buttons",
+  "deleteEmployee": "Delete employee",
+  "details": " Details",
+  "previousPage": "Previous Page",
+  "nextPage": "Next Page",
+  "addEmployee": "Add Employee",
+
+  "personalInformation": "Personal Information"
 }
