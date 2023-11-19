@@ -14,7 +14,7 @@ export const EditEmployee = () => {
     firstName: "",
     lastName: "",
     workplace: "",
-    age: 0,
+    salary: 0,
     // new
     gender: "",
     email: "",
@@ -61,6 +61,7 @@ export const EditEmployee = () => {
 
   return (
     <>
+    <div className="EditEmployee">
       <h2 className="EditEmployee__h2">Edit Employee</h2>
       {/* <form onSubmit={onSubmit}>  */}
       <form onSubmit={(event) => handleEditEmployee(event, employee)}>
@@ -97,13 +98,13 @@ export const EditEmployee = () => {
             </td>
           </tr>
           <tr>
-            <td className="EditEmployee__td">age</td>
+            <td className="EditEmployee__td">salary</td>
             <td className="EditEmployee__td">
               <input
                 type="number"
-                id="age"
-                name="age"
-                value={employee.age}
+                id="salary"
+                name="salary"
+                value={employee.salary}
                 onChange={handleInput}
               />
             </td>
@@ -148,7 +149,7 @@ export const EditEmployee = () => {
             <td className="EditEmployee__td">birth date</td>
             <td className="EditEmployee__td">
               <input
-                type="text"
+                type="date"
                 id="birthDate"
                 name="birthDate"
                 value={employee.birthDate}
@@ -219,7 +220,7 @@ export const EditEmployee = () => {
             <td className="EditEmployee__td">start work</td>
             <td className="EditEmployee__td">
               <input
-                type="text"
+                type="date"
                 id="startWork"
                 name="startWork"
                 value={employee.startWork}
@@ -238,6 +239,7 @@ export const EditEmployee = () => {
           Back to Details
         </button>
       </form>
+      </div>
     </>
   );
 };

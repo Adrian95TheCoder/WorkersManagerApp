@@ -1,0 +1,14 @@
+.deleteButton__deleteEmployee {
+  margin: 8px;
+  padding: 8px 16px;
+  background-color: #efefef;
+  box-shadow: none;
+  outline: none;
+  border: 2px solid black;
+  color: black;
+  border-radius: 16px;
+}
+
+.deleteButton__deleteEmployee:hover {
+  background-color: red;
+}

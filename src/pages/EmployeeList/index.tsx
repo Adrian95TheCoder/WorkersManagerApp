@@ -8,7 +8,8 @@ import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
 
 export const EmployeeList = () => {
-  const { employeeList, previousPage, nextPage } = useContext(EmployeeContext);
+  const { employeeList, curPage, previousPage, nextPage } =
+    useContext(EmployeeContext);
 
   /*  search  */
   // const { search } = useLocation();
@@ -21,7 +22,7 @@ export const EmployeeList = () => {
     console.log("renderTable");
     console.log("curPage");
     return (
-      <div>
+      <div className="EmployeeList">
         <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
 
         <DisplaySortBox />
@@ -42,26 +43,26 @@ export const EmployeeList = () => {
               <th className="EmployeeList__employee_workplace">
                 {t("workplace")}
               </th>
-              <th className="EmployeeList__employee_age">{t("age")}</th>
-
+              <th className="EmployeeList__employee_salary">{t("salary")}</th>
               <th className="EmployeeList__details">{t("detailsButtons")}</th>
             </tr>
           </thead>
           <tbody>
             {employeeList.map(
-              ({ id, firstName, lastName, age, workplace }, index) => (
+              ({ id, firstName, lastName, salary, workplace }, index) => (
                 <EmployeeBox
                   key={id}
                   id={id}
                   firstName={firstName}
                   lastName={lastName}
-                  age={age}
+                  salary={salary}
                   workplace={workplace}
                   index={index}
                 />
               )
             )}
           </tbody>
+          Display page: {curPage}
         </table>
 
         <button className="EmployeeList__addEmployee" onClick={previousPage}>

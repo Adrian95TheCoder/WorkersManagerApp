@@ -4,7 +4,7 @@
       "id": 4,
       "firstName": "Tyler",
       "lastName": "Anderson",
-      "age": 33,
+      "salary": 5000,
       "gender": "male",
       "email": "Tylertoziom@sohu.com",
       "phone": "+63 821 128 2181",
@@ -20,7 +20,7 @@
       "id": 5,
       "firstName": "Megan",
       "lastName": "Tylor",
-      "age": 28,
+      "salary": 5000,
       "gender": "female",
       "email": "Tylortoziomalka@sohu.com",
       "phone": "+63 999 655 5514",
@@ -94,6 +94,22 @@
       "workplace": "test",
       "age": "1",
       "id": 1
+    },
+    {
+      "firstName": "Marian",
+      "lastName": "Paździoch",
+      "workplace": "Programer",
+      "salary": "5000",
+      "gender": "Male",
+      "email": "mar@paz.com",
+      "phone": "+4851515151",
+      "birthDate": "1996-07-18",
+      "address": "",
+      "city": "Warsaw",
+      "postalCode": "12-213",
+      "state": "Masovia",
+      "startWork": "2023-10-20",
+      "id": 20
     }
   ]
 }
