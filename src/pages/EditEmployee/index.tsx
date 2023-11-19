@@ -61,6 +61,7 @@ export const EditEmployee = () => {
 
   return (
     <>
+    <div className="EditEmployee">
       <h2 className="EditEmployee__h2">Edit Employee</h2>
       {/* <form onSubmit={onSubmit}>  */}
       <form onSubmit={(event) => handleEditEmployee(event, employee)}>
@@ -238,6 +239,7 @@ export const EditEmployee = () => {
           Back to Details
         </button>
       </form>
+      </div>
     </>
   );
 };
