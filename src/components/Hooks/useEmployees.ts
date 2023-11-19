@@ -117,7 +117,7 @@ export const useEmployees = (): useEmployeesData => {
   } = newEmployeeInputValue;
 
   const getWorkers = async () => {
-    const limit = 10;
+    const limit = parseInt(displayNumber);
     try {
       const data = await fetch(
         `http://localhost:5000/workers/?_page=${curPage}&_limit=${displayNumber}&${sortValue}&q=${inputValue}&limit=${limit}`
