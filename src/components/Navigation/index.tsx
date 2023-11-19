@@ -16,11 +16,13 @@ export const Navigation = () => {
     <nav className="nav">
       <ul className="nav__list">
         <li className="nav__item">
+          <img src={"/assets/home.png"} alt="home icon" />
           <NavLink className="nav__link" to={"/"} end>
             Home
           </NavLink>
         </li>
         <li className="nav__item">
+          <img src={"/assets/list.png"} alt="icon of employess list" />
           {token ? (
             <NavLink className="nav__link" to={"/employees"} end>
               Employess list
@@ -32,6 +34,7 @@ export const Navigation = () => {
           )}
         </li>
         <li className="nav__item">
+          <img src={"/assets/user.png"} alt="" />
           <NavLink className="nav__link" to={"/login"} end>
             Login
           </NavLink>

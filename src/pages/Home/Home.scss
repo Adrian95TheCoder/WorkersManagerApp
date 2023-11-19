@@ -1,30 +1,78 @@
-.Home__body {
-  background-color: lightblue;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: Verdana;
-}
-
-.Home__h2 {
-  margin: 10px;
+.Home {
+	position: relative;
+	background-image: url("../../../public/assets/teamwork.jpg");
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: Verdana;
+	&__shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.444);
+	}
+  &__hero{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: translateY(20%);
+    &--title{
+      font-size: 26px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    &--content{
+      font-size: 18px;
+      color: #fff;
+    }
+  }
 }
 
 .Home__button {
-  margin: 8px;
-  padding: 8px 16px;
-  background-color: #efefef;
-  box-shadow: none;
-  outline: none;
-  border: 2px solid black;
-  color: black;
-  border-radius: 16px;
+  position: relative;
+	margin: 8px;
+	padding: 8px 16px;
+	background-color: #efefef;
+	box-shadow: none;
+	outline: none;
+	border: 2px solid black;
+	color: black;
+	border-radius: 12px;
+  font-size: 18px;
+  z-index: 5;
+  overflow: hidden;
+  animation: bouncing  3s linear infinite alternate;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-image: linear-gradient(-90deg, rgba(11, 10, 10, 0.3),rgba(255,255,255,.0));
+    top: -10px;
+    left: -30px;
+    height: 160%;
+    width: 20px;
+    transform: rotate(20deg);
+    transition: .3s;
+  }
+  &:hover::before{
+    left: 100%;
+  }
 }
 
-.Home__button:hover {
-  background-color: red;
+@keyframes bouncing {
+  0%{
+    transform: scale(1); 
+  }
+  50%{
+    transform: scale(1.3);
+  }
+  100%{
+    transform: scale(1.1);
+  }
 }

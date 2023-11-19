@@ -7,5 +7,27 @@
   "polish": "Polski",
   "pageNotFound": "Strona nie istnieje",
   "pageNotFoundInfo": "Strona, do której próbujesz dotrzeć, nie istnieje lub została przeniesiona",
-  "goToMainPage": "Idź do strony głównej"
+  "goToMainPage": "Idź do strony głównej",
+
+  "loginPage": "Strona logowania",
+  "login": "Login",
+  "password": "Hasło",
+  "signIn": "Zaloguj",
+  "logout": "Wyloguj",
+
+  "employeeList": "Lista pracowników",
+  "searchLastName": "Wyszukaj nazwisko",
+  "firstName": "Imie",
+  "lastName": "Nazwisko",
+  "workplace": "Stanowisko",
+  "age": "Wiek",
+  "deleteButtons": "Przyciski Usuń",
+  "detailsButtons": "Przyciski Detale",
+  "deleteEmployee": "Delete employee",
+  "details": " Details",
+  "previousPage": "Poprzednia strona",
+  "nextPage": "Następna Strona",
+  "addEmployee": "Dodaj pracownika",
+
+  "personalInformation": "Informacje Personalne"
 }
