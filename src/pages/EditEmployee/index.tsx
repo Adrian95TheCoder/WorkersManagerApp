@@ -70,8 +70,7 @@ export const EditEmployee = () => {
           </tr>
           <tr>
             <td className="EditEmployee__td">id</td>
-            <td className="EditEmployee__td">{employee.id}              
-            </td>
+            <td className="EditEmployee__td">{employee.id}</td>
           </tr>
           <tr>
             <td className="EditEmployee__td">first name</td>
@@ -102,8 +101,8 @@ export const EditEmployee = () => {
             <td className="EditEmployee__td">
               <input
                 type="number"
-                id="lastName"
-                name="lastName"
+                id="age"
+                name="age"
                 value={employee.age}
                 onChange={handleInput}
               />
@@ -125,7 +124,7 @@ export const EditEmployee = () => {
             <td className="EditEmployee__td">email</td>
             <td className="EditEmployee__td">
               <input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 value={employee.email}
