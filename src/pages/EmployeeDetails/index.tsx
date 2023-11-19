@@ -6,9 +6,17 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import "./EmployeeDetails.scss";
 
+import { DeleteButton } from "../../components/DeleteButton";
+
 export const EmployeeDetails = () => {
   const { id } = useParams();
-  const { employeeList } = useContext(EmployeeContext);
+  const {
+    employeeList,
+    allowDelete,
+    setAllowDelete,
+    deleteButton,
+    getWorkers,
+  } = useContext(EmployeeContext);
   const [employee, setEmployee] = useState<employeeListType>({
     id: 0,
     firstName: "",
@@ -41,7 +49,13 @@ export const EmployeeDetails = () => {
   const goToEditPage = (employeeId: number) => {
     navigate(`/employees/EditEmployee/${employeeId}`);
   };
-
+  const handleDelete = async () => {
+    await deleteButton(employee.id);
+    console.log(employee.id, "czy coś tu sie dzieje");
+    setAllowDelete(false);
+    await getWorkers();
+    navigate("/employees");
+  };
   return (
     <>
       <table className="EmployeeDetails__table">
@@ -105,7 +119,33 @@ export const EmployeeDetails = () => {
           <td className="EmployeeDetails__td">{employee.startWork}</td>
         </tr>
       </table>
-      <button className="EmployeeDetails__editButton" onClick={() => goToEditPage(employee.id)}>Edit</button>
+      <button
+        className="EmployeeDetails__editButton"
+        onClick={() => goToEditPage(employee.id)}
+      >
+        Edit
+      </button>
+      <DeleteButton id={employee.id} />
+      {allowDelete && (
+        <div className="employee-details__allow">
+          <p>
+            Are you sure you want to remove{" "}
+            <b>
+              {employee.id} {employee.firstName} {employee.lastName}
+            </b>{" "}
+            from your employee list?
+          </p>
+          <button className="employee-details__save" onClick={handleDelete}>
+            Yes
+          </button>
+          <button
+            className="employee-details__cancel"
+            onClick={() => setAllowDelete(false)}
+          >
+            No
+          </button>
+        </div>
+      )}
     </>
   );
 };

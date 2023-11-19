@@ -78,7 +78,7 @@ export const EmployeeList = () => {
     console.log("renderTable");
     console.log("curPage");
     return (
-      <div>
+      <div className="EmployeeList">
         <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
 
         <DisplaySortBox />
