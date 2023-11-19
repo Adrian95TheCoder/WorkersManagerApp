@@ -34,11 +34,16 @@ export const EmployeeList = () => {
             <tr>
               <th className="EmployeeList__employee_lp">No</th>
               <th className="EmployeeList__employee_id">Id</th>
-              <th className="EmployeeList__employee_firstName">First Name</th>
-              <th className="EmployeeList__employee_lastName">Last Name</th>
-              <th className="EmployeeList__employee_workplace">Workplace</th>
-              <th className="EmployeeList__employee_salary">Salary</th>
-
+              <th className="EmployeeList__employee_firstName">
+                {t("firstName")}
+              </th>
+              <th className="EmployeeList__employee_lastName">
+                {t("lastName")}
+              </th>
+              <th className="EmployeeList__employee_workplace">
+                {t("workplace")}
+              </th>
+              <th className="EmployeeList__employee_salary">{t("salary")}</th>
               <th className="EmployeeList__details">{t("detailsButtons")}</th>
             </tr>
           </thead>

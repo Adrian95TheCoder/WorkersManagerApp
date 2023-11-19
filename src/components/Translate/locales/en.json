@@ -1,6 +1,6 @@
 {
   "welcome": "Welcome to my website!",
-  "about": "About",
+  "home": "Home",
   "contact": "Contact",
   "language": "Language",
   "english": "English",
@@ -21,13 +21,17 @@
   "lastName": "Last Name",
   "workplace": "Workplace",
   "age": "Age",
-  "deleteButtons": "Delete Buttons",
-  "detailsButtons": "Details Buttons",
+  "deleteButtons": "Delete",
+  "detailsButtons": "Details",
   "deleteEmployee": "Delete employee",
   "details": " Details",
   "previousPage": "Previous Page",
   "nextPage": "Next Page",
   "addEmployee": "Add Employee",
 
-  "personalInformation": "Personal Information"
+  "personalInformation": "Personal Information",
+  "navLogin": "Login",
+  "employeeDetails": "Employee Details",
+  "gender": "Gender",
+  "phone": "Phone"
 }
