@@ -21,6 +21,9 @@ type useEmployeesData = {
     startWork: string;
   };
   inputValue: string;
+  displayNumber: string;
+  sortValue: string;
+  curPage: number;
   setNewInputValue: React.Dispatch<React.SetStateAction<employeeListType>>;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
@@ -40,6 +43,10 @@ type useEmployeesData = {
   /* search */
   handleInputSearch: (event: ChangeEvent<HTMLInputElement>) => void;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  nextPage: () => void;
+  previousPage: () => void;
+  handleDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
+  handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
 };
 
 export const useEmployees = (): useEmployeesData => {
@@ -62,8 +69,11 @@ export const useEmployees = (): useEmployeesData => {
     state: "",
     startWork: "",
   });
-
+  const [curPage, setCurPage] = useState(1);
   const [inputValue, setInputValue] = useState("");
+  const [sortValue, setSortValue] = useState("");
+  const [displayNumber, setDisplayNumber] = useState("");
+
   /*
   const [employee, setEmployee] = useState<employeeListType>({
     id: 0,
@@ -101,7 +111,9 @@ export const useEmployees = (): useEmployeesData => {
 
   const getWorkers = async () => {
     try {
-      const data = await fetch("http://localhost:5000/workers");
+      const data = await fetch(
+        `http://localhost:5000/workers/?_page=${curPage}&_limit=${displayNumber}&${sortValue}&q=${inputValue}`
+      );
       if (!data.ok) throw new Error("Something goes wrong");
       const employees = await data.json();
       console.log(employees, " pobrano dane pracownika");
@@ -274,11 +286,35 @@ export const useEmployees = (): useEmployeesData => {
     setInputValue(event.target.value);
   };
 
+  const nextPage = () => {
+    setCurPage((prev) =>
+      parseInt(displayNumber) - 1 < employeeList.length ? prev + 1 : prev
+    );
+  };
+  console.log(employeeList.length);
+  const previousPage = () => {
+    setCurPage((prev) => (prev > 1 ? prev - 1 : prev));
+  };
+  const handleDisplay = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    setDisplayNumber(value);
+  };
+  const handleSortDisplay = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    setSortValue(value);
+  };
+  useEffect(() => {
+    getWorkers();
+  }, [count, displayNumber, sortValue, curPage, inputValue]);
+
   return {
     employeeList,
     count,
     newEmployeeInputValue,
     inputValue,
+    displayNumber,
+    sortValue,
+    curPage,
     setCount,
     setEmployeeList,
     getWorkers,
@@ -291,5 +327,9 @@ export const useEmployees = (): useEmployeesData => {
     setNewInputValue,
     handleInputSearch,
     setInputValue,
+    nextPage,
+    previousPage,
+    handleDisplay,
+    handleSortDisplay,
   };
 };

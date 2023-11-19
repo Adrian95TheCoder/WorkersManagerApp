@@ -1,7 +1,10 @@
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
 export const Home = () => {
-	const navigate = useNavigate();
+
+
+  const navigate = useNavigate();
+
 
 	const goToLoginPage = () => {
 		navigate("/Login");
@@ -27,4 +30,5 @@ export const Home = () => {
 			</div>
 		</>
 	);
+
 };

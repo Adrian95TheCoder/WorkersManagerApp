@@ -2,6 +2,7 @@ import { useContext } from "react";
 import "./Navigation.scss";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../components/context/UserContext";
+import { useTranslation } from "react-i18next";
 
 export const Navigation = () => {
 	const { token } = useContext(UserContext);
@@ -36,4 +37,5 @@ export const Navigation = () => {
 			</ul>
 		</nav>
 	);
+
 };
