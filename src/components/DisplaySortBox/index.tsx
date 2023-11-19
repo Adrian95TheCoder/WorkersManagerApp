@@ -50,7 +50,6 @@ export const DisplaySortBox = () => {
           <option value="30">30</option>
         </select>
       </label>
-      Display page: {curPage}
     </div>
   );
 };
