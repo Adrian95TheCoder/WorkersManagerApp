@@ -80,6 +80,7 @@ export const useEmployees = (): useEmployeesData => {
   const [allowDelete, setAllowDelete] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
+  const [maxPage, setMaxPage] = useState(1);
 
   // const [employee, setEmployee] = useState({
   //   id: 0,
@@ -116,13 +117,17 @@ export const useEmployees = (): useEmployeesData => {
   } = newEmployeeInputValue;
 
   const getWorkers = async () => {
+    const limit = 10;
     try {
       const data = await fetch(
-        `http://localhost:5000/workers/?_page=${curPage}&_limit=${displayNumber}&${sortValue}&q=${inputValue}`
+        `http://localhost:5000/workers/?_page=${curPage}&_limit=${displayNumber}&${sortValue}&q=${inputValue}&limit=${limit}`
       );
       if (!data.ok) throw new Error("Something goes wrong");
       const employees = await data.json();
-      console.log(employees, " pobrano dane pracownika");
+      const countPage = data.headers.get("X-Total-Count");
+      console.log(countPage, "ilość stron");
+      if (countPage) setMaxPage(Math.ceil(Number(countPage) / limit));
+
       setEmployeeList(employees);
     } catch (error) {
       console.log(error);
@@ -293,11 +298,9 @@ export const useEmployees = (): useEmployeesData => {
   };
 
   const nextPage = () => {
-    setCurPage((prev) =>
-      parseInt(displayNumber) - 1 < employeeList.length ? prev + 1 : prev
-    );
+    if (maxPage > curPage) setCurPage((prev) => prev + 1);
   };
-  console.log(employeeList.length);
+
   const previousPage = () => {
     setCurPage((prev) => (prev > 1 ? prev - 1 : prev));
   };
