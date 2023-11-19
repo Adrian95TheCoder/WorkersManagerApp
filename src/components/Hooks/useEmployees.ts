@@ -1,5 +1,6 @@
 import { employeeListType } from "../context/EmployeeContext";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 type useEmployeesData = {
   employeeList: employeeListType[];
   count: number;
@@ -24,6 +25,7 @@ type useEmployeesData = {
   displayNumber: string;
   sortValue: string;
   curPage: number;
+  allowDelete: boolean;
   setNewInputValue: React.Dispatch<React.SetStateAction<employeeListType>>;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
@@ -40,6 +42,7 @@ type useEmployeesData = {
     event: FormEvent<HTMLFormElement>,
     employee: employeeListType
   ) => void;
+
   /* search */
   handleInputSearch: (event: ChangeEvent<HTMLInputElement>) => void;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
@@ -47,6 +50,7 @@ type useEmployeesData = {
   previousPage: () => void;
   handleDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
+  setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const useEmployees = (): useEmployeesData => {
@@ -72,27 +76,30 @@ export const useEmployees = (): useEmployeesData => {
   const [curPage, setCurPage] = useState(1);
   const [inputValue, setInputValue] = useState("");
   const [sortValue, setSortValue] = useState("");
-  const [displayNumber, setDisplayNumber] = useState("");
+  const [displayNumber, setDisplayNumber] = useState("10");
+  const [allowDelete, setAllowDelete] = useState(false);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [maxPage, setMaxPage] = useState(1);
 
-  /*
-  const [employee, setEmployee] = useState<employeeListType>({
-    id: 0,
-    firstName: "",
-    lastName: "",
-    workplace: "",
-    age: 0,
-    // new
-    gender: "",
-    email: "",
-    phone: "",
-    birthDate: "",
-    address: "",
-    city: "",
-    postalCode: "",
-    state: "",
-    startWork: "",
-  });
-  */
+  // const [employee, setEmployee] = useState({
+  //   id: 0,
+  //   firstName: "",
+  //   lastName: "",
+  //   workplace: "",
+  //   age: 0,
+  //   // new
+  //   gender: "",
+  //   email: "",
+  //   phone: "",
+  //   birthDate: "",
+  //   address: "",
+  //   city: "",
+  //   postalCode: "",
+  //   state: "",
+  //   startWork: "",
+  // } as employeeListType);
+
   const {
     firstName,
     lastName,
@@ -110,13 +117,17 @@ export const useEmployees = (): useEmployeesData => {
   } = newEmployeeInputValue;
 
   const getWorkers = async () => {
+    const limit = 10;
     try {
       const data = await fetch(
-        `http://localhost:5000/workers/?_page=${curPage}&_limit=${displayNumber}&${sortValue}&q=${inputValue}`
+        `http://localhost:5000/workers/?_page=${curPage}&_limit=${displayNumber}&${sortValue}&q=${inputValue}&limit=${limit}`
       );
       if (!data.ok) throw new Error("Something goes wrong");
       const employees = await data.json();
-      console.log(employees, " pobrano dane pracownika");
+      const countPage = data.headers.get("X-Total-Count");
+      console.log(countPage, "ilość stron");
+      if (countPage) setMaxPage(Math.ceil(Number(countPage) / limit));
+
       setEmployeeList(employees);
     } catch (error) {
       console.log(error);
@@ -154,7 +165,7 @@ export const useEmployees = (): useEmployeesData => {
   };
 
   const deleteButton = async (employeeId: number) => {
-    if (employeeId <= 1000000000) {
+    if (employeeId < 1000000) {
       try {
         const data = await fetch(
           `http://localhost:5000/workers/${employeeId}`,
@@ -282,16 +293,14 @@ export const useEmployees = (): useEmployeesData => {
 
   /* search  */
   const handleInputSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    //console.log("Search changed");
+    if (curPage !== 1) setCurPage(1);
     setInputValue(event.target.value);
   };
 
   const nextPage = () => {
-    setCurPage((prev) =>
-      parseInt(displayNumber) - 1 < employeeList.length ? prev + 1 : prev
-    );
+    if (maxPage > curPage) setCurPage((prev) => prev + 1);
   };
-  console.log(employeeList.length);
+
   const previousPage = () => {
     setCurPage((prev) => (prev > 1 ? prev - 1 : prev));
   };
@@ -305,7 +314,7 @@ export const useEmployees = (): useEmployeesData => {
   };
   useEffect(() => {
     getWorkers();
-  }, [count, displayNumber, sortValue, curPage, inputValue]);
+  }, [count, displayNumber, sortValue, inputValue, curPage]);
 
   return {
     employeeList,
@@ -315,6 +324,7 @@ export const useEmployees = (): useEmployeesData => {
     displayNumber,
     sortValue,
     curPage,
+    allowDelete,
     setCount,
     setEmployeeList,
     getWorkers,
@@ -331,5 +341,7 @@ export const useEmployees = (): useEmployeesData => {
     previousPage,
     handleDisplay,
     handleSortDisplay,
+
+    setAllowDelete,
   };
 };

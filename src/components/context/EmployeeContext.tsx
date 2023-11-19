@@ -43,6 +43,7 @@ type EmployeeContextProps = {
   displayNumber: string;
   sortValue: string;
   curPage: number;
+  allowDelete: boolean;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
   getWorkers: () => Promise<void>;
@@ -65,6 +66,7 @@ type EmployeeContextProps = {
   previousPage: () => void;
   handleDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
+  setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 type EmployeeProviderProps = {
@@ -84,6 +86,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     displayNumber,
     sortValue,
     curPage,
+    allowDelete,
     setCount,
     setEmployeeList,
     getWorkers,
@@ -94,13 +97,13 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     handleNewEmployee,
     handleEditEmployee,
     setNewInputValue,
-
     setInputValue,
     handleInputSearch,
     nextPage,
     previousPage,
     handleDisplay,
     handleSortDisplay,
+    setAllowDelete,
   } = useEmployees();
 
   return (
@@ -112,6 +115,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         displayNumber,
         sortValue,
         curPage,
+        allowDelete,
         setCount,
         setEmployeeList,
         getWorkers,
@@ -129,6 +133,8 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         previousPage,
         handleDisplay,
         handleSortDisplay,
+
+        setAllowDelete,
       }}
     >
       {children}
