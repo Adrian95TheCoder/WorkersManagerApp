@@ -1,21 +1,18 @@
-/*
 import { EmployeeContext } from "../context/EmployeeContext";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-export const DeleteButton = () => {
-  const { employeeList, deleteButton } = useContext(EmployeeContext);
+type deleteProps = {
+  id: number;
+};
+export const DeleteButton = ({ id }: deleteProps) => {
+  const { deleteButton } = useContext(EmployeeContext);
 
   //   const { id } = useParams();
-  const [employee] = employeeList;
-  console.log(employee.id, "id z buttona");
+
+  console.log(id, "id z buttona");
   return (
     <>
-      <button onClick={() => deleteButton(employee.id)}>Delete employee</button>
+      <button onClick={() => deleteButton(id)}>Delete employee</button>
     </>
   );
-};
-*/
-
-export const DeleteButton = () => {
-  return <></>;
 };

@@ -88,8 +88,8 @@ export const EmployeeList = () => {
               <th className="EmployeeList__employee_id">Id</th>
               <th className="EmployeeList__employee_firstName">First Name</th>
               <th className="EmployeeList__employee_lastName">Last Name</th>
-              <th className="EmployeeList__employee_workplace">Workplace</th>
-              <th className="EmployeeList__employee_age">Age</th>
+              <th className="EmployeeList__employee_workplace">Age</th>
+              <th className="EmployeeList__employee_age">Workplace</th>
               <th className="EmployeeList__employee_delete_button">
                 Delete Button
               </th>
