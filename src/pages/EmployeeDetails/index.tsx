@@ -58,6 +58,7 @@ export const EmployeeDetails = () => {
   };
   return (
     <>
+    <div className="EmployeeDetails">
       <table className="EmployeeDetails__table">
         <tr>
           <th className="EmployeeDetails__th">Employee Details</th>
@@ -146,6 +147,7 @@ export const EmployeeDetails = () => {
           </button>
         </div>
       )}
+      </div>
     </>
   );
 };
