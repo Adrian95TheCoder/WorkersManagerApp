@@ -14,7 +14,7 @@ export const AddEmployee = () => {
     firstName,
     lastName,
     workplace,
-    age,
+    salary,
     gender,
     email,
     phone,
@@ -66,15 +66,15 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="age">Age:</label>
+                    <label htmlFor="salary">Salary:</label>
                   </td>
                   <td>
                     <input
                       type="number"
-                      id="age"
-                      name="age"
-                      placeholder="Enter age"
-                      value={age}
+                      id="salary"
+                      name="salary"
+                      placeholder="Enter salary"
+                      value={salary}
                       onChange={handleInputValue}
                     />
                   </td>

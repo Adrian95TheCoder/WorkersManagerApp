@@ -8,7 +8,7 @@ type useEmployeesData = {
     id: number;
     firstName: string;
     lastName: string;
-    age: number;
+    salary: number;
     workplace: string;
     // new
     gender: string;
@@ -61,7 +61,7 @@ export const useEmployees = (): useEmployeesData => {
     firstName: "",
     lastName: "",
     workplace: "",
-    age: 0,
+    salary: 0,
     // new
     gender: "",
     email: "",
@@ -104,7 +104,7 @@ export const useEmployees = (): useEmployeesData => {
     firstName,
     lastName,
     workplace,
-    age,
+    salary,
     gender,
     email,
     phone,
@@ -144,7 +144,7 @@ export const useEmployees = (): useEmployeesData => {
           firstName,
           lastName,
           workplace,
-          age,
+          salary,
           gender,
           email,
           phone,
@@ -178,9 +178,6 @@ export const useEmployees = (): useEmployeesData => {
           throw new Error("Something went wrong while deleting user");
         const deleteData = await data.json();
         alert("employee was deleted");
-        //console.log(deleteData, "zczxc");
-        //console.log(employeeList, "lista po usunięciu pracownika");
-        // console.log( "usuwa pracownika");
       } catch (error) {
         console.log(error);
       }
@@ -212,7 +209,7 @@ export const useEmployees = (): useEmployeesData => {
         firstName: "",
         lastName: "",
         workplace: "",
-        age: 0,
+        salary: 0,
         // new
         gender: "",
         email: "",
@@ -246,7 +243,7 @@ export const useEmployees = (): useEmployeesData => {
       firstName,
       lastName,
       workplace,
-      age,
+      salary,
       gender,
       email,
       phone,
@@ -268,7 +265,7 @@ export const useEmployees = (): useEmployeesData => {
           firstName,
           lastName,
           workplace,
-          age,
+          salary,
           gender,
           email,
           phone,
@@ -341,7 +338,6 @@ export const useEmployees = (): useEmployeesData => {
     previousPage,
     handleDisplay,
     handleSortDisplay,
-
     setAllowDelete,
   };
 };

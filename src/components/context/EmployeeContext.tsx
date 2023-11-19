@@ -6,7 +6,7 @@ export type employeeListType = {
   firstName: string;
   lastName: string;
   workplace: string;
-  age: number;
+  salary: number;
   // new
   gender: string;
   email: string;
@@ -26,7 +26,7 @@ type EmployeeContextProps = {
     id: number;
     firstName: string;
     lastName: string;
-    age: number;
+    salary: number;
     workplace: string;
     // new
     gender: string;
