@@ -33,9 +33,6 @@ export const EmployeeBox = ({
       <td className="EmployeeList__employee_lastName">{lastName}</td>
       <td className="EmployeeList__employee_age">{age}</td>
       <td className="EmployeeList__employee_workplace">{workplace}</td>
-      <td className="EmployeeList__employee_delete_button">
-        <DeleteButton id={id} />
-      </td>
       <td className="EmployeeList__details">
         <button>
           {/* <Link to={`/employeeList/${id}`}>Details</Link> */}
