@@ -66,7 +66,9 @@ export const EmployeeList = () => {
         </button>
 
         <Link to={"/employees/addEmployee"}>
-          <button className="EmployeeList__addEmployee">{"addEmployee"}</button>
+          <button className="EmployeeList__addEmployee">
+            {t("addEmployee")}
+          </button>
         </Link>
       </div>
     );
