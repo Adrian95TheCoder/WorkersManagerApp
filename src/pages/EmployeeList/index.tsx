@@ -4,6 +4,7 @@ import { EmployeeContext } from "../../components/context/EmployeeContext";
 import "./EmployeeList.scss";
 import { useDebounce } from "../../components/Hooks/useDebouce";
 import ReactDOM from "react-dom";
+import { useTranslation } from "react-i18next";
 
 export const EmployeeList = () => {
   const {
@@ -21,6 +22,8 @@ export const EmployeeList = () => {
   const navigate = useNavigate();
   const contextValue = useContext(EmployeeContext);
   console.log("Context Value:", contextValue);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     setInputValue(search.slice(3));
@@ -56,10 +59,8 @@ export const EmployeeList = () => {
       console.log("searchList", searchList);
       setFilteredList(searchList);
     } else setFilteredList(employeeList);
-
   }, [search, employeeList]);
-  
-  
+
   /*  search  */
 
   const details = (employee_id: number) => {
@@ -84,13 +85,13 @@ export const EmployeeList = () => {
     console.log("curPage", curPage);
     return (
       <div>
-        <h2 className="EmployeeList__h2">Employee list</h2>
+        <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
 
         <input
           className="EmployeeList__search"
           type="search"
           name="search"
-          placeholder="Search Last Name"
+          placeholder={t("searchLastName")}
           value={inputValue}
           onChange={handleInputSearch}
         />
@@ -100,14 +101,20 @@ export const EmployeeList = () => {
             <tr>
               <th className="EmployeeList__employee_lp">No</th>
               <th className="EmployeeList__employee_id">Id</th>
-              <th className="EmployeeList__employee_firstName">First Name</th>
-              <th className="EmployeeList__employee_lastName">Last Name</th>
-              <th className="EmployeeList__employee_workplace">Workplace</th>
-              <th className="EmployeeList__employee_age">Age</th>
-              <th className="EmployeeList__employee_delete_button">
-                Delete Button
+              <th className="EmployeeList__employee_firstName">
+                {t("firstName")}
               </th>
-              <th className="EmployeeList__details">Details Button</th>
+              <th className="EmployeeList__employee_lastName">
+                {t("lastName")}
+              </th>
+              <th className="EmployeeList__employee_workplace">
+                {t("workplace")}
+              </th>
+              <th className="EmployeeList__employee_age">{t("age")}</th>
+              <th className="EmployeeList__employee_delete_button">
+                {t("deleteButtons")}
+              </th>
+              <th className="EmployeeList__details">{t("detailsButtons")}</th>
             </tr>
           </thead>
           <tbody>
@@ -131,12 +138,12 @@ export const EmployeeList = () => {
                   <td className="EmployeeList__employee_age">{employee.age}</td>
                   <td className="EmployeeList__employee_delete_button">
                     <button onClick={() => deleteButton(employee.id)}>
-                      Delete employee
+                      {t("deleteEmployee")}
                     </button>
                   </td>
                   <td className="EmployeeList__details">
                     <button onClick={() => details(employee.id)}>
-                      Details
+                      {t("details")}
                     </button>
                   </td>
                 </tr>
@@ -145,14 +152,16 @@ export const EmployeeList = () => {
         </table>
 
         <button className="EmployeeList__addEmployee" onClick={previousPage}>
-          Previous Page
+          {t("previousPage")}
         </button>
         <button className="EmployeeList__addEmployee" onClick={nextPage}>
-          Next Page
+          {t("nextPage")}
         </button>
 
         <Link to={"/employees/addEmployee"}>
-          <button className="EmployeeList__addEmployee">Add employee</button>
+          <button className="EmployeeList__addEmployee">
+            {t("addEmployee")}
+          </button>
         </Link>
       </div>
     );
