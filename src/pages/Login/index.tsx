@@ -11,14 +11,20 @@ export const Login = () => {
   };
 
   return (
-    <div className="Login__body">
+    <div className="Login">  
       {!token ? (
         <>
           <form className="Login__form" onSubmit={handleLogin}>
-            <h2 className="Login__h2">Login Page</h2>
+          <img className="Login__form--icon"
+      src={('/assets/user.png')}
+      alt="icon of user"
+      />
+            <h2 className="Login__h2">User login</h2>
             <div className="Login__labelBox">
               <label htmlFor="username">
                 Login:
+                <div className="Login__input"><img src={('/assets/email.png')}
+                alt="login icon"/>
                 <input
                   type="text"
                   id="login"
@@ -27,11 +33,15 @@ export const Login = () => {
                   onChange={handleLoginInput}
                   required
                 />
+                </div>
+                
               </label>
             </div>
             <div className="Login__labelBox">
               <label htmlFor="password">
                 Password:
+                <div className="Login__input">
+                  <img src={('/assets/lock.png')} alt="lock icon" />
                 <input
                   type="password"
                   id="password"
@@ -40,6 +50,8 @@ export const Login = () => {
                   onChange={handleLoginInput}
                   required
                 />
+                </div>
+                
               </label>
             </div>
             <button className="Login__button" type="submit">
