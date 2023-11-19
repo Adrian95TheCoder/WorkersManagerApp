@@ -22,7 +22,7 @@ export const EmployeeDetails = () => {
     firstName: "",
     lastName: "",
     workplace: "",
-    age: 0,
+    salary: 0,
     // new
     gender: "",
     email: "",
@@ -76,8 +76,8 @@ export const EmployeeDetails = () => {
           <td className="EmployeeDetails__td">{employee.lastName}</td>
         </tr>
         <tr>
-          <td className="EmployeeDetails__td">age</td>
-          <td className="EmployeeDetails__td">{employee.age}</td>
+          <td className="EmployeeDetails__td">Salary</td>
+          <td className="EmployeeDetails__td">{employee.salary}</td>
         </tr>
         <tr>
           <td className="EmployeeDetails__td">gender</td>
