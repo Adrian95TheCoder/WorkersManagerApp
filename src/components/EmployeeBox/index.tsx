@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import { EmployeeContext } from "../context/EmployeeContext";
+import { DeleteButton } from "../DeleteButton";
+import { DetailsButton } from "../DetailsButton";
 type EmployeeBoxProps = {
   id: number;
   firstName: string;
@@ -19,7 +21,8 @@ export const EmployeeBox = ({
   workplace,
   index,
 }: EmployeeBoxProps) => {
-  const { deleteButton, curPage } = useContext(EmployeeContext);
+  //   const { id } = useParams();
+  const { curPage } = useContext(EmployeeContext);
   return (
     <tr>
       <td className="EmployeeList__employee_lp">
@@ -30,12 +33,10 @@ export const EmployeeBox = ({
       <td className="EmployeeList__employee_lastName">{lastName}</td>
       <td className="EmployeeList__employee_age">{age}</td>
       <td className="EmployeeList__employee_workplace">{workplace}</td>
-      <td className="EmployeeList__employee_delete_button">
-        <button onClick={() => deleteButton(id)}>Delete</button>
-      </td>
-      <td>
+      <td className="EmployeeList__details">
         <button>
-          <Link to={`/employeeList/${id}`}>Details</Link>
+          {/* <Link to={`/employeeList/${id}`}>Details</Link> */}
+          <DetailsButton id={id} />
         </button>
       </td>
     </tr>
