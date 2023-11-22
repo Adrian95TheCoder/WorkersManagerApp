@@ -89,5 +89,6 @@
   "salaryAscending": "salary ascending",
   "salaryDescending": "salary descending",
   "workplaceAscending": "workplace ascending",
-  "workplaceDescending": "workplace descending"
+  "workplaceDescending": "workplace descending",
+  "AccessDenied": "Access Denied"
 }

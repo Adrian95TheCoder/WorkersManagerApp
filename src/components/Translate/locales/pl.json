@@ -26,7 +26,7 @@
   "deleteEmployee": "Usuń pracownika",
   "details": " Szczegóły",
   "previousPage": "Poprzednia strona",
-  "nextPage": "Następna Strona",
+  "nextPage": "Następna strona",
   "addEmployee": "Dodaj pracownika",
   "displayPage": "Strona",
 
@@ -89,5 +89,6 @@
   "salaryAscending": "wynagrodzenie rosnąco",
   "salaryDescending": "wynagrodzenie malejąco",
   "workplaceAscending": "stanowisko rosnąco",
-  "workplaceDescending": "stanowisko malejąco"
+  "workplaceDescending": "stanowisko malejąco",
+  "AccessDenied": "Odmowa dostępu"
 }
