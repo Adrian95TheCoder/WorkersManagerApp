@@ -12,7 +12,7 @@ export type employeeListType = {
   email: string;
   phone: string;
   birthDate: string;
-  address: string;
+  street: string;
   city: string;
   postalCode: string;
   state: string;
@@ -33,7 +33,7 @@ type EmployeeContextProps = {
     email: string;
     phone: string;
     birthDate: string;
-    address: string;
+    street: string;
     city: string;
     postalCode: string;
     state: string;

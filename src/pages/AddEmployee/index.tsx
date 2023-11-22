@@ -19,7 +19,7 @@ export const AddEmployee = () => {
     email,
     phone,
     birthDate,
-    address,
+    street,
     city,
     postalCode,
     state,
@@ -73,7 +73,7 @@ export const AddEmployee = () => {
                       type="number"
                       id="salary"
                       name="salary"
-                      placeholder={t("enterLastName")}
+                      placeholder={t("enterSalary")}
                       value={salary}
                       onChange={handleInputValue}
                     />
@@ -88,7 +88,7 @@ export const AddEmployee = () => {
                       type="text"
                       id="gender"
                       name="gender"
-                      placeholder={t("enterLastName")}
+                      placeholder={t("enterGender")}
                       value={gender}
                       onChange={handleInputValue}
                     />
@@ -156,15 +156,15 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="address">Address:</label>
+                    <label htmlFor="street">{t("street")}</label>
                   </td>
                   <td>
                     <input
                       type="text"
-                      id="address"
-                      name="address"
-                      placeholder="Enter adress"
-                      value={address}
+                      id="street"
+                      name="street"
+                      placeholder={t("enterStreet")}
+                      value={street}
                       onChange={handleInputValue}
                     />
                   </td>

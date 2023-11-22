@@ -30,7 +30,7 @@ export const EmployeeDetails = () => {
     email: "",
     phone: "",
     birthDate: "",
-    address: "",
+    street: "",
     city: "",
     postalCode: "",
     state: "",
@@ -103,8 +103,8 @@ export const EmployeeDetails = () => {
             <td className="EmployeeDetails__td">{employee.workplace}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">address</td>
-            <td className="EmployeeDetails__td">{employee.address}</td>
+            <td className="EmployeeDetails__td">{t("street")}</td>
+            <td className="EmployeeDetails__td">{employee.street}</td>
           </tr>
           <tr>
             <td className="EmployeeDetails__td">{t("city")}</td>

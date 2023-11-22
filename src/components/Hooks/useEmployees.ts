@@ -16,7 +16,7 @@ type useEmployeesData = {
     email: string;
     phone: string;
     birthDate: string;
-    address: string;
+    street: string;
     city: string;
     postalCode: string;
     state: string;
@@ -68,7 +68,7 @@ export const useEmployees = (): useEmployeesData => {
     email: "",
     phone: "",
     birthDate: "",
-    address: "",
+    street: "",
     city: "",
     postalCode: "",
     state: "",
@@ -110,7 +110,7 @@ export const useEmployees = (): useEmployeesData => {
     email,
     phone,
     birthDate,
-    address,
+    street,
     city,
     postalCode,
     state,
@@ -150,7 +150,7 @@ export const useEmployees = (): useEmployeesData => {
           email,
           phone,
           birthDate,
-          address,
+          street,
           city,
           postalCode,
           state,
@@ -216,7 +216,7 @@ export const useEmployees = (): useEmployeesData => {
         email: "",
         phone: "",
         birthDate: "",
-        address: "",
+        street: "",
         city: "",
         postalCode: "",
         state: "",
@@ -249,7 +249,7 @@ export const useEmployees = (): useEmployeesData => {
       email,
       phone,
       birthDate,
-      address,
+      street,
       city,
       postalCode,
       state,
@@ -271,7 +271,7 @@ export const useEmployees = (): useEmployeesData => {
           email,
           phone,
           birthDate,
-          address,
+          street,
           city,
           postalCode,
           state,
