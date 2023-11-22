@@ -87,5 +87,7 @@
   "lastNameAscending": "last name ascending",
   "lastNameDescending": "last name descending",
   "salaryAscending": "salary ascending",
-  "salaryDescending": "salary descending"
+  "salaryDescending": "salary descending",
+  "workplaceAscending": "workplace ascending",
+  "workplaceDescending": "workplace descending"
 }

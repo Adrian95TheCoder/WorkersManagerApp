@@ -87,5 +87,7 @@
   "lastNameAscending": "nazwisko rosnąco",
   "lastNameDescending": "nazwisko malejąco",
   "salaryAscending": "wynagrodzenie rosnąco",
-  "salaryDescending": "wynagrodzenie malejąco"
+  "salaryDescending": "wynagrodzenie malejąco",
+  "workplaceAscending": "stanowisko rosnąco",
+  "workplaceDescending": "stanowisko malejąco"
 }
