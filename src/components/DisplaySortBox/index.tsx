@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { EmployeeContext } from "../context/EmployeeContext";
 import { useContext } from "react";
 export const DisplaySortBox = () => {
@@ -8,37 +9,39 @@ export const DisplaySortBox = () => {
     handleDisplay,
     curPage,
   } = useContext(EmployeeContext);
+  const { t } = useTranslation();
+
   return (
     <div>
       <label htmlFor="sortValue">
-        Sort paratemers
+        {t("sortParameters")}
         <select
           name="sortValue"
           id="sortValue"
           value={sortValue}
           onChange={handleSortDisplay}
         >
-          <option value="">Select sort type</option>
-          <option value="_sort=id&_order=asc">sort by id ascending</option>
-          <option value="_sort=id&_order=desc">sort by id descending</option>
+          {/* <option value="">Select sort type</option> */}
+          <option value="_sort=id&_order=asc">{t("idAscending")}</option>
+          <option value="_sort=id&_order=desc">{t("idDescending")}</option>
           <option value="_sort=firstName&_order=asc">
-            sort by first name ascending
+            {t("firstNameAscending")}
           </option>
           <option value="_sort=firstName&_order=desc">
-            sort by first name descending
+            {t("firstNameDescending")}
           </option>
           <option value="_sort=lastName&_order=asc">
-            sort by last name ascending
+            {t("lastNameAscending")}
           </option>
           <option value="_sort=lastName&_order=desc">
-            sort by last name descending
+            {t("lastNameDescending")}
           </option>
-          <option value="_sort=age&_order=asc">sort by age ascending</option>
-          <option value="_sort=age&_order=desc">sort by age descending</option>
+          <option value="_sort=age&_order=asc">{t("ageAscending")}</option>
+          <option value="_sort=age&_order=desc">{t("ageDescending")}</option>
         </select>
       </label>
       <label htmlFor="displayNumber">
-        Liczba wyświetlanych pracowników
+        {t("show")}
         <select
           name="displayNumber"
           id="displayNumber"

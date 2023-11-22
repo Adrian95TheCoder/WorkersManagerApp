@@ -30,7 +30,7 @@ export const AddEmployee = () => {
       <div className="addForm_box">
         <form onSubmit={(event) => handleNewEmployee(event, id)}>
           <h2>{t("personalInformation")}</h2>
-          <p>Use a permanent address where you can receive mail.</p>
+          <p>{t("UseaPermanentAddressWhereYouCanReceiveMail")}</p>
           <div className="labelBox">
             <table>
               <tbody>
@@ -43,7 +43,7 @@ export const AddEmployee = () => {
                       type="text"
                       id="name"
                       name="firstName"
-                      placeholder="Enter first name"
+                      placeholder={t("enterFirstName")}
                       value={firstName}
                       onChange={handleInputValue}
                     />
@@ -58,7 +58,7 @@ export const AddEmployee = () => {
                       type="text"
                       id="lastName"
                       name="lastName"
-                      placeholder="Enter last name"
+                      placeholder={t("enterLastName")}
                       value={lastName}
                       onChange={handleInputValue}
                     />
@@ -66,14 +66,14 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="salary">Salary:</label>
+                    <label htmlFor="salary">{t("salary")}</label>
                   </td>
                   <td>
                     <input
                       type="number"
                       id="salary"
                       name="salary"
-                      placeholder="Enter salary"
+                      placeholder={t("enterLastName")}
                       value={salary}
                       onChange={handleInputValue}
                     />
@@ -81,30 +81,14 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="workplace">Workplace:</label>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      id="workplace"
-                      name="workplace"
-                      placeholder="Enter workplace"
-                      value={workplace}
-                      onChange={handleInputValue}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  {/* new  */}
-                  <td>
-                    <label htmlFor="gender">Gender:</label>
+                    <label htmlFor="gender">{t("gender")}</label>
                   </td>
                   <td>
                     <input
                       type="text"
                       id="gender"
                       name="gender"
-                      placeholder="Enter gender"
+                      placeholder={t("enterLastName")}
                       value={gender}
                       onChange={handleInputValue}
                     />
@@ -112,14 +96,14 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">Email</label>
                   </td>
                   <td>
                     <input
                       type="text"
                       id="email"
                       name="email"
-                      placeholder="Enter email"
+                      placeholder={t("enterEmail")}
                       value={email}
                       onChange={handleInputValue}
                     />
@@ -127,14 +111,14 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="phone">Phone:</label>
+                    <label htmlFor="phone">{t("phone")}</label>
                   </td>
                   <td>
                     <input
                       type="text"
                       id="phone"
                       name="phone"
-                      placeholder="Enter phone"
+                      placeholder={t("enterPhone")}
                       value={phone}
                       onChange={handleInputValue}
                     />
@@ -142,15 +126,30 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="birthDate">Birth date:</label>
+                    <label htmlFor="birthDate">{t("birthDate")}</label>
                   </td>
                   <td>
                     <input
                       type="date"
                       id="birthDate"
                       name="birthDate"
-                      placeholder="Enter birth date"
+                      placeholder={t("enterBirthDate")}
                       value={birthDate}
+                      onChange={handleInputValue}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="workplace">{t("workplace")}</label>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="workplace"
+                      name="workplace"
+                      placeholder={t("enterWorkplace")}
+                      value={workplace}
                       onChange={handleInputValue}
                     />
                   </td>
@@ -164,7 +163,7 @@ export const AddEmployee = () => {
                       type="text"
                       id="address"
                       name="address"
-                      placeholder="Enter address"
+                      placeholder="Enter adress"
                       value={address}
                       onChange={handleInputValue}
                     />
@@ -172,14 +171,14 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="city">City:</label>
+                    <label htmlFor="city">{t("city")}</label>
                   </td>
                   <td>
                     <input
                       type="text"
                       id="city"
                       name="city"
-                      placeholder="Enter city"
+                      placeholder={t("enterCity")}
                       value={city}
                       onChange={handleInputValue}
                     />
@@ -187,14 +186,14 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="postalCode">Postal code:</label>
+                    <label htmlFor="postalCode">{t("postalCode")}</label>
                   </td>
                   <td>
                     <input
                       type="text"
                       id="postalCode"
                       name="postalCode"
-                      placeholder="Enter postal code"
+                      placeholder={t("enterPostalCode")}
                       value={postalCode}
                       onChange={handleInputValue}
                     />
@@ -202,14 +201,14 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="state">State:</label>
+                    <label htmlFor="state">{t("state")}</label>
                   </td>
                   <td>
                     <input
                       type="text"
                       id="state"
                       name="state"
-                      placeholder="Enter state"
+                      placeholder={t("enterState")}
                       value={state}
                       onChange={handleInputValue}
                     />
@@ -217,14 +216,14 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="startWork">Start work:</label>
+                    <label htmlFor="startWork">{t("startWork")}</label>
                   </td>
                   <td>
                     <input
                       type="date"
                       id="startWork"
                       name="startWork"
-                      placeholder="Enter start work"
+                      placeholder={t("enterStartWork")}
                       value={startWork}
                       onChange={handleInputValue}
                     />
@@ -234,7 +233,7 @@ export const AddEmployee = () => {
             </table>
           </div>
           <button className="AddEmployee__addButton" type="submit">
-            Add employee
+            {t("addEmployee")}
           </button>
         </form>
       </div>

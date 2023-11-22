@@ -32,7 +32,7 @@ export const EmployeeList = () => {
         <table className="EmployeeList__table3">
           <thead>
             <tr>
-              <th className="EmployeeList__employee_lp">No</th>
+              <th className="EmployeeList__employee_lp">{t("nr")}</th>
               <th className="EmployeeList__employee_id">Id</th>
               <th className="EmployeeList__employee_firstName">
                 {t("firstName")}
@@ -62,7 +62,7 @@ export const EmployeeList = () => {
               )
             )}
           </tbody>
-          Display page: {curPage}
+          {t("displayPage")}: {curPage}
         </table>
 
         <button className="EmployeeList__addEmployee" onClick={previousPage}>

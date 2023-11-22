@@ -5,10 +5,11 @@ import {
   employeeListType,
 } from "../../components/context/EmployeeContext";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const EditEmployee = () => {
   const { id } = useParams();
-
+  const { t } = useTranslation();
   const [employee, setEmployee] = useState<employeeListType>({
     id: 0,
     firstName: "",
@@ -61,184 +62,184 @@ export const EditEmployee = () => {
 
   return (
     <>
-    <div className="EditEmployee">
-      <h2 className="EditEmployee__h2">Edit Employee</h2>
-      {/* <form onSubmit={onSubmit}>  */}
-      <form onSubmit={(event) => handleEditEmployee(event, employee)}>
-        <table className="EditEmployee__table">
-          <tr>
-            <th className="EditEmployee__th">Employee Details</th>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">id</td>
-            <td className="EditEmployee__td">{employee.id}</td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">first name</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={employee.firstName}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">last name</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={employee.lastName}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">salary</td>
-            <td className="EditEmployee__td">
-              <input
-                type="number"
-                id="salary"
-                name="salary"
-                value={employee.salary}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">gender</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="gender"
-                name="gender"
-                value={employee.gender}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">email</td>
-            <td className="EditEmployee__td">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={employee.email}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">phone</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="phone"
-                name="phone"
-                value={employee.phone}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">birth date</td>
-            <td className="EditEmployee__td">
-              <input
-                type="date"
-                id="birthDate"
-                name="birthDate"
-                value={employee.birthDate}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">workplace</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="workplace"
-                name="workplace"
-                value={employee.workplace}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">address</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={employee.address}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">city</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="city"
-                name="city"
-                value={employee.city}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">postal code</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="postalCode"
-                name="postalCode"
-                value={employee.postalCode}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">state</td>
-            <td className="EditEmployee__td">
-              <input
-                type="text"
-                id="state"
-                name="state"
-                value={employee.state}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className="EditEmployee__td">start work</td>
-            <td className="EditEmployee__td">
-              <input
-                type="date"
-                id="startWork"
-                name="startWork"
-                value={employee.startWork}
-                onChange={handleInput}
-              />
-            </td>
-          </tr>
-        </table>
-        <button className="EditEmployee__saveButton" type="submit">
-          Save
-        </button>
-        <button
-          className="EditEmployee__backButton"
-          onClick={() => details(employee.id)}
-        >
-          Back to Details
-        </button>
-      </form>
+      <div className="EditEmployee">
+        {/* <h2 className="EditEmployee__h2">{t("editEmployee")}</h2> */}
+        {/* <form onSubmit={onSubmit}>  */}
+        <form onSubmit={(event) => handleEditEmployee(event, employee)}>
+          <table className="EditEmployee__table">
+            <tr>
+              <th className="EditEmployee__th">{t("editEmployee")}</th>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">Id</td>
+              <td className="EditEmployee__td">{employee.id}</td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("firstName")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={employee.firstName}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("lastName")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={employee.lastName}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("salary")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="number"
+                  id="salary"
+                  name="salary"
+                  value={employee.salary}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("gender")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="gender"
+                  name="gender"
+                  value={employee.gender}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">Email</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={employee.email}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("phone")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  value={employee.phone}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("birthDate")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="date"
+                  id="birthDate"
+                  name="birthDate"
+                  value={employee.birthDate}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("workplace")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="workplace"
+                  name="workplace"
+                  value={employee.workplace}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">address</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={employee.address}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("city")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  value={employee.city}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("postalCode")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="postalCode"
+                  name="postalCode"
+                  value={employee.postalCode}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("state")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  value={employee.state}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="EditEmployee__td">{t("startWork")}</td>
+              <td className="EditEmployee__td">
+                <input
+                  type="date"
+                  id="startWork"
+                  name="startWork"
+                  value={employee.startWork}
+                  onChange={handleInput}
+                />
+              </td>
+            </tr>
+          </table>
+          <button className="EditEmployee__saveButton" type="submit">
+            {t("save")}
+          </button>
+          <button
+            className="EditEmployee__backButton"
+            onClick={() => details(employee.id)}
+          >
+            {t("BackToDetails")}
+          </button>
+        </form>
       </div>
     </>
   );

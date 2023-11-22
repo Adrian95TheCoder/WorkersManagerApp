@@ -67,7 +67,7 @@ export const EmployeeDetails = () => {
             <th className="EmployeeDetails__th">{t("employeeDetails")}</th>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">id</td>
+            <td className="EmployeeDetails__td">Id</td>
             <td className="EmployeeDetails__td">{employee.id}</td>
           </tr>
           <tr>
@@ -87,7 +87,7 @@ export const EmployeeDetails = () => {
             <td className="EmployeeDetails__td">{employee.gender}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">email</td>
+            <td className="EmployeeDetails__td">Email</td>
             <td className="EmployeeDetails__td">{employee.email}</td>
           </tr>
           <tr>
@@ -127,26 +127,26 @@ export const EmployeeDetails = () => {
           className="EmployeeDetails__editButton"
           onClick={() => goToEditPage(employee.id)}
         >
-          Edit
+          {t("edit")}
         </button>
         <DeleteButton id={employee.id} />
         {allowDelete && (
           <div className="employee-details__allow">
             <p>
-              Are you sure you want to remove{" "}
+              {t("areYouSure")}{" "}
               <b>
                 {employee.id} {employee.firstName} {employee.lastName}
               </b>{" "}
-              from your employee list?
+              {t("fromYourEmployeeList")}
             </p>
             <button className="employee-details__save" onClick={handleDelete}>
-              Yes
+              {t("yes")}
             </button>
             <button
               className="employee-details__cancel"
               onClick={() => setAllowDelete(false)}
             >
-              No
+              {t("no")}
             </button>
           </div>
         )}

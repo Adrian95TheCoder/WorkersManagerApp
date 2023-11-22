@@ -33,60 +33,16 @@
       "startWork": "2022-05-14"
     },
     {
-      "id": 6,
       "firstName": "Kacper",
       "lastName": "Strzelecki",
       "workplace": "Programer",
-      "age": "32"
-    },
-    {
-      "id": 7,
-      "firstName": "Kacper",
-      "lastName": "Strzelecki",
-      "workplace": "Chef",
-      "age": "32"
-    },
-    {
-      "id": 9,
-      "firstName": "rwet",
-      "lastName": "wetwe",
-      "workplace": "rewtwer",
-      "age": "0435"
+      "id": 6
     },
     {
       "firstName": "asdfasdf",
       "lastName": "asdfasdf",
       "workplace": "asfdf",
-      "age": "032",
       "id": 10
-    },
-    {
-      "firstName": "asdfsadf",
-      "lastName": "sdfasf",
-      "workplace": "sdfasdf",
-      "age": "03232",
-      "id": 14
-    },
-    {
-      "firstName": "asdfasdf",
-      "lastName": "asdfsaf",
-      "workplace": "arfsadfsad",
-      "age": "03232",
-      "id": 15
-    },
-    {
-      "firstName": "Nicklaus",
-      "lastName": "Cruickshank",
-      "workplace": "test",
-      "age": "1",
-      "id": 19
-    },
-    {
-      "firstName": "Nicklaus",
-      "lastName": "Cruickshank",
-      "workplace": "test",
-      "age": "1",
-      "id": 1
     },
     {
       "firstName": "Marian",
