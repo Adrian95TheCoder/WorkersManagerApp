@@ -22,7 +22,7 @@
   "workplace": "Stanowisko",
   "age": "Wiek",
   "deleteButtons": "Usuń",
-  "detailsButtons": "Detale",
+  "detailsButtons": "Szczegóły",
   "deleteEmployee": "Usuń pracownika",
   "details": " Szczegóły",
   "previousPage": "Poprzednia strona",
@@ -86,6 +86,6 @@
   "firstNameDescending": "imię malejąco",
   "lastNameAscending": "nazwisko rosnąco",
   "lastNameDescending": "nazwisko malejąco",
-  "ageAscending": "wiek rosnąco",
-  "ageDescending": "wiek malejąco"
+  "salaryAscending": "wynagrodzenie rosnąco",
+  "salaryDescending": "wynagrodzenie malejąco"
 }

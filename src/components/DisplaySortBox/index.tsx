@@ -36,8 +36,12 @@ export const DisplaySortBox = () => {
           <option value="_sort=lastName&_order=desc">
             {t("lastNameDescending")}
           </option>
-          <option value="_sort=age&_order=asc">{t("ageAscending")}</option>
-          <option value="_sort=age&_order=desc">{t("ageDescending")}</option>
+          <option value="_sort=salary&_order=asc">
+            {t("salaryAscending")}
+          </option>
+          <option value="_sort=salary&_order=desc">
+            {t("salaryDescending")}
+          </option>
         </select>
       </label>
       <label htmlFor="displayNumber">
