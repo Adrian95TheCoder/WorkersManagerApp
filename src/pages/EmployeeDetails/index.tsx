@@ -8,6 +8,7 @@ import "./EmployeeDetails.scss";
 
 import { DeleteButton } from "../../components/DeleteButton";
 import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 export const EmployeeDetails = () => {
   const { id } = useParams();
@@ -36,6 +37,7 @@ export const EmployeeDetails = () => {
     startWork: "",
   });
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const getSingleEmployee = (employeeId: string) => {
     const selectedEmployee = employeeList.find(
@@ -77,7 +79,7 @@ export const EmployeeDetails = () => {
             <td className="EmployeeDetails__td">{employee.lastName}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">Salary</td>
+            <td className="EmployeeDetails__td">{t("salary")}</td>
             <td className="EmployeeDetails__td">{employee.salary}</td>
           </tr>
           <tr>
@@ -105,19 +107,19 @@ export const EmployeeDetails = () => {
             <td className="EmployeeDetails__td">{employee.address}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">city</td>
+            <td className="EmployeeDetails__td">{t("city")}</td>
             <td className="EmployeeDetails__td">{employee.city}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">postal code</td>
+            <td className="EmployeeDetails__td">{t("postalCode")}</td>
             <td className="EmployeeDetails__td">{employee.postalCode}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">state</td>
+            <td className="EmployeeDetails__td">{t("state")}</td>
             <td className="EmployeeDetails__td">{employee.state}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">start work</td>
+            <td className="EmployeeDetails__td">{t("startWork")}</td>
             <td className="EmployeeDetails__td">{employee.startWork}</td>
           </tr>
         </table>

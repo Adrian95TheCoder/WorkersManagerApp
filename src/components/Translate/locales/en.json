@@ -32,6 +32,12 @@
   "personalInformation": "Personal Information",
   "navLogin": "Login",
   "employeeDetails": "Employee Details",
+  "salary": "Salary",
   "gender": "Gender",
-  "phone": "Phone"
+  "phone": "Phone",
+  "birthDate": "Birth Date",
+  "city": "City",
+  "postalCode": "Postal Code",
+  "state": "State",
+  "startWork": "Start Work"
 }

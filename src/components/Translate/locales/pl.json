@@ -32,6 +32,12 @@
   "personalInformation": "Informacje Personalne",
   "navLogin": "Logowanie",
   "employeeDetails": "Szczegóły pracownika",
+  "salary": "Wynagrodzenie",
   "gender": "Płeć",
-  "phone": "Nr. telefonu"
+  "phone": "Nr. telefonu",
+  "birthDate": "Data urodzenia",
+  "city": "Miasto",
+  "postalCode": "Kod pocztowy",
+  "state": "Państwo",
+  "startWork": "Data zatrudnienia"
 }
