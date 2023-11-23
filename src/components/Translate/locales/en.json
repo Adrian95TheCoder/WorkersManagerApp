@@ -90,5 +90,6 @@
   "salaryDescending": "salary descending",
   "workplaceAscending": "workplace ascending",
   "workplaceDescending": "workplace descending",
-  "AccessDenied": "Access Denied"
+  "AccessDenied": "Access Denied",
+  "ErrorWhileLogin": "Error while login"
 }

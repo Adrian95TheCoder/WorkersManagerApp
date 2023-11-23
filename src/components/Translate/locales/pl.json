@@ -90,5 +90,6 @@
   "salaryDescending": "wynagrodzenie malejąco",
   "workplaceAscending": "stanowisko rosnąco",
   "workplaceDescending": "stanowisko malejąco",
-  "AccessDenied": "Odmowa dostępu"
+  "AccessDenied": "Odmowa dostępu",
+  "ErrorWhileLogin": "Błąd podczas logowania"
 }
