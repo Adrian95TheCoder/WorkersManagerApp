@@ -90,5 +90,6 @@
   "salaryDescending": "wynagrodzenie malejąco",
   "workplaceAscending": "stanowisko rosnąco",
   "workplaceDescending": "stanowisko malejąco",
-  "AccessDenied": "Odmowa dostępu"
+  "AccessDenied": "Odmowa dostępu",
+  "pleaseEnteraValidPhoneNumber": "Możesz wpisać w numerze telefonu (tylko cyfry oraz znak minus) "
 }

@@ -1,7 +1,10 @@
+import { log } from "console";
 import { employeeListType } from "../context/EmployeeContext";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
+
 type useEmployeesData = {
   employeeList: employeeListType[];
   count: number;
@@ -43,6 +46,7 @@ type useEmployeesData = {
     event: FormEvent<HTMLFormElement>,
     employee: employeeListType
   ) => void;
+  phoneError: string;
 
   /* search */
   handleInputSearch: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -57,6 +61,7 @@ type useEmployeesData = {
 export const useEmployees = (): useEmployeesData => {
   const [employeeList, setEmployeeList] = useState<employeeListType[]>([]);
   const [count, setCount] = useState(employeeList.length);
+  const { handleSubmit, register, setValue } = useForm();
   const [newEmployeeInputValue, setNewInputValue] = useState<employeeListType>({
     id: count,
     firstName: "",
@@ -82,24 +87,9 @@ export const useEmployees = (): useEmployeesData => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [maxPage, setMaxPage] = useState(1);
+  const { t } = useTranslation();
 
-  // const [employee, setEmployee] = useState({
-  //   id: 0,
-  //   firstName: "",
-  //   lastName: "",
-  //   workplace: "",
-  //   age: 0,
-  //   // new
-  //   gender: "",
-  //   email: "",
-  //   phone: "",
-  //   birthDate: "",
-  //   address: "",
-  //   city: "",
-  //   postalCode: "",
-  //   state: "",
-  //   startWork: "",
-  // } as employeeListType);
+  const [phoneError, setPhoneError] = useState("");
 
   const {
     firstName,
@@ -194,9 +184,25 @@ export const useEmployees = (): useEmployeesData => {
     setNewInputValue((prev) => {
       return { ...prev, [name]: value };
     });
+    setPhoneError("");
   };
+
+  const test = () => console.log("test validation");
+  const valPhone = () => {
+    const stringPhone = newEmployeeInputValue.phone;
+    console.log(stringPhone);
+    const pattern = /^\d+(-\d+)*$/;
+    if (!pattern.test(stringPhone)) {
+      setPhoneError(t("pleaseEnteraValidPhoneNumber"));
+    } else {
+      setPhoneError("");
+      console.log("phone ok");
+    }
+  };
+
   const handleNewEmployee = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    valPhone();
 
     if (
       newEmployeeInputValue.firstName.length > 3 &&
@@ -340,5 +346,6 @@ export const useEmployees = (): useEmployeesData => {
     handleDisplay,
     handleSortDisplay,
     setAllowDelete,
+    phoneError,
   };
 };

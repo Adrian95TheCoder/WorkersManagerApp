@@ -67,6 +67,7 @@ type EmployeeContextProps = {
   handleDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
+  phoneError: string;
 };
 
 type EmployeeProviderProps = {
@@ -104,6 +105,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     handleDisplay,
     handleSortDisplay,
     setAllowDelete,
+    phoneError,
   } = useEmployees();
 
   return (
@@ -133,7 +135,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         previousPage,
         handleDisplay,
         handleSortDisplay,
-
+        phoneError,
         setAllowDelete,
       }}
     >

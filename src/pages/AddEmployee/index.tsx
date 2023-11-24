@@ -2,11 +2,15 @@ import { useTranslation } from "react-i18next";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
 
 import "./AddEmployee.scss";
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 
 export const AddEmployee = () => {
-  const { newEmployeeInputValue, handleInputValue, handleNewEmployee } =
-    useContext(EmployeeContext);
+  const {
+    newEmployeeInputValue,
+    handleInputValue,
+    handleNewEmployee,
+    phoneError,
+  } = useContext(EmployeeContext);
   const { t } = useTranslation();
 
   const {
@@ -25,6 +29,7 @@ export const AddEmployee = () => {
     state,
     startWork,
   } = newEmployeeInputValue;
+
   return (
     <div className="addFormMain">
       <div className="addForm_box">
@@ -122,6 +127,9 @@ export const AddEmployee = () => {
                       value={phone}
                       onChange={handleInputValue}
                     />
+                  </td>
+                  <td>
+                    <p>{phoneError}</p>
                   </td>
                 </tr>
                 <tr>
@@ -232,6 +240,7 @@ export const AddEmployee = () => {
               </tbody>
             </table>
           </div>
+
           <button className="AddEmployee__addButton" type="submit">
             {t("addEmployee")}
           </button>

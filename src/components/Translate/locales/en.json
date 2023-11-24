@@ -90,5 +90,7 @@
   "salaryDescending": "salary descending",
   "workplaceAscending": "workplace ascending",
   "workplaceDescending": "workplace descending",
-  "AccessDenied": "Access Denied"
+  "AccessDenied": "Access Denied",
+  "pleaseEnteraValidPhoneNumber": "Please enter a valid phone number (digits and optional hyphens)",
+  "tooShort": "oo Short"
 }
