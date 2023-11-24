@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import { EmployeeContext } from "../context/EmployeeContext";
@@ -10,6 +9,7 @@ type EmployeeBoxProps = {
   lastName: string;
   workplace: string;
   salary: number;
+  status: string;
   index: number;
 };
 
@@ -18,6 +18,7 @@ export const EmployeeBox = ({
   firstName,
   lastName,
   salary,
+  status,
   workplace,
   index,
 }: EmployeeBoxProps) => {
@@ -32,7 +33,8 @@ export const EmployeeBox = ({
       <td className="EmployeeList__employee_firstName">{firstName}</td>
       <td className="EmployeeList__employee_lastName">{lastName}</td>
       <td className="EmployeeList__employee_workplace">{workplace}</td>
-      <td className="EmployeeList__employee_age">{salary}</td>
+      <td className="EmployeeList__employee_salary">{salary}</td>
+      <td className="EmployeeList__employee_status">{status}</td>
       <td className="EmployeeList__details">
         <button>
           {/* <Link to={`/employeeList/${id}`}>Details</Link> */}

@@ -8,7 +8,7 @@ import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
 
 export const EmployeeList = () => {
-  const { employeeList, curPage, previousPage, nextPage } =
+  const { employeeList, curPage, maxPage, previousPage, nextPage } =
     useContext(EmployeeContext);
 
   /*  search  */
@@ -38,26 +38,31 @@ export const EmployeeList = () => {
               <th className="EmployeeList__employee_lastName">Last Name</th>
               <th className="EmployeeList__employee_workplace">Workplace</th>
               <th className="EmployeeList__employee_salary">Salary</th>
+              <th className="EmployeeList__employee_status">Status</th>
 
               <th className="EmployeeList__details">{t("detailsButtons")}</th>
             </tr>
           </thead>
           <tbody>
             {employeeList.map(
-              ({ id, firstName, lastName, salary, workplace }, index) => (
+              (
+                { id, firstName, lastName, salary, status, workplace },
+                index
+              ) => (
                 <EmployeeBox
                   key={id}
                   id={id}
                   firstName={firstName}
                   lastName={lastName}
                   salary={salary}
+                  status={status}
                   workplace={workplace}
                   index={index}
                 />
               )
             )}
           </tbody>
-          Display page: {curPage}
+          Page: {curPage} {""} of {""} {maxPage}
         </table>
 
         <button className="EmployeeList__addEmployee" onClick={previousPage}>

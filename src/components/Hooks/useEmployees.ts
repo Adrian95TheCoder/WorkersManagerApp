@@ -9,6 +9,7 @@ type useEmployeesData = {
     firstName: string;
     lastName: string;
     salary: number;
+    status: string;
     workplace: string;
     // new
     gender: string;
@@ -25,7 +26,9 @@ type useEmployeesData = {
   displayNumber: string;
   sortValue: string;
   curPage: number;
+  maxPage: number;
   allowDelete: boolean;
+  employeeStatus: string;
   setNewInputValue: React.Dispatch<React.SetStateAction<employeeListType>>;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
@@ -51,6 +54,7 @@ type useEmployeesData = {
   handleDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSelect: (event: ChangeEvent<HTMLSelectElement>) => void;
 };
 
 export const useEmployees = (): useEmployeesData => {
@@ -62,6 +66,7 @@ export const useEmployees = (): useEmployeesData => {
     lastName: "",
     workplace: "",
     salary: 0,
+    status: "",
     // new
     gender: "",
     email: "",
@@ -81,7 +86,7 @@ export const useEmployees = (): useEmployeesData => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [maxPage, setMaxPage] = useState(1);
-
+  const [employeeStatus, setEmployeeStatus] = useState("Hired");
   // const [employee, setEmployee] = useState({
   //   id: 0,
   //   firstName: "",
@@ -105,6 +110,7 @@ export const useEmployees = (): useEmployeesData => {
     lastName,
     workplace,
     salary,
+    status,
     gender,
     email,
     phone,
@@ -145,6 +151,7 @@ export const useEmployees = (): useEmployeesData => {
           lastName,
           workplace,
           salary,
+          status: employeeStatus,
           gender,
           email,
           phone,
@@ -210,6 +217,7 @@ export const useEmployees = (): useEmployeesData => {
         lastName: "",
         workplace: "",
         salary: 0,
+        status: "",
         // new
         gender: "",
         email: "",
@@ -223,19 +231,6 @@ export const useEmployees = (): useEmployeesData => {
       });
     } else alert(` too short`);
   };
-  useEffect(() => {
-    getWorkers();
-  }, [count]);
-
-  const handleEditEmployee = async (
-    event: FormEvent<HTMLFormElement>,
-    employee: employeeListType
-  ) => {
-    event.preventDefault();
-
-    const changedEmployee = await editEmployee(employee);
-    //console.log("firstName in handleEditEmployee:", employee.firstName);
-  };
 
   const editEmployee = async (currentEmployee: employeeListType) => {
     const {
@@ -244,6 +239,7 @@ export const useEmployees = (): useEmployeesData => {
       lastName,
       workplace,
       salary,
+      status: employeeStatus,
       gender,
       email,
       phone,
@@ -254,7 +250,7 @@ export const useEmployees = (): useEmployeesData => {
       state,
       startWork,
     } = currentEmployee;
-    //console.log("1: firstName in editEmployee:", firstName);
+    console.log("1: status in editEmployee:", status);
 
     try {
       //console.log("2: firstName in editEmployee:", firstName);
@@ -266,6 +262,7 @@ export const useEmployees = (): useEmployeesData => {
           lastName,
           workplace,
           salary,
+          status: employeeStatus,
           gender,
           email,
           phone,
@@ -279,6 +276,7 @@ export const useEmployees = (): useEmployeesData => {
       });
       if (!data.ok) throw new Error("ups");
       const response = await data.json();
+      console.log("udało się zedytować");
       return response;
     } catch (error) {
       console.log(error);
@@ -288,6 +286,15 @@ export const useEmployees = (): useEmployeesData => {
     //console.log("currentEmployee", currentEmployee);
   };
 
+  const handleEditEmployee = async (
+    event: FormEvent<HTMLFormElement>,
+    employee: employeeListType
+  ) => {
+    event.preventDefault();
+
+    const changedEmployee = await editEmployee(employee);
+    //console.log("firstName in handleEditEmployee:", employee.firstName);
+  };
   /* search  */
   const handleInputSearch = (event: ChangeEvent<HTMLInputElement>) => {
     if (curPage !== 1) setCurPage(1);
@@ -309,9 +316,13 @@ export const useEmployees = (): useEmployeesData => {
     const value = event.target.value;
     setSortValue(value);
   };
+  const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    setEmployeeStatus(value);
+  };
   useEffect(() => {
     getWorkers();
-  }, [count, displayNumber, sortValue, inputValue, curPage]);
+  }, [count, displayNumber, sortValue, inputValue, curPage, employeeStatus]);
 
   return {
     employeeList,
@@ -321,7 +332,9 @@ export const useEmployees = (): useEmployeesData => {
     displayNumber,
     sortValue,
     curPage,
+    maxPage,
     allowDelete,
+    employeeStatus,
     setCount,
     setEmployeeList,
     getWorkers,
@@ -339,5 +352,6 @@ export const useEmployees = (): useEmployeesData => {
     handleDisplay,
     handleSortDisplay,
     setAllowDelete,
+    handleSelect,
   };
 };

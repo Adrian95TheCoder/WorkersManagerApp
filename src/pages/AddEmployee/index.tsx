@@ -5,8 +5,13 @@ import "./AddEmployee.scss";
 import { useContext } from "react";
 
 export const AddEmployee = () => {
-  const { newEmployeeInputValue, handleInputValue, handleNewEmployee } =
-    useContext(EmployeeContext);
+  const {
+    newEmployeeInputValue,
+    employeeStatus,
+    handleInputValue,
+    handleNewEmployee,
+    handleSelect,
+  } = useContext(EmployeeContext);
   const { t } = useTranslation();
 
   const {
@@ -15,6 +20,7 @@ export const AddEmployee = () => {
     lastName,
     workplace,
     salary,
+    status,
     gender,
     email,
     phone,
@@ -77,6 +83,18 @@ export const AddEmployee = () => {
                       value={salary}
                       onChange={handleInputValue}
                     />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="salary">Status:</label>
+                  </td>
+                  <td>
+                    <select value={employeeStatus} onChange={handleSelect}>
+                      <option value="Hire">Hire</option>
+                      <option value="On Vacation">On Vacation</option>
+                      <option value="Fired:">Fired</option>
+                    </select>
                   </td>
                 </tr>
                 <tr>
@@ -238,6 +256,8 @@ export const AddEmployee = () => {
           </button>
         </form>
       </div>
+      <p>Employee Status: {employeeStatus}</p> /h
+      <p>Employee Status z input: {newEmployeeInputValue.status}</p>
     </div>
   );
 };
