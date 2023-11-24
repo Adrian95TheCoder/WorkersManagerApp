@@ -76,12 +76,6 @@ export const EditEmployee = () => {
   return (
     <>
       <div className="EditEmployee">
-
-        <h2 className="EditEmployee__h2">Edit Employee</h2>
-
-        {/* <h2 className="EditEmployee__h2">{t("editEmployee")}</h2> */}
-
-        {/* <form onSubmit={onSubmit}>  */}
         <form onSubmit={(event) => handleEditEmployee(event, employee)}>
           <table className="EditEmployee__table">
             <tr>
@@ -104,7 +98,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-
               <td className="EditEmployee__td">{t("lastName")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -117,9 +110,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-
-              
-
               <td className="EditEmployee__td">{t("salary")}</td>
 
               <td className="EditEmployee__td">
@@ -133,7 +123,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-
               <td>
                 <label htmlFor="status">Status:</label>
               </td>
@@ -153,7 +142,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-            
               <td className="EditEmployee__td">{t("gender")}</td>
 
               <td className="EditEmployee__td">
@@ -167,7 +155,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-             
               <td className="EditEmployee__td">Email</td>
               <td className="EditEmployee__td">
                 <input
@@ -180,8 +167,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-
-             
               <td className="EditEmployee__td">{t("phone")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -194,9 +179,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-
-  
-
               <td className="EditEmployee__td">{t("birthDate")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -209,8 +191,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-      
-
               <td className="EditEmployee__td">{t("workplace")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -223,9 +203,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-
-       
-
               <td className="EditEmployee__td">{t("street")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -233,15 +210,11 @@ export const EditEmployee = () => {
                   id="street"
                   name="street"
                   value={employee.street}
-
                   onChange={handleInput}
                 />
               </td>
             </tr>
             <tr>
-
-          
-
               <td className="EditEmployee__td">{t("city")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -253,7 +226,7 @@ export const EditEmployee = () => {
                 />
               </td>
             </tr>
-            <tr>            
+            <tr>
               <td className="EditEmployee__td">{t("postalCode")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -266,9 +239,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-
-         
-
               <td className="EditEmployee__td">{t("state")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -280,7 +250,6 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-
               <td className="EditEmployee__td">{t("startWork")}</td>
               <td className="EditEmployee__td">
                 <input
@@ -294,16 +263,13 @@ export const EditEmployee = () => {
             </tr>
           </table>
           <button className="EditEmployee__saveButton" type="submit">
-
             {t("save")}
-
           </button>
           <button
             className="EditEmployee__backButton"
             onClick={() => details(employee.id)}
-          >  
-
-           {t("BackToDetails")}
+          >
+            {t("BackToDetails")}
           </button>
         </form>
       </div>
