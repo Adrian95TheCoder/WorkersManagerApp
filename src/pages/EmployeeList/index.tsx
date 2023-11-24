@@ -9,7 +9,7 @@ import { DisplaySortBox } from "../../components/DisplaySortBox";
 import { UserContext } from "../../components/context/UserContext";
 
 export const EmployeeList = () => {
-  const { employeeList, curPage, previousPage, nextPage } =
+  const { employeeList, curPage, maxPage, previousPage, nextPage } =
     useContext(EmployeeContext);
   const { token } = useContext(UserContext);
 
@@ -33,8 +33,9 @@ export const EmployeeList = () => {
 
             <InputSearchBox />
 
-            <table className="EmployeeList__table3">
-              <thead>
+
+        <table className="EmployeeList__table3">
+          <thead>
                 <tr>
                   <th className="EmployeeList__employee_lp">{t("nr")}</th>
                   <th className="EmployeeList__employee_id">Id</th>
@@ -55,25 +56,31 @@ export const EmployeeList = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                {employeeList.map(
-                  ({ id, firstName, lastName, salary, workplace }, index) => (
-                    <EmployeeBox
-                      key={id}
-                      id={id}
-                      firstName={firstName}
-                      lastName={lastName}
-                      salary={salary}
-                      workplace={workplace}
-                      index={index}
-                    />
-                  )
-                )}
-              </tbody>
-              {t("displayPage")}: {curPage}
-            </table>
+          <tbody>
+            {employeeList.map(
+              (
+                { id, firstName, lastName, salary, status, workplace },
+                index
+              ) => (
+                <EmployeeBox
+                  key={id}
+                  id={id}
+                  firstName={firstName}
+                  lastName={lastName}
+                  salary={salary}
+                  status={status}
+                  workplace={workplace}
+                  index={index}
+                />
+              )
+            )}
+          </tbody>
+          {t("displayPage")}: {curPage} {""} of {""} {maxPage}
+        </table>
 
-            <button
+           
+
+             <button
               className="EmployeeList__addEmployee"
               onClick={previousPage}
             >

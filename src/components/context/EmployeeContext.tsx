@@ -7,6 +7,7 @@ export type employeeListType = {
   lastName: string;
   workplace: string;
   salary: number;
+  status: string;
   // new
   gender: string;
   email: string;
@@ -27,6 +28,7 @@ type EmployeeContextProps = {
     firstName: string;
     lastName: string;
     salary: number;
+    status: string;
     workplace: string;
     // new
     gender: string;
@@ -43,7 +45,9 @@ type EmployeeContextProps = {
   displayNumber: string;
   sortValue: string;
   curPage: number;
+  maxPage: number;
   allowDelete: boolean;
+  employeeStatus: string;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   setEmployeeList: React.Dispatch<React.SetStateAction<employeeListType[]>>;
   getWorkers: () => Promise<void>;
@@ -67,6 +71,7 @@ type EmployeeContextProps = {
   handleDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSelect: (event: ChangeEvent<HTMLSelectElement>) => void;
 };
 
 type EmployeeProviderProps = {
@@ -86,7 +91,9 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     displayNumber,
     sortValue,
     curPage,
+    maxPage,
     allowDelete,
+    employeeStatus,
     setCount,
     setEmployeeList,
     getWorkers,
@@ -104,6 +111,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     handleDisplay,
     handleSortDisplay,
     setAllowDelete,
+    handleSelect,
   } = useEmployees();
 
   return (
@@ -115,7 +123,9 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         displayNumber,
         sortValue,
         curPage,
+        maxPage,
         allowDelete,
+        employeeStatus,
         setCount,
         setEmployeeList,
         getWorkers,
@@ -135,6 +145,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         handleSortDisplay,
 
         setAllowDelete,
+        handleSelect,
       }}
     >
       {children}
