@@ -1,7 +1,6 @@
 import { log } from "console";
 import { employeeListType } from "../context/EmployeeContext";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
-import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -65,7 +64,6 @@ type useEmployeesData = {
 export const useEmployees = (): useEmployeesData => {
   const [employeeList, setEmployeeList] = useState<employeeListType[]>([]);
   const [count, setCount] = useState(employeeList.length);
-  const { handleSubmit, register, setValue } = useForm();
   const [newEmployeeInputValue, setNewInputValue] = useState<employeeListType>({
     id: count,
     firstName: "",
@@ -195,7 +193,6 @@ export const useEmployees = (): useEmployeesData => {
     setPhoneError("");
   };
 
-  const test = () => console.log("test validation");
   const valPhone = () => {
     const stringPhone = newEmployeeInputValue.phone;
     console.log(stringPhone);
