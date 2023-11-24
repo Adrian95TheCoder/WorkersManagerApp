@@ -87,7 +87,6 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-
                     <label htmlFor="status">Status:</label>
                   </td>
                   <td>
@@ -119,7 +118,6 @@ export const AddEmployee = () => {
                     <label htmlFor="gender">Gender:</label>
 
                     <label htmlFor="gender">{t("gender")}</label>
-
                   </td>
                   <td>
                     <input
@@ -275,8 +273,6 @@ export const AddEmployee = () => {
           </button>
         </form>
       </div>
-      <p>Employee Status: {employeeStatus}</p> /h
-      <p>Employee Status z input: {newEmployeeInputValue.status}</p>
     </div>
   );
 };

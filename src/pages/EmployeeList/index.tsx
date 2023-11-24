@@ -33,9 +33,8 @@ export const EmployeeList = () => {
 
             <InputSearchBox />
 
-
-        <table className="EmployeeList__table3">
-          <thead>
+            <table className="EmployeeList__table3">
+              <thead>
                 <tr>
                   <th className="EmployeeList__employee_lp">{t("nr")}</th>
                   <th className="EmployeeList__employee_id">Id</th>
@@ -51,36 +50,37 @@ export const EmployeeList = () => {
                   <th className="EmployeeList__employee_salary">
                     {t("salary")}
                   </th>
+                  <th className="EmployeeList__employee_status">
+                    {t("Status")}
+                  </th>
                   <th className="EmployeeList__details">
                     {t("detailsButtons")}
                   </th>
                 </tr>
               </thead>
-          <tbody>
-            {employeeList.map(
-              (
-                { id, firstName, lastName, salary, status, workplace },
-                index
-              ) => (
-                <EmployeeBox
-                  key={id}
-                  id={id}
-                  firstName={firstName}
-                  lastName={lastName}
-                  salary={salary}
-                  status={status}
-                  workplace={workplace}
-                  index={index}
-                />
-              )
-            )}
-          </tbody>
-          {t("displayPage")}: {curPage} {""} of {""} {maxPage}
-        </table>
+              <tbody>
+                {employeeList.map(
+                  (
+                    { id, firstName, lastName, salary, status, workplace },
+                    index
+                  ) => (
+                    <EmployeeBox
+                      key={id}
+                      id={id}
+                      firstName={firstName}
+                      lastName={lastName}
+                      salary={salary}
+                      status={status}
+                      workplace={workplace}
+                      index={index}
+                    />
+                  )
+                )}
+              </tbody>
+              {t("displayPage")}: {curPage} {""} of {""} {maxPage}
+            </table>
 
-           
-
-             <button
+            <button
               className="EmployeeList__addEmployee"
               onClick={previousPage}
             >
