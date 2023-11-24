@@ -88,6 +88,8 @@
   "lastNameDescending": "nazwisko malejąco",
   "salaryAscending": "wynagrodzenie rosnąco",
   "salaryDescending": "wynagrodzenie malejąco",
+  "statusAscending": "status rosnąco",
+  "statusDescending": "status malejąco",
   "workplaceAscending": "stanowisko rosnąco",
   "workplaceDescending": "stanowisko malejąco",
   "AccessDenied": "Odmowa dostępu"

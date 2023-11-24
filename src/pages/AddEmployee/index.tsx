@@ -115,8 +115,6 @@ export const AddEmployee = () => {
                 <tr>
                   {/* new  */}
                   <td>
-                    <label htmlFor="gender">Gender:</label>
-
                     <label htmlFor="gender">{t("gender")}</label>
                   </td>
                   <td>
@@ -175,21 +173,7 @@ export const AddEmployee = () => {
                     />
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <label htmlFor="workplace">{t("workplace")}</label>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      id="workplace"
-                      name="workplace"
-                      placeholder={t("enterWorkplace")}
-                      value={workplace}
-                      onChange={handleInputValue}
-                    />
-                  </td>
-                </tr>
+
                 <tr>
                   <td>
                     <label htmlFor="street">{t("street")}</label>

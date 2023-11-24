@@ -88,6 +88,8 @@
   "lastNameDescending": "last name descending",
   "salaryAscending": "salary ascending",
   "salaryDescending": "salary descending",
+  "statusAscending": "status ascending",
+  "statusDescending": "status descending",
   "workplaceAscending": "workplace ascending",
   "workplaceDescending": "workplace descending",
   "AccessDenied": "Access Denied"

@@ -41,12 +41,8 @@
   width: 20%;
 }
 
-.EmployeeList__employee_age {
-  width: 10%;
-}
-
-.EmployeeList__employee_delete_button {
-  width: 10%;
+.EmployeeList__employee_status {
+  width: 20%;
 }
 
 .EmployeeList__details {
@@ -61,6 +57,7 @@ ul {
 th {
   width: 100px;
   border: 1px solid black;
+  text-align: center;
 }
 
 .EmployeeList__addEmployee {
