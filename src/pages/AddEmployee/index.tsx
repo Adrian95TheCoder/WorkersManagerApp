@@ -128,9 +128,6 @@ export const AddEmployee = () => {
                       onChange={handleInputValue}
                     />
                   </td>
-                  <td>
-                    <p>{phoneError}</p>
-                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -240,7 +237,7 @@ export const AddEmployee = () => {
               </tbody>
             </table>
           </div>
-
+          <p>{phoneError}</p>
           <button className="AddEmployee__addButton" type="submit">
             {t("addEmployee")}
           </button>
