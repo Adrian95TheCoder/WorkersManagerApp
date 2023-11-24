@@ -1,5 +1,6 @@
 import { employeeListType } from "../context/EmployeeContext";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 type useEmployeesData = {
   employeeList: employeeListType[];
@@ -16,7 +17,7 @@ type useEmployeesData = {
     email: string;
     phone: string;
     birthDate: string;
-    address: string;
+    street: string;
     city: string;
     postalCode: string;
     state: string;
@@ -72,7 +73,7 @@ export const useEmployees = (): useEmployeesData => {
     email: "",
     phone: "",
     birthDate: "",
-    address: "",
+    street: "",
     city: "",
     postalCode: "",
     state: "",
@@ -115,7 +116,7 @@ export const useEmployees = (): useEmployeesData => {
     email,
     phone,
     birthDate,
-    address,
+    street,
     city,
     postalCode,
     state,
@@ -156,7 +157,7 @@ export const useEmployees = (): useEmployeesData => {
           email,
           phone,
           birthDate,
-          address,
+          street,
           city,
           postalCode,
           state,
@@ -223,7 +224,7 @@ export const useEmployees = (): useEmployeesData => {
         email: "",
         phone: "",
         birthDate: "",
-        address: "",
+        street: "",
         city: "",
         postalCode: "",
         state: "",
@@ -244,7 +245,7 @@ export const useEmployees = (): useEmployeesData => {
       email,
       phone,
       birthDate,
-      address,
+      street,
       city,
       postalCode,
       state,
@@ -267,7 +268,7 @@ export const useEmployees = (): useEmployeesData => {
           email,
           phone,
           birthDate,
-          address,
+          street,
           city,
           postalCode,
           state,

@@ -6,10 +6,12 @@ import { useTranslation } from "react-i18next";
 import { EmployeeBox } from "../../components/EmployeeBox";
 import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
+import { UserContext } from "../../components/context/UserContext";
 
 export const EmployeeList = () => {
   const { employeeList, curPage, maxPage, previousPage, nextPage } =
     useContext(EmployeeContext);
+  const { token } = useContext(UserContext);
 
   /*  search  */
   // const { search } = useLocation();
@@ -19,30 +21,41 @@ export const EmployeeList = () => {
   const { t } = useTranslation();
 
   const renderTable = () => {
-    console.log("renderTable");
-    console.log("curPage");
+    //console.log("renderTable");
+    //console.log("curPage");
     return (
       <div className="EmployeeList">
-        <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
+        {token ? (
+          <>
+            <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
 
-        <DisplaySortBox />
+            <DisplaySortBox />
 
-        <InputSearchBox />
+            <InputSearchBox />
+
 
         <table className="EmployeeList__table3">
           <thead>
-            <tr>
-              <th className="EmployeeList__employee_lp">No</th>
-              <th className="EmployeeList__employee_id">Id</th>
-              <th className="EmployeeList__employee_firstName">First Name</th>
-              <th className="EmployeeList__employee_lastName">Last Name</th>
-              <th className="EmployeeList__employee_workplace">Workplace</th>
-              <th className="EmployeeList__employee_salary">Salary</th>
-              <th className="EmployeeList__employee_status">Status</th>
-
-              <th className="EmployeeList__details">{t("detailsButtons")}</th>
-            </tr>
-          </thead>
+                <tr>
+                  <th className="EmployeeList__employee_lp">{t("nr")}</th>
+                  <th className="EmployeeList__employee_id">Id</th>
+                  <th className="EmployeeList__employee_firstName">
+                    {t("firstName")}
+                  </th>
+                  <th className="EmployeeList__employee_lastName">
+                    {t("lastName")}
+                  </th>
+                  <th className="EmployeeList__employee_workplace">
+                    {t("workplace")}
+                  </th>
+                  <th className="EmployeeList__employee_salary">
+                    {t("salary")}
+                  </th>
+                  <th className="EmployeeList__details">
+                    {t("detailsButtons")}
+                  </th>
+                </tr>
+              </thead>
           <tbody>
             {employeeList.map(
               (
@@ -62,21 +75,30 @@ export const EmployeeList = () => {
               )
             )}
           </tbody>
-          Page: {curPage} {""} of {""} {maxPage}
+          {t("displayPage")}: {curPage} {""} of {""} {maxPage}
         </table>
 
-        <button className="EmployeeList__addEmployee" onClick={previousPage}>
-          {t("previousPage")}
-        </button>
-        <button className="EmployeeList__addEmployee" onClick={nextPage}>
-          {t("nextPage")}
-        </button>
+           
 
-        <Link to={"/employees/addEmployee"}>
-          <button className="EmployeeList__addEmployee">
-            {t("addEmployee")}
-          </button>
-        </Link>
+             <button
+              className="EmployeeList__addEmployee"
+              onClick={previousPage}
+            >
+              {t("previousPage")}
+            </button>
+            <button className="EmployeeList__addEmployee" onClick={nextPage}>
+              {t("nextPage")}
+            </button>
+
+            <Link to={"/employees/addEmployee"}>
+              <button className="EmployeeList__addEmployee">
+                {t("addEmployee")}
+              </button>
+            </Link>
+          </>
+        ) : (
+          <p className="EmployeeList__accessDenied">{t("AccessDenied")}</p>
+        )}
       </div>
     );
   };

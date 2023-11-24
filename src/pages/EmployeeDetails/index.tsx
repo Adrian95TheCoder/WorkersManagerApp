@@ -7,6 +7,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./EmployeeDetails.scss";
 
 import { DeleteButton } from "../../components/DeleteButton";
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 export const EmployeeDetails = () => {
   const { id } = useParams();
@@ -29,13 +31,14 @@ export const EmployeeDetails = () => {
     email: "",
     phone: "",
     birthDate: "",
-    address: "",
+    street: "",
     city: "",
     postalCode: "",
     state: "",
     startWork: "",
   });
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const getSingleEmployee = (employeeId: string) => {
     const selectedEmployee = employeeList.find(
@@ -59,69 +62,69 @@ export const EmployeeDetails = () => {
   };
   return (
     <>
-      <div className="EmployeeDetails">
+       <div className="EmployeeDetails">
         <table className="EmployeeDetails__table">
           <tr>
-            <th className="EmployeeDetails__th">Employee Details</th>
+            <th className="EmployeeDetails__th">{t("employeeDetails")}</th>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">id</td>
+            <td className="EmployeeDetails__td">Id</td>
             <td className="EmployeeDetails__td">{employee.id}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">first name</td>
+            <td className="EmployeeDetails__td">{t("firstName")}</td>
             <td className="EmployeeDetails__td">{employee.firstName}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">last name</td>
+            <td className="EmployeeDetails__td">{t("lastName")}</td>
             <td className="EmployeeDetails__td">{employee.lastName}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">Salary</td>
+            <td className="EmployeeDetails__td">{t("salary")}</td>
             <td className="EmployeeDetails__td">{employee.salary}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">Status</td>
+            <td className="EmployeeDetails__td">{t("status")}</td>
             <td className="EmployeeDetails__td">{employee.status}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">gender</td>
+            <td className="EmployeeDetails__td">{t("gender")}</td>
             <td className="EmployeeDetails__td">{employee.gender}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">email</td>
+            <td className="EmployeeDetails__td">Email</td>
             <td className="EmployeeDetails__td">{employee.email}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">phone</td>
+            <td className="EmployeeDetails__td">{t("phone")}</td>
             <td className="EmployeeDetails__td">{employee.phone}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">birth date</td>
+            <td className="EmployeeDetails__td">{t("birthDate")}</td>
             <td className="EmployeeDetails__td">{employee.birthDate}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">workplace</td>
+            <td className="EmployeeDetails__td">{t("workplace")}</td>
             <td className="EmployeeDetails__td">{employee.workplace}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">address</td>
-            <td className="EmployeeDetails__td">{employee.address}</td>
+            <td className="EmployeeDetails__td">{t("street")}</td>
+            <td className="EmployeeDetails__td">{employee.street}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">city</td>
+            <td className="EmployeeDetails__td">{t("city")}</td>
             <td className="EmployeeDetails__td">{employee.city}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">postal code</td>
+            <td className="EmployeeDetails__td">{t("postalCode")}</td>
             <td className="EmployeeDetails__td">{employee.postalCode}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">state</td>
+            <td className="EmployeeDetails__td">{t("state")}</td>
             <td className="EmployeeDetails__td">{employee.state}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">start work</td>
+            <td className="EmployeeDetails__td">{t("startWork")}</td>
             <td className="EmployeeDetails__td">{employee.startWork}</td>
           </tr>
         </table>
@@ -129,26 +132,26 @@ export const EmployeeDetails = () => {
           className="EmployeeDetails__editButton"
           onClick={() => goToEditPage(employee.id)}
         >
-          Edit
+          {t("edit")}
         </button>
         <DeleteButton id={employee.id} />
         {allowDelete && (
           <div className="employee-details__allow">
             <p>
-              Are you sure you want to remove{" "}
+              {t("areYouSure")}{" "}
               <b>
                 {employee.id} {employee.firstName} {employee.lastName}
               </b>{" "}
-              from your employee list?
+              {t("fromYourEmployeeList")}
             </p>
             <button className="employee-details__save" onClick={handleDelete}>
-              Yes
+              {t("yes")}
             </button>
             <button
               className="employee-details__cancel"
               onClick={() => setAllowDelete(false)}
             >
-              No
+              {t("no")}
             </button>
           </div>
         )}

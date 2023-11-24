@@ -5,9 +5,11 @@ import {
   employeeListType,
 } from "../../components/context/EmployeeContext";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const EditEmployee = () => {
   const { id } = useParams();
+
   const {
     employeeList,
     employeeStatus,
@@ -16,6 +18,9 @@ export const EditEmployee = () => {
     getWorkers,
     handleSelect,
   } = useContext(EmployeeContext);
+
+  const { t } = useTranslation();
+
   const [employee, setEmployee] = useState<employeeListType>({
     id: 0,
     firstName: "",
@@ -28,7 +33,7 @@ export const EditEmployee = () => {
     email: "",
     phone: "",
     birthDate: "",
-    address: "",
+    street: "",
     city: "",
     postalCode: "",
     state: "",
@@ -71,19 +76,23 @@ export const EditEmployee = () => {
   return (
     <>
       <div className="EditEmployee">
+
         <h2 className="EditEmployee__h2">Edit Employee</h2>
+
+        {/* <h2 className="EditEmployee__h2">{t("editEmployee")}</h2> */}
+
         {/* <form onSubmit={onSubmit}>  */}
         <form onSubmit={(event) => handleEditEmployee(event, employee)}>
           <table className="EditEmployee__table">
             <tr>
-              <th className="EditEmployee__th">Employee Details</th>
+              <th className="EditEmployee__th">{t("editEmployee")}</th>
             </tr>
             <tr>
-              <td className="EditEmployee__td">id</td>
+              <td className="EditEmployee__td">Id</td>
               <td className="EditEmployee__td">{employee.id}</td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">first name</td>
+              <td className="EditEmployee__td">{t("firstName")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="text"
@@ -95,7 +104,8 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">last name</td>
+
+              <td className="EditEmployee__td">{t("lastName")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="text"
@@ -107,7 +117,11 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">salary</td>
+
+              
+
+              <td className="EditEmployee__td">{t("salary")}</td>
+
               <td className="EditEmployee__td">
                 <input
                   type="number"
@@ -119,6 +133,7 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
+
               <td>
                 <label htmlFor="status">Status:</label>
               </td>
@@ -138,7 +153,9 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">gender</td>
+            
+              <td className="EditEmployee__td">{t("gender")}</td>
+
               <td className="EditEmployee__td">
                 <input
                   type="text"
@@ -150,7 +167,8 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">email</td>
+             
+              <td className="EditEmployee__td">Email</td>
               <td className="EditEmployee__td">
                 <input
                   type="email"
@@ -162,7 +180,9 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">phone</td>
+
+             
+              <td className="EditEmployee__td">{t("phone")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="text"
@@ -174,7 +194,10 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">birth date</td>
+
+  
+
+              <td className="EditEmployee__td">{t("birthDate")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="date"
@@ -186,7 +209,9 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">workplace</td>
+      
+
+              <td className="EditEmployee__td">{t("workplace")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="text"
@@ -198,19 +223,26 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">address</td>
+
+       
+
+              <td className="EditEmployee__td">{t("street")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="text"
-                  id="address"
-                  name="address"
-                  value={employee.address}
+                  id="street"
+                  name="street"
+                  value={employee.street}
+
                   onChange={handleInput}
                 />
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">city</td>
+
+          
+
+              <td className="EditEmployee__td">{t("city")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="text"
@@ -221,8 +253,8 @@ export const EditEmployee = () => {
                 />
               </td>
             </tr>
-            <tr>
-              <td className="EditEmployee__td">postal code</td>
+            <tr>            
+              <td className="EditEmployee__td">{t("postalCode")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="text"
@@ -234,7 +266,10 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">state</td>
+
+         
+
+              <td className="EditEmployee__td">{t("state")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="text"
@@ -245,7 +280,8 @@ export const EditEmployee = () => {
               </td>
             </tr>
             <tr>
-              <td className="EditEmployee__td">start work</td>
+
+              <td className="EditEmployee__td">{t("startWork")}</td>
               <td className="EditEmployee__td">
                 <input
                   type="date"
@@ -258,18 +294,18 @@ export const EditEmployee = () => {
             </tr>
           </table>
           <button className="EditEmployee__saveButton" type="submit">
-            Save
+
+            {t("save")}
+
           </button>
           <button
             className="EditEmployee__backButton"
             onClick={() => details(employee.id)}
-          >
-            Back to Details
+          >  
+
+           {t("BackToDetails")}
           </button>
         </form>
-        <p>Employee Status: {employeeStatus}</p> /h
-        <p>Employee Status z input: {employee.status}</p>
-        <p>Employee Status z input: {employee.firstName}</p>
       </div>
     </>
   );

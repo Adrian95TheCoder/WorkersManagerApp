@@ -18,25 +18,25 @@ export const Navigation = () => {
         <li className="nav__item">
           <img src={"/assets/home.png"} alt="home icon" />
           <NavLink className="nav__link" to={"/"} end>
-            Home
+            {t("home")}
           </NavLink>
         </li>
         <li className="nav__item">
           <img src={"/assets/list.png"} alt="icon of employess list" />
           {token ? (
             <NavLink className="nav__link" to={"/employees"} end>
-              Employess list
+              {t("employeeList")}
             </NavLink>
           ) : (
             <button className="nav__inactive" disabled>
-              Employess list
+              {t("employeeList")}
             </button>
           )}
         </li>
         <li className="nav__item">
           <img src={"/assets/user.png"} alt="" />
           <NavLink className="nav__link" to={"/login"} end>
-            Login
+            {t("navLogin")}
           </NavLink>
         </li>
         <li>
