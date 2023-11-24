@@ -1,43 +1,6 @@
 {
   "workers": [
     {
-      "firstName": "Tyler",
-      "lastName": "Anderson",
-      "workplace": "Programmer",
-      "salary": 5000,
-      "status": "On vacation",
-      "gender": "male",
-      "email": "Tylertoziom@sohu.com",
-      "phone": "+63 821 128 2181",
-      "birthDate": "1990-12-25",
-      "workplace": "Programmer",
-      "street": "1245 South Street ",
-      "city": "Topeka",
-      "postalCode": "20020",
-      "state": "KS",
-      "startWork": "2023-08-11",
-      "id": 4
-    },
-    {
-      "firstName": "Megan",
-      "lastName": "Tylor",
-      "workplace": "Manager",
-      "salary": 5000,
-      "status": "Hired",
-      "gender": "female",
-      "email": "Tylortoziomalka@sohu.com",
-      "phone": "+63 999 655 5514",
-      "birthDate": "1995-03-03",
-      "street": "0745 Yolo Street",
-      "workplace": "Manager",
-      "street": "0745 Yolo Street",
-      "city": "Sacramento",
-      "postalCode": "20190",
-      "state": "CA",
-      "startWork": "2022-05-14",
-      "id": 5
-    },
-    {
       "firstName": "Marian",
       "lastName": "Paździoch",
       "workplace": "Programer",
