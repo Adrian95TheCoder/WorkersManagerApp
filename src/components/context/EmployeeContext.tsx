@@ -8,7 +8,6 @@ export type employeeListType = {
   workplace: string;
   salary: number;
   status: string;
-  // new
   gender: string;
   email: string;
   phone: string;
@@ -30,7 +29,6 @@ type EmployeeContextProps = {
     salary: number;
     status: string;
     workplace: string;
-    // new
     gender: string;
     email: string;
     phone: string;
@@ -71,6 +69,8 @@ type EmployeeContextProps = {
   handleDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
+  phoneError: string;
+  emailError: string;
   handleSelect: (event: ChangeEvent<HTMLSelectElement>) => void;
   setCurPage: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -112,6 +112,8 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     handleDisplay,
     handleSortDisplay,
     setAllowDelete,
+    phoneError,
+    emailError,
     handleSelect,
     setCurPage,
   } = useEmployees();
@@ -145,7 +147,8 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         previousPage,
         handleDisplay,
         handleSortDisplay,
-
+        phoneError,
+        emailError,
         setAllowDelete,
         handleSelect,
         setCurPage,

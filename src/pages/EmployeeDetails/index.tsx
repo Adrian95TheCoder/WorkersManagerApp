@@ -26,7 +26,6 @@ export const EmployeeDetails = () => {
     workplace: "",
     salary: 0,
     status: "",
-    // new
     gender: "",
     email: "",
     phone: "",
@@ -55,14 +54,13 @@ export const EmployeeDetails = () => {
   };
   const handleDelete = async () => {
     await deleteButton(employee.id);
-    console.log(employee.id, "czy coś tu sie dzieje");
     setAllowDelete(false);
     await getWorkers();
     navigate("/employees");
   };
   return (
     <>
-       <div className="EmployeeDetails">
+      <div className="EmployeeDetails">
         <table className="EmployeeDetails__table">
           <tr>
             <th className="EmployeeDetails__th">{t("employeeDetails")}</th>
@@ -84,7 +82,7 @@ export const EmployeeDetails = () => {
             <td className="EmployeeDetails__td">{employee.salary}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">{t("status")}</td>
+            <td className="EmployeeDetails__td">Status</td>
             <td className="EmployeeDetails__td">{employee.status}</td>
           </tr>
           <tr>

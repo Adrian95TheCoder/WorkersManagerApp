@@ -10,7 +10,6 @@ export const DeleteButton = ({ id }: deleteProps) => {
   const { setAllowDelete } = useContext(EmployeeContext);
   const { t } = useTranslation();
 
-  console.log(id, "id z buttona");
   return (
     <>
       <button

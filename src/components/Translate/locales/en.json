@@ -92,5 +92,10 @@
   "statusDescending": "status descending",
   "workplaceAscending": "workplace ascending",
   "workplaceDescending": "workplace descending",
-  "AccessDenied": "Access Denied"
+  "AccessDenied": "Access Denied",
+  "ErrorWhileLogin": "Error while login",
+  "pleaseEnteraValidPhoneNumber": "Please enter a valid phone number (digits and optional hyphens)",
+  "firstNameOrLastNameisTooShort": "first name or last name is too short",
+  "of": "of",
+  "websiteCreatedBy": "Website created by:"
 }

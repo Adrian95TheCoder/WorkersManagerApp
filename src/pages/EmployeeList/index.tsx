@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
@@ -14,21 +15,14 @@ export const EmployeeList = () => {
     useContext(EmployeeContext);
   const { token } = useContext(UserContext);
 
-  /*  search  */
-  // const { search } = useLocation();
-  // const [filteredList, setFilteredList] = useState(employeeList);
-  // const searchValue = useDebounce(inputValue, 200);
-
   const { t } = useTranslation();
 
   const renderTable = () => {
-    //console.log("renderTable");
-    //console.log("curPage");
     return (
       <div className="EmployeeList">
         {token ? (
           <>
-            <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
+            <h2 className="EmployeeList__header">{t("employeeList")}</h2>
 
             <DisplaySortBox />
 
@@ -79,6 +73,7 @@ export const EmployeeList = () => {
                 )}
               </tbody>
 
+
               <DisplayPage />
               {/* {t("displayPage")}:{" "}
               <input
@@ -90,6 +85,7 @@ export const EmployeeList = () => {
                 // onChange={handleCurPageInput}
               />{" "}
               {curPage} {""} of {""} {maxPage} */}
+
             </table>
 
             <button
