@@ -13,16 +13,9 @@ export const EmployeeList = () => {
     useContext(EmployeeContext);
   const { token } = useContext(UserContext);
 
-  /*  search  */
-  // const { search } = useLocation();
-  // const [filteredList, setFilteredList] = useState(employeeList);
-  // const searchValue = useDebounce(inputValue, 200);
-
   const { t } = useTranslation();
 
   const renderTable = () => {
-    //console.log("renderTable");
-    //console.log("curPage");
     return (
       <div className="EmployeeList">
         {token ? (

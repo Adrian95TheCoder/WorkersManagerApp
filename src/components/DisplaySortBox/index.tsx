@@ -24,7 +24,6 @@ export const DisplaySortBox = () => {
             value={sortValue}
             onChange={handleSortDisplay}
           >
-            {/* <option value="">Select sort type</option> */}
             <option value="_sort=id&_order=asc">{t("idAscending")}</option>
             <option value="_sort=id&_order=desc">{t("idDescending")}</option>
             <option value="_sort=firstName&_order=asc">
