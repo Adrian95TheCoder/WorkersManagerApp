@@ -65,7 +65,7 @@ export const EditEmployee = () => {
 
   const details = async (employee_id: number) => {
     await getWorkers();
-    setTimeout(() => myFunction(employee_id), 1000);
+    setTimeout(() => myFunction(employee_id), 500);
   };
   useEffect(() => {
     getWorkers();
