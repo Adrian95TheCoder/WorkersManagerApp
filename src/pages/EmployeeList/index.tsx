@@ -1,45 +1,102 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { EmployeeContext } from "../../components/context/EmployeeContext";
+import "./EmployeeList.scss";
+import { useTranslation } from "react-i18next";
+import { EmployeeBox } from "../../components/EmployeeBox";
+import { InputSearchBox } from "../../components/InputSearchBox";
+import { DisplaySortBox } from "../../components/DisplaySortBox";
+import { UserContext } from "../../components/context/UserContext";
+import { DisplayPage } from "../../components/DisplayPage";
 
-type employeeListType = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  workplace: string;
-  age: number;
-};
 export const EmployeeList = () => {
-  //   const { employees } = useContext(EmployeeContext);
-  const [employeeList, setEmployeeList] = useState<employeeListType[]>([]);
+  const { employeeList, curPage, maxPage, previousPage, nextPage } =
+    useContext(EmployeeContext);
+  const { token } = useContext(UserContext);
 
-  const getWorkers = async () => {
-    try {
-      const data = await fetch("http://localhost:5000/workers");
-      if (!data.ok) throw new Error("Something goes wrong");
-      const employees = await data.json();
-      console.log(employees, " pobrano dane pracownika");
-      setEmployeeList(employees);
-    } catch (error) {
-      console.log(error);
-    }
+  const { t } = useTranslation();
+
+  const renderTable = () => {
+    return (
+      <div className="EmployeeList">
+        {token ? (
+          <>
+            <h2 className="EmployeeList__header">{t("employeeList")}</h2>
+
+            <DisplaySortBox />
+
+            <InputSearchBox />
+
+            <table className="EmployeeList__table3">
+              <thead>
+                <tr>
+                  <th className="EmployeeList__employee_lp">{t("nr")}</th>
+                  <th className="EmployeeList__employee_id">Id</th>
+                  <th className="EmployeeList__employee_firstName">
+                    {t("firstName")}
+                  </th>
+                  <th className="EmployeeList__employee_lastName">
+                    {t("lastName")}
+                  </th>
+                  <th className="EmployeeList__employee_workplace">
+                    {t("workplace")}
+                  </th>
+                  <th className="EmployeeList__employee_salary">
+                    {t("salary")}
+                  </th>
+                  <th className="EmployeeList__employee_status">
+                    {t("Status")}
+                  </th>
+                  <th className="EmployeeList__details">
+                    {t("detailsButtons")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {employeeList.map(
+                  (
+                    { id, firstName, lastName, salary, status, workplace },
+                    index
+                  ) => (
+                    <EmployeeBox
+                      key={id}
+                      id={id}
+                      firstName={firstName}
+                      lastName={lastName}
+                      salary={salary}
+                      status={status}
+                      workplace={workplace}
+                      index={index}
+                    />
+                  )
+                )}
+              </tbody>
+
+              <DisplayPage />
+            </table>
+
+            <button
+              className="EmployeeList__addEmployee"
+              onClick={previousPage}
+            >
+              {t("previousPage")}
+            </button>
+            <button className="EmployeeList__addEmployee" onClick={nextPage}>
+              {t("nextPage")}
+            </button>
+
+            <Link to={"/employees/addEmployee"}>
+              <button className="EmployeeList__addEmployee">
+                {t("addEmployee")}
+              </button>
+            </Link>
+          </>
+        ) : (
+          <p className="EmployeeList__accessDenied">{t("AccessDenied")}</p>
+        )}
+      </div>
+    );
   };
-  useEffect(() => {
-    getWorkers();
-  }, []);
-  return (
-    <div>
-      <h1>Employee list</h1>
-      <ul>
-        {employeeList.map((employee) => (
-          <li key={employee.id}>
-            <p>
-              {employee.firstName}, {employee.lastName}, {employee.workplace},
-              {employee.age};
-            </p>
-          </li>
-        ))}
-      </ul>
-      <Link to={"/employees/addEmployee"}>Add employee</Link>
-    </div>
-  );
+
+  return renderTable();
 };

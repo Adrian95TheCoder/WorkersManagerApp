@@ -1,0 +1,161 @@
+.Home {
+	position: relative;
+	background-image: url("../../../public/assets/teamwork.jpg");
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	&__shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.391);
+	}
+  &__hero{
+    // position: absolute;
+    // height: 100%;
+    width: 100%;
+    transform: translateY(40px);
+    &--title{
+      font-size: 20px;
+      color: #fff;
+      padding: 0 10px;
+      margin-bottom: 20px;
+    }
+    &--content{
+      font-size: 16px;
+      color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.Home__button {
+  position: relative;
+	// margin: 8px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+	padding: 8px 16px;
+	background-color: #efefef;
+	box-shadow: none;
+	outline: none;
+	border: 2px solid black;
+	color: black;
+	border-radius: 12px;
+  font-size: 18px;
+  z-index: 5;
+  overflow: hidden;
+  animation: bouncing  3s linear infinite alternate;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-image: linear-gradient(-90deg, rgba(11, 10, 10, 0.3),rgba(255,255,255,.0));
+    top: -10px;
+    left: -30px;
+    height: 160%;
+    width: 20px;
+    transform: rotate(20deg);
+    transition: .3s;
+  }
+  &:hover::before{
+    left: 100%;
+  }
+}
+.Cards{
+  // position: absolute;
+  // transform: translateY(10px);
+  transform: translateY(60px);
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 5;
+  &__box{
+    width: 250px;
+    height: 200px;
+    // background-color: rgba(243, 246, 246, 0.768);
+    backdrop-filter: blur(6px);
+    border: 4px solid black;
+    border-radius: 12px;
+    transition: transform .3s;
+    padding: 10px;
+    margin-bottom: 40px;
+    &:hover{
+      transform: scale(1.2);
+    }
+    &--img{
+      border: 4px solid black;
+      padding: 5px;
+      border-radius: 50%;
+      transform: translateY(-35px);
+      // background-color: rgba(243, 246, 246, 0.768);
+      backdrop-filter: blur(8px);
+    }
+    &--header{
+      transform: translateY(-25px);
+      margin-bottom: px;
+      color: #fff;
+      font-size: 20px;
+    }
+    &--text{
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+}
+.primaryColor{
+  color: rgb(198, 149, 52);
+}
+@keyframes bouncing {
+  0%{
+    transform: scale(1); 
+  }
+  50%{
+    transform: scale(1.3);
+  }
+  100%{
+    transform: scale(1.1);
+  }
+}
+
+@media (min-width: 768px){
+  .Home__hero--title{
+    font-size: 24px;
+  }
+  .Home__hero--content{
+    font-size: 20px;
+    margin-bottom:30px ;
+  }
+  .Cards__box{
+    height: 250px;
+    width: 300px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (min-width: 992px){
+.Home__hero--title{
+  font-size: 26px;
+}
+.Home__hero--content{
+  margin-bottom: 40px;
+}
+.Cards{
+  flex-direction: row;
+  // align-items: center;
+  justify-content: space-around;
+  &__box{
+    height: 300px;
+    width: 250px;
+  }
+
+}
+}
