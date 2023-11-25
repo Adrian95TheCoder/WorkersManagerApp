@@ -95,5 +95,7 @@
   "AccessDenied": "Odmowa dostępu",
   "ErrorWhileLogin": "Błąd podczas logowania",
   "pleaseEnteraValidPhoneNumber": "Możesz wpisać w numerze telefonu (tylko cyfry oraz znak minus) ",
-  "of": "z"
+  "firstNameOrLastNameisTooShort": "imię lub nazwisko jest zbyt krótkie",
+  "of": "z",
+  "websiteCreatedBy": "Strona stworzona przez:"
 }

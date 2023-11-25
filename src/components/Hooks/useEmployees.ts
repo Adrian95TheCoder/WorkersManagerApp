@@ -234,7 +234,7 @@ export const useEmployees = (): useEmployeesData => {
         state: "",
         startWork: "",
       });
-    } else alert(` too short`);
+    } else alert(t("firstNameOrLastNameisTooShort"));
   };
 
   const editEmployee = async (currentEmployee: employeeListType) => {

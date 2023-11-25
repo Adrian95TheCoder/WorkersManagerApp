@@ -95,6 +95,7 @@
   "AccessDenied": "Access Denied",
   "ErrorWhileLogin": "Error while login",
   "pleaseEnteraValidPhoneNumber": "Please enter a valid phone number (digits and optional hyphens)",
-  "tooShort": "oo Short",
-  "of": "of"
+  "firstNameOrLastNameisTooShort": "first name or last name is too short",
+  "of": "of",
+  "websiteCreatedBy": "Website created by:"
 }
