@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
@@ -7,6 +8,7 @@ import { EmployeeBox } from "../../components/EmployeeBox";
 import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
 import { UserContext } from "../../components/context/UserContext";
+
 
 export const EmployeeList = () => {
   const { employeeList, curPage, maxPage, previousPage, nextPage } =
@@ -25,9 +27,11 @@ export const EmployeeList = () => {
     //console.log("curPage");
     return (
       <div className="EmployeeList">
+        
         {token ? (
           <>
-            <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
+            <h2 className="EmployeeList__header">{t("employeeList")}</h2>
+
 
             <DisplaySortBox />
 

@@ -4,40 +4,43 @@
 	background-size: cover;
 	background-position: center;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	font-family: Verdana;
 	&__shadow {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.35);
+		background-color: rgba(0, 0, 0, 0.391);
 	}
   &__hero{
     // position: absolute;
     // height: 100%;
     width: 100%;
-    transform: translateY(-50px);
+    transform: translateY(40px);
     &--title{
-      font-size: 26px;
+      font-size: 20px;
       color: #fff;
+      padding: 0 10px;
       margin-bottom: 20px;
     }
     &--content{
-      font-size: 18px;
+      font-size: 16px;
       color: #fff;
-      margin-bottom: 20px;
+      padding: 10px;
+      margin-bottom: 10px;
     }
   }
 }
 
 .Home__button {
   position: relative;
-	margin: 8px;
+	// margin: 8px;
+  margin-top: 20px;
+  margin-bottom: 100px;
 	padding: 8px 16px;
 	background-color: #efefef;
 	box-shadow: none;
@@ -68,10 +71,11 @@
 .Cards{
   // position: absolute;
   // transform: translateY(10px);
+  transform: translateY(60px);
   margin-bottom: 50px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   z-index: 5;
   &__box{
@@ -83,6 +87,7 @@
     border-radius: 12px;
     transition: transform .3s;
     padding: 10px;
+    margin-bottom: 40px;
     &:hover{
       transform: scale(1.2);
     }
@@ -106,7 +111,9 @@
     }
   }
 }
-
+.primaryColor{
+  color: rgb(198, 149, 52);
+}
 @keyframes bouncing {
   0%{
     transform: scale(1); 
@@ -117,4 +124,38 @@
   100%{
     transform: scale(1.1);
   }
+}
+
+@media (min-width: 768px){
+  .Home__hero--title{
+    font-size: 24px;
+  }
+  .Home__hero--content{
+    font-size: 20px;
+    margin-bottom:30px ;
+  }
+  .Cards__box{
+    height: 250px;
+    width: 300px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (min-width: 992px){
+.Home__hero--title{
+  font-size: 26px;
+}
+.Home__hero--content{
+  margin-bottom: 40px;
+}
+.Cards{
+  flex-direction: row;
+  // align-items: center;
+  justify-content: space-around;
+  &__box{
+    height: 300px;
+    width: 250px;
+  }
+
+}
 }
