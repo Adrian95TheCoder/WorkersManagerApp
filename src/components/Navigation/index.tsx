@@ -39,9 +39,10 @@ export const Navigation = () => {
             {t("navLogin")}
           </NavLink>
         </li>
-        <li>
-          <button onClick={() => changeLanguage("en")}>{t("english")}</button>
-          <button onClick={() => changeLanguage("pl")}>{t("polish")}</button>
+        <li className="nav__item-language">
+          <img src={"/assets/language.png"} alt="icon of langauge select" />
+          <button className="nav__item-language--btn" onClick={() => changeLanguage("en")}>{t("english")}</button>
+          <button className="nav__item-language--btn"  onClick={() => changeLanguage("pl")}>{t("polish")}</button>
         </li>
       </ul>
     </nav>
