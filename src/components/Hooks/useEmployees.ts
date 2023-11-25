@@ -291,6 +291,7 @@ export const useEmployees = (): useEmployeesData => {
       });
       if (!data.ok) throw new Error("ups");
       const response = await data.json();
+      getWorkers();
       return response;
     } catch (error) {
       console.log(error);
