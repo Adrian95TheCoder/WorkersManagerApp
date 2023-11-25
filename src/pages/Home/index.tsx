@@ -55,6 +55,7 @@ export const Home = () => {
             </p>
           </div>
         </div>
+
         <button className="Home__button" onClick={goToLoginPage}>
           {t("goToLoginPage")}
         </button>

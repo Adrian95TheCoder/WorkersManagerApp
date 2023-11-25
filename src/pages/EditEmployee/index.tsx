@@ -28,7 +28,6 @@ export const EditEmployee = () => {
     workplace: "",
     salary: 0,
     status: "",
-    // new
     gender: "",
     email: "",
     phone: "",
@@ -62,12 +61,11 @@ export const EditEmployee = () => {
 
   const myFunction = (employee_id: number) => {
     navigate(`/employees/${employee_id}`);
-    console.log("navigate");
   };
 
   const details = async (employee_id: number) => {
     await getWorkers();
-    setTimeout(() => myFunction(employee_id), 1000);
+    setTimeout(() => myFunction(employee_id), 500);
   };
   useEffect(() => {
     getWorkers();
@@ -127,11 +125,6 @@ export const EditEmployee = () => {
                 <label htmlFor="status">Status:</label>
               </td>
               <td>
-                {/* <select value={employeeStatus} onChange={handleSelect}>
-                  <option value="Hire">Hire</option>
-                  <option value="On Vacation">On Vacation</option>
-                  <option value="Fired:">Fired</option>
-                </select> */}
                 <input
                   type="text"
                   id="status"
