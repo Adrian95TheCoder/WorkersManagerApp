@@ -10,7 +10,7 @@
       "email": "atuny0@sohu.com",
       "phone": "+63 791 675 8914",
       "birthDate": "2000-12-25",
-    
+
       "street": "1745 T Street Southeast",
       "city": "Washington",
       "postalCode": "20020",
@@ -189,7 +189,6 @@
       "id": 11
     },
     {
-
       "id": 12,
       "firstName": "John",
       "lastName": "Smith",
@@ -766,7 +765,8 @@
       "state": "Masovia",
       "startWork": "2023-11-25",
       "id": 45
-
+    },
+    {
       "firstName": "aaaa",
       "lastName": "aaaa",
       "workplace": "",
@@ -884,7 +884,6 @@
       "state": "",
       "startWork": "",
       "id": 18
-
     }
   ]
 }
