@@ -48,6 +48,7 @@ type useEmployeesData = {
     employee: employeeListType
   ) => void;
   phoneError: string;
+  emailError: string;
 
   handleInputSearch: (event: ChangeEvent<HTMLInputElement>) => void;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
@@ -90,6 +91,7 @@ export const useEmployees = (): useEmployeesData => {
   const { t } = useTranslation();
 
   const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [employeeStatus, setEmployeeStatus] = useState("Hired");
 
   const {
@@ -185,6 +187,7 @@ export const useEmployees = (): useEmployeesData => {
     setNewInputValue((prev) => {
       return { ...prev, [name]: value };
     });
+    setEmailError("");
     setPhoneError("");
   };
 
@@ -200,9 +203,21 @@ export const useEmployees = (): useEmployeesData => {
     }
   };
 
+  const valEmail = () => {
+    const email = newEmployeeInputValue.email;
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!pattern.test(email)) {
+      setEmailError("Please enter a valid email address.");
+      return false;
+    } else {
+      setEmailError("");
+      return true;
+    }
+  };
+
   const handleNewEmployee = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (valPhone() === false) {
+    if (valEmail() === false || valPhone() === false) {
       console.log(phoneError);
       return;
     }
@@ -346,6 +361,7 @@ export const useEmployees = (): useEmployeesData => {
     handleSortDisplay,
     setAllowDelete,
     phoneError,
+    emailError,
     handleSelect,
   };
 };

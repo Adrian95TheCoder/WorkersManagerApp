@@ -10,6 +10,7 @@ export const AddEmployee = () => {
     handleInputValue,
     handleNewEmployee,
     phoneError,
+    emailError,
     employeeStatus,
     handleSelect,
   } = useContext(EmployeeContext);
@@ -253,6 +254,7 @@ export const AddEmployee = () => {
               </tbody>
             </table>
           </div>
+          <p>{emailError}</p>
           <p>{phoneError}</p>
           <button className="AddEmployee__addButton" type="submit">
             {t("addEmployee")}
