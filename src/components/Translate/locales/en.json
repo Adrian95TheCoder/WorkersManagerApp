@@ -97,5 +97,6 @@
   "pleaseEnteraValidPhoneNumber": "Please enter a valid phone number (digits and optional hyphens)",
   "firstNameOrLastNameisTooShort": "first name or last name is too short",
   "of": "of",
-  "websiteCreatedBy": "Website created by:"
+  "websiteCreatedBy": "Website created by:",
+  "go": "Go"
 }

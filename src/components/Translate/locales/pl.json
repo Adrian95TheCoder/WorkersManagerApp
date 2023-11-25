@@ -35,7 +35,7 @@
   "employeeDetails": "Szczegóły pracownika",
   "salary": "Wynagrodzenie",
   "gender": "Płeć",
-  "phone": "Nr. telefonu",
+  "phone": "Nr telefonu",
   "birthDate": "Data urodzenia",
   "street": "Ulica",
   "city": "Miasto",
@@ -61,7 +61,7 @@
   "enterAge": "Wpisz wiek",
   "enterSalary": "Wpisz wynagrodzenie",
   "enterGender": "Wpisz płeć",
-  "enterPhone": "Wpisz nr. telefonu",
+  "enterPhone": "Wpisz nr telefonu",
   "enterEmail": "Wpisz email",
   "enterBirthDate": "Wpisz datę urodzenia",
   "enterStreet": "Wpisz ulicę",
@@ -97,5 +97,6 @@
   "pleaseEnteraValidPhoneNumber": "Możesz wpisać w numerze telefonu (tylko cyfry oraz znak minus) ",
   "firstNameOrLastNameisTooShort": "imię lub nazwisko jest zbyt krótkie",
   "of": "z",
-  "websiteCreatedBy": "Strona stworzona przez:"
+  "websiteCreatedBy": "Strona stworzona przez:",
+  "go": "Idź"
 }
