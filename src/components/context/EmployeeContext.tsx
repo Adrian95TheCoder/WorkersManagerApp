@@ -8,7 +8,6 @@ export type employeeListType = {
   workplace: string;
   salary: number;
   status: string;
-  // new
   gender: string;
   email: string;
   phone: string;
@@ -30,7 +29,6 @@ type EmployeeContextProps = {
     salary: number;
     status: string;
     workplace: string;
-    // new
     gender: string;
     email: string;
     phone: string;

@@ -22,7 +22,6 @@ export const EmployeeBox = ({
   workplace,
   index,
 }: EmployeeBoxProps) => {
-  //   const { id } = useParams();
   const { curPage } = useContext(EmployeeContext);
   return (
     <tr>
@@ -37,7 +36,6 @@ export const EmployeeBox = ({
       <td className="EmployeeList__employee_status">{status}</td>
       <td className="EmployeeList__details">
         <button>
-          {/* <Link to={`/employeeList/${id}`}>Details</Link> */}
           <DetailsButton id={id} />
         </button>
       </td>

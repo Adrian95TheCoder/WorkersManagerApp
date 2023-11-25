@@ -50,7 +50,7 @@
   "areYouSure": "Czy na pewno chcesz usunąć",
   "fromYourEmployeeList": "z listy pracowników?",
   "searchEmployee": "Znajdź pracownika...",
-  "employeeWasDeleted": "Employee was deleted",
+  "employeeWasDeleted": "Pracownik został usunięty",
   "somethingWentWrongWhileDeletingUser": "Something went wrong while deleting user",
   "save": "Zapisz",
   "BackToDetails": "Wróć do detali",
@@ -93,5 +93,9 @@
   "workplaceAscending": "stanowisko rosnąco",
   "workplaceDescending": "stanowisko malejąco",
   "AccessDenied": "Odmowa dostępu",
-  "pleaseEnteraValidPhoneNumber": "Możesz wpisać w numerze telefonu (tylko cyfry oraz znak minus) "
+  "ErrorWhileLogin": "Błąd podczas logowania",
+  "pleaseEnteraValidPhoneNumber": "Możesz wpisać w numerze telefonu (tylko cyfry oraz znak minus) ",
+  "firstNameOrLastNameisTooShort": "imię lub nazwisko jest zbyt krótkie",
+  "of": "z",
+  "websiteCreatedBy": "Strona stworzona przez:"
 }

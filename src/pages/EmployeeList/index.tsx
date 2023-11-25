@@ -14,21 +14,14 @@ export const EmployeeList = () => {
     useContext(EmployeeContext);
   const { token } = useContext(UserContext);
 
-  /*  search  */
-  // const { search } = useLocation();
-  // const [filteredList, setFilteredList] = useState(employeeList);
-  // const searchValue = useDebounce(inputValue, 200);
-
   const { t } = useTranslation();
 
   const renderTable = () => {
-    //console.log("renderTable");
-    //console.log("curPage");
     return (
       <div className="EmployeeList">
         {token ? (
           <>
-            <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
+            <h2 className="EmployeeList__header">{t("employeeList")}</h2>
 
             <DisplaySortBox />
 
@@ -78,7 +71,7 @@ export const EmployeeList = () => {
                   )
                 )}
               </tbody>
-              {t("displayPage")}: {curPage} {""} of {""} {maxPage}
+              {t("displayPage")}: {curPage} {""} {t("of")} {""} {maxPage}
             </table>
 
             <button

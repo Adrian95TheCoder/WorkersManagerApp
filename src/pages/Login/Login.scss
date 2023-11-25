@@ -103,9 +103,12 @@
 
 .Login__error {
 	color: red;
+	background-color: white;
 	font-size: large;
 	margin: 10px;
 	font-weight: bold;
+	padding: 10px;
+	border-radius: 12px;
 }
 
 .Login__error_invisible {

@@ -44,7 +44,7 @@ export const AddEmployee = () => {
               <tbody>
                 <tr>
                   <td>
-                    <label htmlFor="name">{t("firstName")}:</label>
+                    <label htmlFor="name">{t("firstName")}</label>
                   </td>
                   <td>
                     <input
@@ -59,7 +59,7 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="lastName">{t("lastName")}:</label>
+                    <label htmlFor="lastName">{t("lastName")}</label>
                   </td>
                   <td>
                     <input
@@ -89,33 +89,32 @@ export const AddEmployee = () => {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="status">Status:</label>
+                    <label htmlFor="status">Status</label>
                   </td>
                   <td>
                     <select value={employeeStatus} onChange={handleSelect}>
                       <option value="Hire">Hire</option>
                       <option value="On Vacation">On Vacation</option>
-                      <option value="Fired:">Fired</option>
+                      <option value="Fired">Fired</option>
                     </select>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="workplace">Workplace:</label>
+                    <label htmlFor="workplace">{t("workplace")}</label>
                   </td>
                   <td>
                     <input
                       type="text"
                       id="workplace"
                       name="workplace"
-                      placeholder="Enter workplace"
+                      placeholder={t("enterWorkplace")}
                       value={workplace}
                       onChange={handleInputValue}
                     />
                   </td>
                 </tr>
                 <tr>
-                  {/* new  */}
                   <td>
                     <label htmlFor="gender">{t("gender")}</label>
                   </td>

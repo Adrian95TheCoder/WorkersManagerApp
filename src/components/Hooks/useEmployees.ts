@@ -14,7 +14,6 @@ type useEmployeesData = {
     salary: number;
     status: string;
     workplace: string;
-    // new
     gender: string;
     email: string;
     phone: string;
@@ -50,7 +49,6 @@ type useEmployeesData = {
   ) => void;
   phoneError: string;
 
-  /* search */
   handleInputSearch: (event: ChangeEvent<HTMLInputElement>) => void;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
   nextPage: () => void;
@@ -71,7 +69,6 @@ export const useEmployees = (): useEmployeesData => {
     workplace: "",
     salary: 0,
     status: "",
-    // new
     gender: "",
     email: "",
     phone: "",
@@ -121,7 +118,6 @@ export const useEmployees = (): useEmployeesData => {
       if (!data.ok) throw new Error("Something goes wrong");
       const employees = await data.json();
       const countPage = data.headers.get("X-Total-Count");
-      console.log(countPage, "ilość stron");
       if (countPage) setMaxPage(Math.ceil(Number(countPage) / limit));
 
       setEmployeeList(employees);
@@ -170,11 +166,10 @@ export const useEmployees = (): useEmployeesData => {
             method: "DELETE",
           }
         );
-        console.log(employeeId, " nie ma id");
         if (!data.ok)
           throw new Error("Something went wrong while deleting user");
         const deleteData = await data.json();
-        alert("employee was deleted");
+        alert(t("employeeWasDeleted"));
       } catch (error) {
         console.log(error);
       }
@@ -195,20 +190,22 @@ export const useEmployees = (): useEmployeesData => {
 
   const valPhone = () => {
     const stringPhone = newEmployeeInputValue.phone;
-    console.log(stringPhone);
     const pattern = /^\d+(-\d+)*$/;
     if (!pattern.test(stringPhone)) {
       setPhoneError(t("pleaseEnteraValidPhoneNumber"));
+      return false;
     } else {
       setPhoneError("");
-      console.log("phone ok");
+      return true;
     }
   };
 
   const handleNewEmployee = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    valPhone();
-
+    if (valPhone() === false) {
+      console.log(phoneError);
+      return;
+    }
     if (
       newEmployeeInputValue.firstName.length > 3 &&
       newEmployeeInputValue.lastName.length > 3
@@ -223,7 +220,6 @@ export const useEmployees = (): useEmployeesData => {
         workplace: "",
         salary: 0,
         status: "",
-        // new
         gender: "",
         email: "",
         phone: "",
@@ -234,7 +230,7 @@ export const useEmployees = (): useEmployeesData => {
         state: "",
         startWork: "",
       });
-    } else alert(` too short`);
+    } else alert(t("firstNameOrLastNameisTooShort"));
   };
 
   const editEmployee = async (currentEmployee: employeeListType) => {
@@ -255,10 +251,8 @@ export const useEmployees = (): useEmployeesData => {
       state,
       startWork,
     } = currentEmployee;
-    console.log("1: status in editEmployee:", status);
 
     try {
-      //console.log("2: firstName in editEmployee:", firstName);
       const data = await fetch(`http://localhost:5000/workers/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -281,14 +275,10 @@ export const useEmployees = (): useEmployeesData => {
       });
       if (!data.ok) throw new Error("ups");
       const response = await data.json();
-      console.log("udało się zedytować");
       return response;
     } catch (error) {
       console.log(error);
     }
-
-    //console.log("firstName in editEmployee:", firstName);
-    //console.log("currentEmployee", currentEmployee);
   };
 
   const handleEditEmployee = async (
@@ -298,9 +288,7 @@ export const useEmployees = (): useEmployeesData => {
     event.preventDefault();
 
     const changedEmployee = await editEmployee(employee);
-    //console.log("firstName in handleEditEmployee:", employee.firstName);
   };
-  /* search  */
   const handleInputSearch = (event: ChangeEvent<HTMLInputElement>) => {
     if (curPage !== 1) setCurPage(1);
     setInputValue(event.target.value);
