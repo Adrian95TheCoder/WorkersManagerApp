@@ -90,8 +90,29 @@
   margin: 40px auto 20px;
   border: 1px solid;
 }
+
+
+.EmployeeList__list {
+  width: 100%;
+}
+
+.EmployeeList__accessDenied {
+  text-align: center;
+  color: red;
+  font-size: 20px;
+}
+
+.input_curPage {
+  width: 50px;
+  text-align: center;
+}
+.displayPage_form {
+  display: inline;
+}
+
  @media(min-width:1200px){
   .EmployeeList__addEmployee{
     margin-bottom: 60px;
   }
  }
+

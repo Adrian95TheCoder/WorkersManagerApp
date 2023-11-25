@@ -72,6 +72,7 @@ type EmployeeContextProps = {
   phoneError: string;
   emailError: string;
   handleSelect: (event: ChangeEvent<HTMLSelectElement>) => void;
+  setCurPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 type EmployeeProviderProps = {
@@ -114,6 +115,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     phoneError,
     emailError,
     handleSelect,
+    setCurPage,
   } = useEmployees();
 
   return (
@@ -149,6 +151,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
         emailError,
         setAllowDelete,
         handleSelect,
+        setCurPage,
       }}
     >
       {children}

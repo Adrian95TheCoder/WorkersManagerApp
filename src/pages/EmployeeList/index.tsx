@@ -8,6 +8,7 @@ import { EmployeeBox } from "../../components/EmployeeBox";
 import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
 import { UserContext } from "../../components/context/UserContext";
+import { DisplayPage } from "../../components/DisplayPage";
 
 export const EmployeeList = () => {
   const { employeeList, curPage, maxPage, previousPage, nextPage } =
@@ -71,7 +72,20 @@ export const EmployeeList = () => {
                   )
                 )}
               </tbody>
-              {t("displayPage")}: {curPage} {""} {t("of")} {""} {maxPage}
+
+
+              <DisplayPage />
+              {/* {t("displayPage")}:{" "}
+              <input
+                className="input_curPage"
+                id="curPage"
+                type="text"
+                name="curPage"
+                value={curPage}
+                // onChange={handleCurPageInput}
+              />{" "}
+              {curPage} {""} of {""} {maxPage} */}
+
             </table>
 
             <button

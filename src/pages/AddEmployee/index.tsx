@@ -261,6 +261,7 @@ export const AddEmployee = () => {
           </button>
         </form>
       </div>
+      type of: {typeof salary}
     </div>
   );
 };
