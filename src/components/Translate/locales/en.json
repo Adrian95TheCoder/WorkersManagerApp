@@ -98,5 +98,6 @@
   "firstNameOrLastNameisTooShort": "first name or last name is too short",
   "of": "of",
   "websiteCreatedBy": "Website created by:",
-  "go": "Go"
+  "go": "Go",
+  "pleaseEnteraValidEmailAdress": "Please enter a valid email address"
 }

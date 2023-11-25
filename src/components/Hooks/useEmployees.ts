@@ -122,7 +122,9 @@ export const useEmployees = (): useEmployeesData => {
       const countPage = data.headers.get("X-Total-Count");
       if (countPage) setMaxPage(Math.ceil(Number(countPage) / limit));
 
+      console.log(salary);
       setEmployeeList(employees);
+      console.log(employees);
     } catch (error) {
       console.log(error);
     }
@@ -131,26 +133,29 @@ export const useEmployees = (): useEmployeesData => {
   const addEmployee = async () => {
     setCount((prev) => prev + 1);
     try {
-      const data = await fetch(`https://mysterious-duck-onesies.cyclic.app/workers`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          workplace,
-          salary,
-          status: employeeStatus,
-          gender,
-          email,
-          phone,
-          birthDate,
-          street,
-          city,
-          postalCode,
-          state,
-          startWork,
-        }),
-      });
+      const data = await fetch(
+        `https://mysterious-duck-onesies.cyclic.app/workers`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            workplace,
+            salary,
+            status: employeeStatus,
+            gender,
+            email,
+            phone,
+            birthDate,
+            street,
+            city,
+            postalCode,
+            state,
+            startWork,
+          }),
+        }
+      );
       if (!data.ok) throw new Error("ups");
       const response = await data.json();
       return response;
@@ -207,7 +212,7 @@ export const useEmployees = (): useEmployeesData => {
     const email = newEmployeeInputValue.email;
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!pattern.test(email)) {
-      setEmailError("Please enter a valid email address.");
+      setEmailError(t("pleaseEnteraValidEmailAdress"));
       return false;
     } else {
       setEmailError("");
@@ -320,6 +325,7 @@ export const useEmployees = (): useEmployeesData => {
   const handleDisplay = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     setDisplayNumber(value);
+    setCurPage(1);
   };
   const handleSortDisplay = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
