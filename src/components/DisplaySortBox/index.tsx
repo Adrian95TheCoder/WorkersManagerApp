@@ -16,7 +16,7 @@ export const DisplaySortBox = () => {
     <div className="sortBox">
       <div className="sortBox__sortValue">
         <label htmlFor="sortValue">
-          Sort parameters&nbsp;
+          {t("sortParameters")}
           <select
             className="sortBox__sortValue--select"
             name="sortValue"
@@ -62,7 +62,7 @@ export const DisplaySortBox = () => {
       </div>
       <div className="sortBox__displayNumber">
         <label htmlFor="displayNumber">
-          Show employees&nbsp;
+          {t("show")}
           <select
             name="displayNumber"
             id="displayNumber"
