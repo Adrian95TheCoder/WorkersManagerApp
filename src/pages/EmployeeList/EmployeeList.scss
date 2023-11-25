@@ -1,14 +1,10 @@
 .EmployeeList {
   min-height: 100vh;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
   &__header{
     margin: 10px;
     text-align: center;
   }
 }
-
 .EmployeeList__table3 {
   width: 100%;
   border-collapse: collapse;
@@ -29,29 +25,19 @@
   }
 
   @media (max-width: 768px) {
-    th, td {
-      display: block;
-      width: 100%;
-    }
-
-    th {
-      text-align: center;
+    .EmployeeList__employee_lp,
+    .EmployeeList__employee_salary,
+    .EmployeeList__employee_workplace {
+      display: none;
     }
   }
 }
 
-.EmployeeList__employee_lp,
 .EmployeeList__employee_id,
 .EmployeeList__employee_firstName,
 .EmployeeList__employee_lastName,
-.EmployeeList__employee_workplace,
-.EmployeeList__employee_salary,
 .EmployeeList__details {
   text-align: center;
-}
-
-.EmployeeList__employee_lp {
-  width: 5%;
 }
 
 .EmployeeList__employee_id {
@@ -60,24 +46,14 @@
 
 .EmployeeList__employee_firstName,
 .EmployeeList__employee_lastName {
-  width: 15%;
-}
-
-.EmployeeList__employee_workplace {
   width: 20%;
-}
-
-.EmployeeList__employee_salary,
-.EmployeeList__details {
-  width: 10%;
 }
 
 .EmployeeList__addEmployee {
   position: relative;
-	// margin: 8px;
   margin: 10px;
   margin-top: 20px;
-  // margin-bottom: 100px;
+  margin-bottom: 20px;
 	padding: 8px 16px;
 	background-color: #efefef;
 	box-shadow: none;
@@ -114,7 +90,8 @@
   margin: 40px auto 20px;
   border: 1px solid;
 }
-
-// .EmployeeList__list {
-//   width: 100%;
-// }
+ @media(min-width:1200px){
+  .EmployeeList__addEmployee{
+    margin-bottom: 60px;
+  }
+ }
