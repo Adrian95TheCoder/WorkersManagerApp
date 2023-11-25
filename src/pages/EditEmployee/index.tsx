@@ -122,7 +122,7 @@ export const EditEmployee = () => {
             </tr>
             <tr>
               <td>
-                <label htmlFor="status">Status:</label>
+                <label htmlFor="status">Status</label>
               </td>
               <td>
                 <input

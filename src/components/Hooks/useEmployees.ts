@@ -123,7 +123,9 @@ export const useEmployees = (): useEmployeesData => {
       const countPage = data.headers.get("X-Total-Count");
       if (countPage) setMaxPage(Math.ceil(Number(countPage) / limit));
 
+      console.log(salary);
       setEmployeeList(employees);
+      console.log(employees);
     } catch (error) {
       console.log(error);
     }
@@ -320,6 +322,7 @@ export const useEmployees = (): useEmployeesData => {
   const handleDisplay = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     setDisplayNumber(value);
+    setCurPage(1);
   };
   const handleSortDisplay = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
