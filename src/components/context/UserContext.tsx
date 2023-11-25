@@ -75,15 +75,12 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       });
 
       if (!response.ok) {
-
         setError(true);
         loginInput.username = "";
         loginInput.password = "";
-
       } else {
-
         const data = await response.json();
-        setToken(data.token);        
+        setToken(data.token);
         navigate("/employees");
       }
     } catch (error) {

@@ -82,7 +82,7 @@ export const EmployeeDetails = () => {
             <td className="EmployeeDetails__td">{employee.salary}</td>
           </tr>
           <tr>
-            <td className="EmployeeDetails__td">{t("status")}</td>
+            <td className="EmployeeDetails__td">Status</td>
             <td className="EmployeeDetails__td">{employee.status}</td>
           </tr>
           <tr>

@@ -169,7 +169,7 @@ export const useEmployees = (): useEmployeesData => {
         if (!data.ok)
           throw new Error("Something went wrong while deleting user");
         const deleteData = await data.json();
-        alert("employee was deleted");
+        alert(t("employeeWasDeleted"));
       } catch (error) {
         console.log(error);
       }
