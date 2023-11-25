@@ -1,4 +1,3 @@
-
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
@@ -73,19 +72,7 @@ export const EmployeeList = () => {
                 )}
               </tbody>
 
-
               <DisplayPage />
-              {/* {t("displayPage")}:{" "}
-              <input
-                className="input_curPage"
-                id="curPage"
-                type="text"
-                name="curPage"
-                value={curPage}
-                // onChange={handleCurPageInput}
-              />{" "}
-              {curPage} {""} of {""} {maxPage} */}
-
             </table>
 
             <button
