@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
@@ -8,8 +9,9 @@ import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
 import { UserContext } from "../../components/context/UserContext";
 
+
 export const EmployeeList = () => {
-  const { employeeList, curPage, previousPage, nextPage } =
+  const { employeeList, curPage, maxPage, previousPage, nextPage } =
     useContext(EmployeeContext);
   const { token } = useContext(UserContext);
 
@@ -25,9 +27,11 @@ export const EmployeeList = () => {
     //console.log("curPage");
     return (
       <div className="EmployeeList">
+        
         {token ? (
           <>
-            <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
+            <h2 className="EmployeeList__header">{t("employeeList")}</h2>
+
 
             <DisplaySortBox />
 
@@ -50,6 +54,9 @@ export const EmployeeList = () => {
                   <th className="EmployeeList__employee_salary">
                     {t("salary")}
                   </th>
+                  <th className="EmployeeList__employee_status">
+                    {t("Status")}
+                  </th>
                   <th className="EmployeeList__details">
                     {t("detailsButtons")}
                   </th>
@@ -57,20 +64,24 @@ export const EmployeeList = () => {
               </thead>
               <tbody>
                 {employeeList.map(
-                  ({ id, firstName, lastName, salary, workplace }, index) => (
+                  (
+                    { id, firstName, lastName, salary, status, workplace },
+                    index
+                  ) => (
                     <EmployeeBox
                       key={id}
                       id={id}
                       firstName={firstName}
                       lastName={lastName}
                       salary={salary}
+                      status={status}
                       workplace={workplace}
                       index={index}
                     />
                   )
                 )}
               </tbody>
-              {t("displayPage")}: {curPage}
+              {t("displayPage")}: {curPage} {""} of {""} {maxPage}
             </table>
 
             <button

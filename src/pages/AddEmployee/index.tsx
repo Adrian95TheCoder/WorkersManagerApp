@@ -2,11 +2,17 @@ import { useTranslation } from "react-i18next";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
 
 import "./AddEmployee.scss";
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 
 export const AddEmployee = () => {
-  const { newEmployeeInputValue, handleInputValue, handleNewEmployee } =
-    useContext(EmployeeContext);
+  const {
+    newEmployeeInputValue,
+    handleInputValue,
+    handleNewEmployee,
+    phoneError,
+    employeeStatus,
+    handleSelect,
+  } = useContext(EmployeeContext);
   const { t } = useTranslation();
 
   const {
@@ -15,6 +21,7 @@ export const AddEmployee = () => {
     lastName,
     workplace,
     salary,
+    status,
     gender,
     email,
     phone,
@@ -25,6 +32,7 @@ export const AddEmployee = () => {
     state,
     startWork,
   } = newEmployeeInputValue;
+
   return (
     <div className="addFormMain">
       <div className="addForm_box">
@@ -80,6 +88,34 @@ export const AddEmployee = () => {
                   </td>
                 </tr>
                 <tr>
+                  <td>
+                    <label htmlFor="status">Status:</label>
+                  </td>
+                  <td>
+                    <select value={employeeStatus} onChange={handleSelect}>
+                      <option value="Hire">Hire</option>
+                      <option value="On Vacation">On Vacation</option>
+                      <option value="Fired:">Fired</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="workplace">Workplace:</label>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="workplace"
+                      name="workplace"
+                      placeholder="Enter workplace"
+                      value={workplace}
+                      onChange={handleInputValue}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  {/* new  */}
                   <td>
                     <label htmlFor="gender">{t("gender")}</label>
                   </td>
@@ -139,21 +175,7 @@ export const AddEmployee = () => {
                     />
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <label htmlFor="workplace">{t("workplace")}</label>
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      id="workplace"
-                      name="workplace"
-                      placeholder={t("enterWorkplace")}
-                      value={workplace}
-                      onChange={handleInputValue}
-                    />
-                  </td>
-                </tr>
+
                 <tr>
                   <td>
                     <label htmlFor="street">{t("street")}</label>
@@ -232,6 +254,7 @@ export const AddEmployee = () => {
               </tbody>
             </table>
           </div>
+          <p>{phoneError}</p>
           <button className="AddEmployee__addButton" type="submit">
             {t("addEmployee")}
           </button>

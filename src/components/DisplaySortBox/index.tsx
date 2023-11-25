@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { EmployeeContext } from "../context/EmployeeContext";
 import { useContext } from "react";
+import "./DisplaySortBox.scss"
 export const DisplaySortBox = () => {
   const {
     sortValue,
@@ -12,10 +13,10 @@ export const DisplaySortBox = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <label htmlFor="sortValue">
-        {t("sortParameters")}
-        <select
+    <div className="sortBox">
+      <div className="sortBox__sortValue"><label htmlFor="sortValue">
+        Sort paratemers&nbsp;
+        <select className="sortBox__sortValue--select"
           name="sortValue"
           id="sortValue"
           value={sortValue}
@@ -48,10 +49,18 @@ export const DisplaySortBox = () => {
           <option value="_sort=salary&_order=desc">
             {t("salaryDescending")}
           </option>
+          <option value="_sort=status&_order=asc">
+            {t("statusAscending")}
+          </option>
+          <option value="_sort=status&_order=desc">
+            {t("statusDescending")}
+          </option>
         </select>
-      </label>
+      </label></div>
+      <div className="sortBox__displayNumber">
       <label htmlFor="displayNumber">
-        {t("show")}
+
+        Show employees&nbsp;
         <select
           name="displayNumber"
           id="displayNumber"
@@ -63,6 +72,8 @@ export const DisplaySortBox = () => {
           <option value="30">30</option>
         </select>
       </label>
+      </div>
+      
     </div>
   );
 };
