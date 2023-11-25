@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "./EmployeeBox.scss";
+import  "./EmployeeBox.scss"
 import { EmployeeContext } from "../context/EmployeeContext";
 
 import { DetailsButton } from "../DetailsButton";

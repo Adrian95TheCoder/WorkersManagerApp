@@ -1,19 +1,46 @@
-.EmployeeDetails {
+.EmployeeDetails{
   min-height: 100vh;
 }
+
 .EmployeeDetails__table {
   width: 100%;
-  height: 50vh;
+  border-collapse: collapse;
+  margin: 20px 0;
+
+  .EmployeeDetails__th,
+  .EmployeeDetails__td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .EmployeeDetails__th {
+    background-color: #f2f2f2;
+  }
+
+  .EmployeeDetails__td:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+
+  @media (max-width: 768px) {
+    // .EmployeeDetails__th,
+    // .EmployeeDetails__td {
+    //   display: block;
+    //   width: 100%;
+    // }
+
+    .EmployeeDetails__th {
+      text-align: center;
+      width: 100%;
+    }
+
+    .EmployeeDetails__td {
+      text-align: center;
+    }
+  }
 }
 
-.EmployeeDetails__th {
-  width: 50%;
-}
-
-.EmployeeDetails__td {
-  width: 50%;
-}
-
+///
 .EmployeeDetails__editButton {
   position: relative;
   margin: 10px;

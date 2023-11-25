@@ -1,9 +1,9 @@
 {
   "workers": [
     {
-      "id": 1,
       "firstName": "John",
       "lastName": "Smith",
+      "workplace": "Director",
       "salary": 5000,
       "status": "Hired",
       "gender": "male",
@@ -15,7 +15,8 @@
       "city": "Washington",
       "postalCode": "20020",
       "state": "DC",
-      "startWork": "2023-10-29"
+      "startWork": "2023-10-29",
+      "id": 1
     },
     {
       "id": 2,
