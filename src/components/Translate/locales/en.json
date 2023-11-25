@@ -93,7 +93,7 @@
   "workplaceAscending": "workplace ascending",
   "workplaceDescending": "workplace descending",
   "AccessDenied": "Access Denied",
-  "ErrorWhileLogin": "Error while login"
+  "ErrorWhileLogin": "Error while login",
   "pleaseEnteraValidPhoneNumber": "Please enter a valid phone number (digits and optional hyphens)",
   "tooShort": "oo Short"
 }
