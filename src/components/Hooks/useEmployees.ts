@@ -273,7 +273,7 @@ export const useEmployees = (): useEmployeesData => {
     } = currentEmployee;
 
     try {
-      const data = await fetch(`http://localhost:5000/workers/${id}`, {
+      const data = await fetch(`https://mysterious-duck-onesies.cyclic.app/workers/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
