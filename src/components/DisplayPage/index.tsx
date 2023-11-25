@@ -9,24 +9,24 @@ export const DisplayPage = () => {
   const [pageValue, setPageValue] = useState(1);
   const { t } = useTranslation();
 
-  const handleCurPageInput = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    if (
-      0 <= curPage &&
-      curPage <= maxPage &&
-      parseInt(value) >= 1 &&
-      parseInt(value) <= maxPage
-    )
-      setPageValue(parseInt(value));
-  };
-  const handlePageSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setCurPage(pageValue);
-  };
+  // const handleCurPageInput = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const value = event.target.value;
+  //   if (
+  //     0 <= curPage &&
+  //     curPage <= maxPage &&
+  //     parseInt(value) >= 1 &&
+  //     parseInt(value) <= maxPage
+  //   )
+  //     setPageValue(parseInt(value));
+  // };
+  // const handlePageSubmit = (event: FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   setCurPage(pageValue);
+  // };
 
   return (
     <div className="displayPage_form">
-      <form onSubmit={handlePageSubmit}>
+      {/* <form onSubmit={handlePageSubmit}>
         <div>
           <label htmlFor="pageValue">
             {t("displayPage")}:{" "}
@@ -44,7 +44,11 @@ export const DisplayPage = () => {
           </label>
           {""} <button type="submit">{t("go")}</button>
         </div>
-      </form>
+      </form> */}
+      {t("displayPage")}: {""}
+      {curPage} {""}
+      {t("of")}
+      {""} {maxPage}
     </div>
   );
 };
