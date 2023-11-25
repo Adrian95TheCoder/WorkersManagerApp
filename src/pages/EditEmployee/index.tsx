@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, FormEvent, ChangeEvent } from "react";
+import { useEffect, useState, useContext, ChangeEvent } from "react";
 import "./EditEmployee.scss";
 import {
   EmployeeContext,
@@ -12,11 +12,9 @@ export const EditEmployee = () => {
 
   const {
     employeeList,
-    employeeStatus,
-    editEmployee,
+
     handleEditEmployee,
     getWorkers,
-    handleSelect,
   } = useContext(EmployeeContext);
 
   const { t } = useTranslation();

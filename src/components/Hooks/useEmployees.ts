@@ -1,4 +1,3 @@
-import { log } from "console";
 import { employeeListType } from "../context/EmployeeContext";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -291,6 +290,7 @@ export const useEmployees = (): useEmployeesData => {
       });
       if (!data.ok) throw new Error("ups");
       const response = await data.json();
+      getWorkers();
       return response;
     } catch (error) {
       console.log(error);

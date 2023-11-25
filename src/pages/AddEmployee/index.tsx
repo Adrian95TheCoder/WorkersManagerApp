@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
 
 import "./AddEmployee.scss";
-import { ChangeEvent, useContext } from "react";
+import { useContext } from "react";
 
 export const AddEmployee = () => {
   const {
