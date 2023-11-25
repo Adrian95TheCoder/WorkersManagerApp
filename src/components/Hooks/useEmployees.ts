@@ -193,15 +193,19 @@ export const useEmployees = (): useEmployeesData => {
     const pattern = /^\d+(-\d+)*$/;
     if (!pattern.test(stringPhone)) {
       setPhoneError(t("pleaseEnteraValidPhoneNumber"));
+      return false;
     } else {
       setPhoneError("");
+      return true;
     }
   };
 
   const handleNewEmployee = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    valPhone();
-
+    if (valPhone() === false) {
+      console.log(phoneError);
+      return;
+    }
     if (
       newEmployeeInputValue.firstName.length > 3 &&
       newEmployeeInputValue.lastName.length > 3
