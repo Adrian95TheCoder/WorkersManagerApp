@@ -116,7 +116,7 @@ export const useEmployees = (): useEmployeesData => {
     const limit = parseInt(displayNumber);
     try {
       const data = await fetch(
-        `http://localhost:5000/workers/?_page=${curPage}&_limit=${displayNumber}&${sortValue}&q=${inputValue}&limit=${limit}`
+        `https://mysterious-duck-onesies.cyclic.app/workers/?_page=${curPage}&_limit=${displayNumber}&${sortValue}&q=${inputValue}&limit=${limit}`
       );
       if (!data.ok) throw new Error("Something goes wrong");
       const employees = await data.json();
@@ -132,7 +132,7 @@ export const useEmployees = (): useEmployeesData => {
   const addEmployee = async () => {
     setCount((prev) => prev + 1);
     try {
-      const data = await fetch(`http://localhost:5000/workers`, {
+      const data = await fetch(`https://mysterious-duck-onesies.cyclic.app/workers`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -164,7 +164,7 @@ export const useEmployees = (): useEmployeesData => {
     if (employeeId < 1000000) {
       try {
         const data = await fetch(
-          `http://localhost:5000/workers/${employeeId}`,
+          `https://mysterious-duck-onesies.cyclic.app/workers/${employeeId}`,
           {
             method: "DELETE",
           }
