@@ -1,5 +1,6 @@
 import { EmployeeContext } from "../context/EmployeeContext";
 import { useContext } from "react";
+import "./DisplaySortBox.scss"
 export const DisplaySortBox = () => {
   const {
     sortValue,
@@ -9,10 +10,10 @@ export const DisplaySortBox = () => {
     curPage,
   } = useContext(EmployeeContext);
   return (
-    <div>
-      <label htmlFor="sortValue">
-        Sort paratemers
-        <select
+    <div className="sortBox">
+      <div className="sortBox__sortValue"><label htmlFor="sortValue">
+        Sort paratemers&nbsp;
+        <select className="sortBox__sortValue--select"
           name="sortValue"
           id="sortValue"
           value={sortValue}
@@ -36,9 +37,10 @@ export const DisplaySortBox = () => {
           <option value="_sort=age&_order=asc">sort by age ascending</option>
           <option value="_sort=age&_order=desc">sort by age descending</option>
         </select>
-      </label>
+      </label></div>
+      <div className="sortBox__displayNumber">
       <label htmlFor="displayNumber">
-        Liczba wyświetlanych pracowników
+        Show employees&nbsp;
         <select
           name="displayNumber"
           id="displayNumber"
@@ -50,6 +52,8 @@ export const DisplaySortBox = () => {
           <option value="30">30</option>
         </select>
       </label>
+      </div>
+      
     </div>
   );
 };

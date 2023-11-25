@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-
+import  "./EmployeeBox.scss"
 import { EmployeeContext } from "../context/EmployeeContext";
 
 import { DetailsButton } from "../DetailsButton";

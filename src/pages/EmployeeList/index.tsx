@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { EmployeeContext } from "../../components/context/EmployeeContext";
@@ -6,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { EmployeeBox } from "../../components/EmployeeBox";
 import { InputSearchBox } from "../../components/InputSearchBox";
 import { DisplaySortBox } from "../../components/DisplaySortBox";
+
 
 export const EmployeeList = () => {
   const { employeeList, curPage, previousPage, nextPage } =
@@ -23,7 +25,7 @@ export const EmployeeList = () => {
     console.log("curPage");
     return (
       <div className="EmployeeList">
-        <h2 className="EmployeeList__h2">{t("employeeList")}</h2>
+        <h2 className="EmployeeList__header">{t("employeeList")}</h2>
 
         <DisplaySortBox />
 

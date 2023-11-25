@@ -1,0 +1,9 @@
+.sortBox{
+    margin: 10px;
+  &__sortValue{
+    margin-bottom: 20px;
+    &--select{
+        width: 130px;
+    }
+  }
+}
