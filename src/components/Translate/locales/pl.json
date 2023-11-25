@@ -94,5 +94,6 @@
   "workplaceDescending": "stanowisko malejąco",
   "AccessDenied": "Odmowa dostępu",
   "ErrorWhileLogin": "Błąd podczas logowania",
-  "pleaseEnteraValidPhoneNumber": "Możesz wpisać w numerze telefonu (tylko cyfry oraz znak minus) "
+  "pleaseEnteraValidPhoneNumber": "Możesz wpisać w numerze telefonu (tylko cyfry oraz znak minus) ",
+  "of": "z"
 }

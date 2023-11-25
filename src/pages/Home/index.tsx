@@ -10,14 +10,13 @@ export const Home = () => {
     navigate("/Login");
   };
 
-
   return (
     <>
       <div className="Home">
         <div className="Home__shadow"></div>
         <div className="Home__hero">
           <h2 className="Home__hero--title">
-            
+            {t("managingEmployeesHasNeverBeenSoEasy")}
           </h2>
           <p className="Home__hero--content">{t("logInInThreeEasySteps")}</p>
         </div>
