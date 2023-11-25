@@ -56,6 +56,7 @@ type useEmployeesData = {
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
   handleSelect: (event: ChangeEvent<HTMLSelectElement>) => void;
+  setCurPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const useEmployees = (): useEmployeesData => {
@@ -354,5 +355,6 @@ export const useEmployees = (): useEmployeesData => {
     handleSortDisplay,
     setAllowDelete,
     handleSelect,
+    setCurPage,
   };
 };

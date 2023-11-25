@@ -72,6 +72,7 @@ type EmployeeContextProps = {
   handleSortDisplay: (event: ChangeEvent<HTMLSelectElement>) => void;
   setAllowDelete: React.Dispatch<React.SetStateAction<boolean>>;
   handleSelect: (event: ChangeEvent<HTMLSelectElement>) => void;
+  setCurPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 type EmployeeProviderProps = {
@@ -112,6 +113,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
     handleSortDisplay,
     setAllowDelete,
     handleSelect,
+    setCurPage,
   } = useEmployees();
 
   return (
@@ -146,6 +148,7 @@ export const EmployeePovider = ({ children }: EmployeeProviderProps) => {
 
         setAllowDelete,
         handleSelect,
+        setCurPage,
       }}
     >
       {children}
