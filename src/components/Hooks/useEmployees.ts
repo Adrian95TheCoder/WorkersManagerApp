@@ -158,6 +158,7 @@ export const useEmployees = (): useEmployeesData => {
       );
       if (!data.ok) throw new Error("ups");
       const response = await data.json();
+      getWorkers()
       return response;
     } catch (error) {
       console.log(error);
@@ -273,7 +274,7 @@ export const useEmployees = (): useEmployeesData => {
     } = currentEmployee;
 
     try {
-      const data = await fetch(`http://localhost:5000/workers/${id}`, {
+      const data = await fetch(`https://mysterious-duck-onesies.cyclic.app/workers/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
