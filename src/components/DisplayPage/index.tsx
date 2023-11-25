@@ -35,8 +35,10 @@ export const DisplayPage = () => {
               name="pageValue"
               value={pageValue}
               onChange={handleCurPageInput}
-            />{" "}
-            {""} of {""} {maxPage}
+            />
+            {""}
+            {""} {t("of")}
+            {""} {maxPage}
           </label>
           {""} <button type="submit">Go</button>
         </div>
