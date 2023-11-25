@@ -1,12 +1,11 @@
-import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { useContext } from "react";
 import { EmployeeContext } from "../context/EmployeeContext";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
 export const DisplayPage = () => {
-  const { curPage, maxPage, setCurPage, nextPage, previousPage } =
-    useContext(EmployeeContext);
-  const [pageValue, setPageValue] = useState(1);
+  const { curPage, maxPage } = useContext(EmployeeContext);
+  // const [pageValue, setPageValue] = useState(1);
   const { t } = useTranslation();
 
   // const handleCurPageInput = (event: ChangeEvent<HTMLInputElement>) => {
